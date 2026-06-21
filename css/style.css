@@ -1144,3 +1144,107 @@ a { text-decoration: none; color: inherit; }
   .back-to-top    { bottom: 18px; right: 18px; width: 40px; height: 40px; font-size: 16px; }
   .footer-bottom  { flex-direction: column; gap: 8px; text-align: center; }
 }
+
+
+/* ═══════════════════════════════════════════
+   UPDATE — LOGO · TYPOGRAPHY · BRAND REFRESH
+   ═══════════════════════════════════════════ */
+
+/* ─── Display font (Russo One — Cyrillic editorial) ─── */
+:root {
+  --or:           #FF6A13;   /* обновлён под логотип */
+  --or2:          #FF8A3D;
+  --font-display: 'Russo One', 'Nunito', system-ui, sans-serif;
+}
+
+/* ─── SVG Logo ─── */
+.logo-link { display: inline-flex; align-items: center; text-decoration: none; }
+.logo-svg  { height: 26px; width: auto; display: block; transition: opacity .2s; }
+.logo-svg:hover { opacity: .85; }
+
+.loader-logo-svg { height: 44px; width: auto; display: block; }
+
+/* ─── All headline elements → Russo One uppercase ─── */
+.hero-title,
+.hero-title .line,
+.section-title,
+.page-hero h1,
+h2,
+.why-card h3,
+.service-card h3,
+.step h3,
+.stat-num,
+.cta-strip h2,
+.fs-title,
+.mf-name,
+.mfc-name,
+.pi-name,
+.mc-name,
+.pp-info h4,
+.page-hero-title {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  font-weight: 400;  /* Russo One is always heavy by design */
+}
+
+/* ─── Hero title — bigger, more impact ─── */
+.hero-title {
+  font-size: clamp(52px, 8vw, 104px);
+  line-height: 1;
+  letter-spacing: -0.01em;
+  margin-bottom: 24px;
+}
+.hero-title .line { transform: translateY(70px); } /* adjust initial GSAP position */
+
+/* ─── Section titles ─── */
+.section-title {
+  font-size: clamp(38px, 5vw, 64px);
+  line-height: 0.98;
+  letter-spacing: -0.01em;
+  margin-bottom: 14px;
+}
+
+/* ─── Page hero h1 ─── */
+.page-hero h1,
+.page-hero-title {
+  font-size: clamp(42px, 6vw, 80px);
+  line-height: 0.97;
+  letter-spacing: -0.01em;
+  margin-bottom: 20px;
+}
+
+/* ─── Card h3 headings ─── */
+.why-card h3, .service-card h3, .step h3 {
+  font-size: clamp(18px, 2.2vw, 24px);
+  letter-spacing: 0.02em;
+}
+
+/* ─── CTA strip ─── */
+.cta-strip h2 {
+  font-size: clamp(30px, 4vw, 52px);
+  letter-spacing: -0.01em;
+  line-height: 1;
+}
+
+/* ─── Nav / footer eyebrow don't change (keep Nunito) ─── */
+.nav-link, .fn-col h4, .section-eyebrow, .badge, .mf-subtitle,
+.form-label, .btn-primary, .btn-ghost, .btn-nav { font-family: var(--font); }
+
+/* ─── Stats number stays display ─── */
+.stat-num { font-size: clamp(38px,5.5vw,58px); letter-spacing:-0.02em; }
+
+/* ─── OR text colour updated ─── */
+.or-text, .hero-eyebrow, .eyebrow-dot,
+.section-eyebrow::before { color: var(--or); }
+
+.btn-primary, .loader-fill, .back-to-top,
+.ba-lbl-after, .card-result-tag { background: var(--or); }
+
+.scroll-progress { background: linear-gradient(90deg,var(--or),var(--or2)); }
+.arrow-circle    { background: var(--or); box-shadow: 0 4px 20px rgba(255,106,19,.5); }
+
+/* ─── Hero or-text gradient ─── */
+.hero-title .or-text {
+  color: var(--or);
+}
