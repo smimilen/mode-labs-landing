@@ -1154,7 +1154,7 @@ a { text-decoration: none; color: inherit; }
 :root {
   --or:           #FF6A13;   /* обновлён под логотип */
   --or2:          #FF8A3D;
-  --font-display: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-display: 'Montserrat', 'Helvetica Neue', sans-serif;
 }
 
 /* ─── SVG Logo ─── */
@@ -1185,7 +1185,7 @@ h2,
   font-family: var(--font-display);
   text-transform: uppercase;
   letter-spacing: -0.04em;
-  font-weight: 400;  /* Russo One is always heavy by design */
+  font-weight: 800;  /* Russo One is always heavy by design */
 }
 
 /* ─── Hero title — bigger, more impact ─── */
