@@ -192,7 +192,7 @@ a { text-decoration: none; color: inherit; }
 
 .hero-title {
   font-size: clamp(44px, 6vw, 80px);
-  font-weight: 900; line-height: 1.06; letter-spacing: -0.03em;
+  font-weight: 900; line-height: 1.06; letter-spacing: -0.04em;
   margin-bottom: 28px; overflow: hidden;
 }
 .hero-title .line {
@@ -455,7 +455,7 @@ a { text-decoration: none; color: inherit; }
 
 .section-title {
   font-size: clamp(32px, 4vw, 54px);
-  font-weight: 900; letter-spacing: -0.03em;
+  font-weight: 900; letter-spacing: -0.04em;
   line-height: 1.1; margin-bottom: 16px;
 }
 .section-sub {
@@ -485,7 +485,7 @@ a { text-decoration: none; color: inherit; }
 .stat-item:hover::before { opacity: 1; }
 .stat-num {
   font-size: clamp(36px, 5vw, 52px); font-weight: 900;
-  color: var(--or); line-height: 1; letter-spacing: -0.03em;
+  color: var(--or); line-height: 1; letter-spacing: -0.04em;
   display: block;
 }
 .stat-unit {
@@ -734,7 +734,7 @@ a { text-decoration: none; color: inherit; }
 }
 .page-hero h1 {
   font-size: clamp(38px, 5vw, 64px); font-weight: 900;
-  letter-spacing: -0.03em; margin-bottom: 16px; line-height: 1.05;
+  letter-spacing: -0.04em; margin-bottom: 16px; line-height: 1.05;
 }
 .page-hero p { font-size: 17px; color: var(--mu); max-width: 540px; line-height: 1.7; }
 
@@ -900,7 +900,7 @@ a { text-decoration: none; color: inherit; }
   padding: 72px 32px; text-align: center; background: var(--sf);
   border-top: 1px solid var(--bd);
 }
-.cta-strip h2  { font-size: clamp(26px,3.5vw,42px); font-weight:900; letter-spacing:-0.02em; margin-bottom:14px; }
+.cta-strip h2  { font-size: clamp(26px,3.5vw,42px); font-weight:900; letter-spacing:-0.04em; margin-bottom:14px; }
 .cta-strip p   { font-size: 16px; color: var(--mu); margin-bottom: 28px; }
 
 /* ─── STAGE 3 RESPONSIVE ─── */
@@ -1154,7 +1154,7 @@ a { text-decoration: none; color: inherit; }
 :root {
   --or:           #FF6A13;   /* обновлён под логотип */
   --or2:          #FF8A3D;
-  --font-display: 'Russo One', 'Nunito', system-ui, sans-serif;
+  --font-display: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 /* ─── SVG Logo ─── */
@@ -1184,7 +1184,7 @@ h2,
 .page-hero-title {
   font-family: var(--font-display);
   text-transform: uppercase;
-  letter-spacing: 0.01em;
+  letter-spacing: -0.04em;
   font-weight: 400;  /* Russo One is always heavy by design */
 }
 
@@ -1192,7 +1192,7 @@ h2,
 .hero-title {
   font-size: clamp(52px, 8vw, 104px);
   line-height: 1;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.04em;
   margin-bottom: 24px;
 }
 .hero-title .line { transform: translateY(70px); } /* adjust initial GSAP position */
@@ -1201,7 +1201,7 @@ h2,
 .section-title {
   font-size: clamp(38px, 5vw, 64px);
   line-height: 0.98;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.04em;
   margin-bottom: 14px;
 }
 
@@ -1210,7 +1210,7 @@ h2,
 .page-hero-title {
   font-size: clamp(42px, 6vw, 80px);
   line-height: 0.97;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.04em;
   margin-bottom: 20px;
 }
 
@@ -1223,7 +1223,7 @@ h2,
 /* ─── CTA strip ─── */
 .cta-strip h2 {
   font-size: clamp(30px, 4vw, 52px);
-  letter-spacing: -0.01em;
+  letter-spacing: -0.04em;
   line-height: 1;
 }
 
@@ -1232,7 +1232,7 @@ h2,
 .form-label, .btn-primary, .btn-ghost, .btn-nav { font-family: var(--font); }
 
 /* ─── Stats number stays display ─── */
-.stat-num { font-size: clamp(38px,5.5vw,58px); letter-spacing:-0.02em; }
+.stat-num { font-size: clamp(38px,5.5vw,58px); letter-spacing:-0.04em; }
 
 /* ─── OR text colour updated ─── */
 .or-text, .hero-eyebrow, .eyebrow-dot,
