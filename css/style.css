@@ -1401,3 +1401,97 @@ html, body { background: var(--bg) !important; color: var(--tx); }
 /* ── Page hero sections ── */
 .page-hero { border-color: var(--bd); }
 .page-hero h1, .page-hero p { color: var(--tx); }
+
+
+/* ═══════════════════════════════════════════
+   FIX PASS — INTER · SF PRO EVERYWHERE · VISIBILITY
+   ═══════════════════════════════════════════ */
+
+/* ── Body font → Inter ── */
+:root { --font: 'Inter', system-ui, sans-serif; }
+
+body, p, span, a, li, label, input, textarea, button,
+.hero-desc, .section-sub, .contact-tagline, .why-card p,
+.service-desc, .step p, .cd-val, .trust-item, .stat-label,
+.nav-link, .footer-brand p, .fn-col a, .fn-col span,
+.mf-params, .mfc-params, .pi-cat, .mc-stats, .mc-type,
+.form-label, .section-eyebrow, .ba-lbl, .ms-opt-inner,
+.ss-opt-inner, .mf-subtitle, .filter-btn, .service-list li,
+.pi-meta, .pp-info span, .step-badge, .mf-tag, .mfc-tag,
+.lb-meta span, .fs-sub, .why-tag, .cd-label,
+.hero-eyebrow, .badge, .marquee-item {
+  font-family: 'Inter', system-ui, sans-serif !important;
+  font-weight: 400;
+}
+
+/* ── SF Pro Display on ALL headings — no exceptions ── */
+h1, h2, h3, h4,
+.hero-title, .section-title,
+.page-hero h1, .page-hero-title,
+.why-card h3, .service-card h3, .step h3,
+.mf-name, .mfc-name, .mc-name, .pi-name,
+.pp-info h4, .cta-strip h2, .fs-title,
+.stat-num, .service-card-num, .mf-name,
+.model-card .mc-name, .footer .logo-mode {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif !important;
+  text-transform: uppercase !important;
+  letter-spacing: -0.02em !important;
+  font-weight: 500 !important;
+}
+
+/* ── Hero title — 3 lines, correct size ── */
+.hero-title {
+  font-size: clamp(42px, 6vw, 82px) !important;
+  line-height: 1.02 !important;
+}
+.hero-title .or-text { color: var(--or); }
+
+/* ── Section sub-descriptions → Inter regular ── */
+.section-sub, .hero-desc, .contact-tagline,
+.why-card p, .service-desc, .step p {
+  font-size: 15px !important;
+  line-height: 1.75 !important;
+  font-weight: 400 !important;
+  color: var(--mu);
+}
+
+/* ── WHY cards — always visible (GSAP safety) ── */
+.why-card, .service-card, .model-card,
+.portfolio-item, .pp-card, .stat-item,
+.step, .mf-card, .model-full-card,
+.contact-info-col, .form-card {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* ── Eyebrow labels — Inter 600 uppercase small ── */
+.section-eyebrow, .why-tag, .mf-subtitle,
+.mc-type, .pi-cat, .step-badge, .mfc-tag {
+  font-weight: 600 !important;
+  font-size: 11px !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+}
+
+/* ── Buttons stay bold Inter ── */
+.btn-primary, .btn-ghost, .btn-nav, .btn-mobile,
+.form-submit, .filter-btn {
+  font-family: 'Inter', system-ui, sans-serif !important;
+  font-weight: 600 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+}
+
+/* ── Nav links ── */
+.nav-link { font-weight: 500 !important; }
+
+/* ── Service card number stays large decorative ── */
+.service-card-num {
+  font-size: 80px !important;
+  font-weight: 500 !important;
+  color: rgba(255,106,19,0.1) !important;
+}
+
+/* ── Model card mc-name size ── */
+.mc-name { font-size: 18px !important; }
+.mf-name { font-size: 30px !important; }
