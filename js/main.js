@@ -188,33 +188,33 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── WHY US cards stagger ──
   gsap.from('.why-card', {
     scrollTrigger: { trigger: '.why-grid', start: 'top 80%', once: true },
-    opacity: 0, y: 50, stagger: 0.15, duration: 0.75, ease: 'power3.out',
+    y: 40, stagger: 0.15, duration: 0.75, ease: 'power3.out',
   });
 
   // ── Section heads reveal ──
   gsap.utils.toArray('.section-head').forEach(el => {
     gsap.from(el, {
       scrollTrigger: { trigger: el, start: 'top 85%', once: true },
-      opacity: 0, y: 35, duration: 0.7, ease: 'power2.out',
+      y: 25, duration: 0.7, ease: 'power2.out',
     });
   });
 
   // ── Services cards ──
   gsap.from('.service-card', {
     scrollTrigger: { trigger: '.services-grid', start: 'top 80%', once: true },
-    opacity: 0, y: 60, stagger: 0.2, duration: 0.85, ease: 'power3.out',
+    y: 40, stagger: 0.2, duration: 0.85, ease: 'power3.out',
   });
 
   // ── Stats strip cells ──
   gsap.from('.stat-item', {
     scrollTrigger: { trigger: '.stats-strip', start: 'top 85%', once: true },
-    opacity: 0, y: 30, stagger: 0.1, duration: 0.65, ease: 'power2.out',
+    y: 20, stagger: 0.1, duration: 0.65, ease: 'power2.out',
   });
 
   // ── How it works steps ──
   gsap.from('.step', {
     scrollTrigger: { trigger: '.steps-grid', start: 'top 80%', once: true },
-    opacity: 0, y: 40, stagger: 0.2, duration: 0.75, ease: 'power3.out',
+    y: 30, stagger: 0.2, duration: 0.75, ease: 'power3.out',
   });
 
   // ── Steps line fill on scroll ──
@@ -374,23 +374,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
   gsap.from('.pp-card', {
     scrollTrigger: { trigger: '.portfolio-preview-grid', start: 'top 80%', once: true },
-    opacity: 0, y: 50, stagger: 0.15, duration: 0.75, ease: 'power3.out',
+    y: 40, stagger: 0.15, duration: 0.75, ease: 'power3.out',
   });
 
   gsap.from('.model-card', {
     scrollTrigger: { trigger: '.models-preview-grid', start: 'top 80%', once: true },
-    opacity: 0, y: 50, scale: 0.96, stagger: 0.12, duration: 0.7, ease: 'power3.out',
+    y: 30, stagger: 0.12, duration: 0.7, ease: 'power3.out',
   });
 
   gsap.from('.model-full-card', {
     scrollTrigger: { trigger: '.models-full-grid', start: 'top 80%', once: true },
-    opacity: 0, y: 40, stagger: 0.1, duration: 0.7, ease: 'power2.out',
+    y: 25, stagger: 0.1, duration: 0.7, ease: 'power2.out',
   });
 
   gsap.utils.toArray('.portfolio-item').forEach((el, i) => {
     gsap.from(el, {
       scrollTrigger: { trigger: el, start: 'top 90%', once: true },
-      opacity: 0, y: 30, duration: 0.6, delay: (i % 3) * 0.1, ease: 'power2.out',
+      y: 20, duration: 0.6, delay: (i % 3) * 0.1, ease: 'power2.out',
     });
   });
 });
