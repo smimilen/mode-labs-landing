@@ -2109,3 +2109,193 @@ h1, h2, h3, h4,
   right: 0 !important;
   background: linear-gradient(-90deg, #160800 0%, transparent 100%) !important;
 }
+
+
+/* ═══════════════════════════════════════════
+   BLOCK 3 — WHY + SERVICES — Figma exact
+   ═══════════════════════════════════════════ */
+
+/* Shared orange background for both sections */
+#why, #services {
+  background: transparent !important;
+  position: relative;
+}
+
+/* Single shared bg image spans WHY + SERVICES */
+#why {
+  padding: 80px 0 60px !important;
+  background: url('../img/why-bg.png') center top / cover no-repeat !important;
+}
+#why::before { display: none !important; }
+
+#services {
+  padding: 60px 0 100px !important;
+  background: transparent !important;
+  margin-top: -1px;
+}
+#services::before { display: none !important; }
+
+/* Both share a wrapper with the orange bg */
+#why + #services {
+  background: transparent !important;
+}
+
+/* Orange bg wrapper — wrap both in same bg via body bg trick */
+/* Use a pseudo on body area between these two sections */
+
+/* ── Section head (shared) ── */
+.why-section-head {
+  text-align: center;
+  margin-bottom: 56px;
+  position: relative; z-index: 1;
+}
+.why-eyebrow {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 12px; font-weight: 500;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: rgba(255,255,255,0.65);
+  margin-bottom: 16px;
+}
+.why-title {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif !important;
+  font-size: clamp(40px, 5vw, 72px) !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.02em !important;
+  text-transform: uppercase !important;
+  color: #fff !important;
+  margin-bottom: 20px !important;
+  line-height: 1 !important;
+}
+.why-subtitle {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 15px; line-height: 1.7;
+  color: rgba(255,255,255,0.65);
+  max-width: 600px; margin: 0 auto;
+}
+
+/* ── WHY cards ── */
+.why-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  position: relative; z-index: 1;
+}
+.why-card-fig {
+  background: #fff;
+  border-radius: 20px;
+  padding: 28px;
+  display: flex; flex-direction: column; gap: 14px;
+}
+.why-card-top {
+  display: flex; align-items: flex-start;
+  justify-content: space-between; gap: 12px;
+}
+.why-card-icon {
+  width: 64px; height: 64px;
+  object-fit: contain; flex-shrink: 0;
+}
+.why-card-badge {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 10px; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--or);
+  background: rgba(255,106,19,0.1);
+  padding: 4px 10px; border-radius: 20px;
+  white-space: nowrap; flex-shrink: 0;
+}
+.why-card-title {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif !important;
+  font-size: 18px !important; font-weight: 500 !important;
+  letter-spacing: -0.01em !important;
+  text-transform: uppercase !important;
+  color: #1A1206 !important;
+  line-height: 1.2 !important;
+  margin: 0 !important;
+}
+.why-card-desc {
+  font-family: 'Inter', system-ui, sans-serif !important;
+  font-size: 14px !important; line-height: 1.65 !important;
+  color: #7A6C62 !important;
+  margin: 0 !important;
+}
+
+/* ── SERVICES cards ── */
+.srv-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  position: relative; z-index: 1;
+}
+.srv-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 36px 32px;
+  display: flex; flex-direction: column; gap: 18px;
+}
+.srv-num-img {
+  height: 52px; width: auto;
+  object-fit: contain;
+}
+.srv-title {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif !important;
+  font-size: 22px !important; font-weight: 500 !important;
+  letter-spacing: -0.01em !important;
+  text-transform: uppercase !important;
+  color: #1A1206 !important;
+  margin: 0 !important; line-height: 1.2 !important;
+}
+.srv-desc {
+  font-family: 'Inter', system-ui, sans-serif !important;
+  font-size: 14px !important; line-height: 1.7 !important;
+  color: #7A6C62 !important; margin: 0 !important;
+}
+.srv-list {
+  list-style: none; padding: 0; margin: 0;
+  display: flex; flex-direction: column; gap: 8px;
+  flex: 1;
+}
+.srv-list li {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 14px; color: #1A1206;
+  display: flex; align-items: center; gap: 10px;
+  padding-left: 0;
+}
+.srv-list li::before {
+  content: '✓';
+  width: 18px; height: 18px; border-radius: 50%;
+  background: rgba(255,106,19,0.1);
+  color: var(--or); font-size: 10px; font-weight: 700;
+  display: inline-flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.srv-footer {
+  display: flex; align-items: center;
+  justify-content: space-between;
+  padding-top: 20px;
+  border-top: 1px solid #E8E1D8;
+  margin-top: auto;
+}
+.srv-price-label {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 11px; color: #B0A498; margin-bottom: 3px;
+}
+.srv-price {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 16px; font-weight: 600; color: var(--or);
+}
+.srv-btn {
+  display: inline-flex; align-items: center;
+  padding: 12px 24px; border-radius: 40px;
+  background: var(--or); color: #fff;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 14px; font-weight: 600;
+  text-decoration: none; transition: all .2s;
+  white-space: nowrap;
+}
+.srv-btn:hover { background: #E55200; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .why-cards-grid { grid-template-columns: 1fr; }
+  .srv-grid        { grid-template-columns: 1fr; }
+}
