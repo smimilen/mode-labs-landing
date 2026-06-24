@@ -2322,3 +2322,132 @@ h1, h2, h3, h4,
 /* Padding between the two sub-sections */
 .orange-bg-wrapper #why     { padding-top: 80px !important; padding-bottom: 60px !important; }
 .orange-bg-wrapper #services { padding-top: 40px !important; padding-bottom: 100px !important; }
+
+
+/* ═══════════════════════════════════════════
+   BLOCK 4 — HOW IT WORKS — Figma exact
+   ═══════════════════════════════════════════ */
+
+#how {
+  background: url('../img/how-bg.jpg') center center / cover no-repeat !important;
+  padding: 100px 0 120px !important;
+  position: relative;
+}
+#how::before, #how::after { display: none !important; }
+
+.how-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 32px;
+  text-align: center;
+  position: relative; z-index: 1;
+}
+
+/* Head */
+.how-eyebrow {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 12px; font-weight: 500;
+  letter-spacing: 0.1em; color: var(--or);
+  margin-bottom: 16px;
+}
+.how-title {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif !important;
+  font-size: clamp(36px, 5vw, 68px) !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.02em !important;
+  text-transform: uppercase !important;
+  color: #1A1206 !important;
+  margin-bottom: 16px !important;
+  line-height: 1.05 !important;
+}
+.how-sub {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 15px; color: #7A6C62; line-height: 1.6;
+  margin-bottom: 64px;
+}
+
+/* Steps */
+.how-steps-wrap {
+  position: relative;
+  margin-bottom: 60px;
+}
+
+/* Orange connecting line */
+.how-connector {
+  position: absolute;
+  top: 27px;
+  left: calc(16.67% + 10px);
+  right: calc(16.67% + 10px);
+  height: 2px;
+  background: var(--or);
+  z-index: 0;
+}
+
+.how-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  position: relative; z-index: 1;
+}
+
+.how-step { display: flex; flex-direction: column; align-items: center; }
+
+.how-num {
+  width: 54px; height: 54px; border-radius: 50%;
+  background: var(--or); color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif;
+  font-size: 22px; font-weight: 600;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 28px;
+  position: relative; z-index: 2;
+  box-shadow: 0 4px 16px rgba(255,106,19,0.35);
+}
+
+.how-step-title {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif !important;
+  font-size: 17px !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.01em !important;
+  text-transform: uppercase !important;
+  color: #1A1206 !important;
+  margin-bottom: 14px !important;
+  line-height: 1.2 !important;
+}
+.how-step-desc {
+  font-family: 'Inter', system-ui, sans-serif !important;
+  font-size: 14px !important; line-height: 1.7 !important;
+  color: #7A6C62 !important; margin-bottom: 16px !important;
+  text-align: center !important;
+}
+.how-badge {
+  display: inline-block;
+  padding: 5px 14px; border-radius: 20px;
+  border: 1px solid rgba(255,106,19,0.35);
+  background: rgba(255,106,19,0.06);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.05em; color: var(--or);
+  text-transform: uppercase;
+}
+
+/* CTA */
+.how-cta { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.how-btn {
+  display: inline-flex; align-items: center;
+  padding: 16px 36px; border-radius: 40px;
+  background: var(--or); color: #fff;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 16px; font-weight: 600;
+  text-decoration: none; transition: all .2s;
+}
+.how-btn:hover { background: #E55200; transform: translateY(-2px); }
+.how-cta-sub {
+  font-family: 'Inter', system-ui, sans-serif !important;
+  font-size: 13px !important; color: #B0A498 !important;
+  margin: 0 !important;
+}
+
+@media (max-width: 768px) {
+  .how-steps-grid  { grid-template-columns: 1fr; gap: 40px; }
+  .how-connector   { display: none; }
+}
