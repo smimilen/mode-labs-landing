@@ -561,4 +561,4 @@ function initPortSlider(el) {
   el.addEventListener('click', (e) => { if (!e.target.closest('.port-handle')) setPos(e.clientX); });
 }
 
-document.querySelectorAll('.port-slider[data-ba]').forEach(initPortSlider);
+document.querySelectorAll('.port-slider[data-port-ba]').forEach(initPortSlider);
