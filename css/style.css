@@ -2723,3 +2723,94 @@ section#portfolio-preview::after { display: none !important; }
   .port-grid { grid-template-columns: 1fr; }
   .port-head { flex-direction: column; align-items: flex-start; }
 }
+
+
+/* ── Portfolio BA slider — FIXED ── */
+.port-slider {
+  position: relative !important;
+  overflow: hidden !important;
+  aspect-ratio: 3/4 !important;
+  cursor: ew-resize !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  display: block !important;
+}
+
+.port-after, .port-before {
+  position: absolute !important;
+  top: 0 !important; left: 0 !important;
+  width: 100% !important; height: 100% !important;
+}
+.port-after  { z-index: 1 !important; }
+.port-before { z-index: 2 !important; clip-path: inset(0 50% 0 0) !important; }
+
+.port-after  img,
+.port-before img {
+  width: 100% !important; height: 100% !important;
+  object-fit: cover !important; display: block !important;
+  pointer-events: none !important;
+}
+
+/* Vertical line + centered button */
+.port-handle {
+  position: absolute !important;
+  top: 0 !important; bottom: 0 !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 44px !important;
+  z-index: 10 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+.port-handle-line {
+  position: absolute !important;
+  top: 0 !important; bottom: 0 !important;
+  left: 50% !important; transform: translateX(-50%) !important;
+  width: 2px !important;
+  background: rgba(255,255,255,0.65) !important;
+}
+.port-handle-btn {
+  width: 44px !important; height: 44px !important;
+  border-radius: 50% !important;
+  background: #fff !important;
+  box-shadow: 0 2px 14px rgba(0,0,0,0.2) !important;
+  display: flex !important; align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+  position: relative !important; z-index: 2 !important;
+}
+
+/* Labels at top corners */
+.port-lbl {
+  position: absolute !important;
+  top: 14px !important; z-index: 12 !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 11px !important; font-weight: 700 !important;
+  letter-spacing: 0.05em !important; text-transform: uppercase !important;
+  padding: 5px 10px !important; border-radius: 6px !important;
+}
+.port-lbl-before { left: 14px !important;  background: rgba(20,10,5,0.75) !important; color: #fff !important; }
+.port-lbl-after  { right: 14px !important; background: var(--or) !important;           color: #fff !important; }
+
+/* Bottom gradient overlay with text */
+.port-card-overlay {
+  position: absolute !important;
+  bottom: 0 !important; left: 0 !important; right: 0 !important;
+  z-index: 8 !important;
+  padding: 48px 18px 18px !important;
+  background: linear-gradient(0deg, rgba(10,5,2,0.82) 0%, transparent 100%) !important;
+  pointer-events: none !important;
+}
+.port-card-overlay .port-card-title {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif !important;
+  font-size: 15px !important; font-weight: 600 !important;
+  text-transform: uppercase !important; letter-spacing: 0.01em !important;
+  color: #fff !important; margin-bottom: 4px !important;
+}
+.port-card-overlay .port-card-sub {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 12px !important; color: rgba(255,255,255,0.65) !important;
+}
+/* Hide the white-bar info div if it still exists */
+.port-card > .port-card-info { display: none !important; }
