@@ -2299,3 +2299,26 @@ h1, h2, h3, h4,
   .why-cards-grid { grid-template-columns: 1fr; }
   .srv-grid        { grid-template-columns: 1fr; }
 }
+
+
+/* ── Orange wrapper: single bg for Why + Services ── */
+.orange-bg-wrapper {
+  background: url('img/why-bg.png') center center / cover no-repeat;
+  position: relative;
+}
+
+/* Remove individual section backgrounds */
+.orange-bg-wrapper #why,
+.orange-bg-wrapper #services {
+  background: transparent !important;
+}
+.orange-bg-wrapper #why::before,
+.orange-bg-wrapper #why::after,
+.orange-bg-wrapper #services::before,
+.orange-bg-wrapper #services::after {
+  display: none !important;
+}
+
+/* Padding between the two sub-sections */
+.orange-bg-wrapper #why     { padding-top: 80px !important; padding-bottom: 60px !important; }
+.orange-bg-wrapper #services { padding-top: 40px !important; padding-bottom: 100px !important; }
