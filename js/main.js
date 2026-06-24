@@ -537,3 +537,28 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 })();
+
+/* ── Portfolio BA sliders ── */
+function initPortSlider(el) {
+  const before = el.querySelector('.port-before');
+  const handle = el.querySelector('.port-handle');
+  if (!before || !handle) return;
+  let dragging = false;
+
+  const setPos = (clientX) => {
+    const r = el.getBoundingClientRect();
+    const pos = Math.max(2, Math.min(98, ((clientX - r.left) / r.width) * 100));
+    handle.style.left = pos + '%';
+    before.style.clipPath = `inset(0 ${100 - pos}% 0 0)`;
+  };
+
+  handle.addEventListener('mousedown',  (e) => { dragging = true; e.preventDefault(); });
+  window.addEventListener('mousemove',  (e) => { if (dragging) setPos(e.clientX); });
+  window.addEventListener('mouseup',    ()  => { dragging = false; });
+  handle.addEventListener('touchstart', ()  => { dragging = true; }, { passive: true });
+  window.addEventListener('touchmove',  (e) => { if (dragging) setPos(e.touches[0].clientX); }, { passive: true });
+  window.addEventListener('touchend',   ()  => { dragging = false; });
+  el.addEventListener('click', (e) => { if (!e.target.closest('.port-handle')) setPos(e.clientX); });
+}
+
+document.querySelectorAll('.port-slider[data-ba]').forEach(initPortSlider);
