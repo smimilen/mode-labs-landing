@@ -1787,7 +1787,7 @@ h1, h2, h3, h4,
   min-height: 100vh;
   background: #1D0800 !important;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   display: flex;
   flex-direction: column;
   padding-top: var(--nav-h);
@@ -1839,7 +1839,7 @@ h1, h2, h3, h4,
 /* ── Title ── */
 .hero-title {
   font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif !important;
-  font-size: clamp(52px, 5.5vw, 88px) !important;
+  font-size: clamp(44px, 4.6vw, 76px) !important;
   font-weight: 500 !important;
   line-height: 1.0 !important;
   letter-spacing: -0.025em !important;
@@ -1957,3 +1957,7 @@ h1, h2, h3, h4,
   .hero-trust { flex-direction: column; }
   .hero-glow { width: 400px; height: 350px; }
 }
+
+/* Title overflow fix */
+.hero-content { overflow: visible !important; }
+.hero-title { overflow: visible !important; white-space: normal !important; }
