@@ -2451,3 +2451,143 @@ h1, h2, h3, h4,
   .how-steps-grid  { grid-template-columns: 1fr; gap: 40px; }
   .how-connector   { display: none; }
 }
+
+
+/* ═══════════════════════════════════════════
+   HOW IT WORKS — FINAL OVERRIDE (highest priority)
+   ═══════════════════════════════════════════ */
+
+section#how,
+body section#how {
+  background: url('../img/how-bg.jpg') center center / cover no-repeat !important;
+  padding: 100px 0 120px !important;
+}
+
+section#how .how-inner {
+  max-width: 860px !important;
+  margin: 0 auto !important;
+  padding: 0 40px !important;
+  text-align: center !important;
+}
+
+section#how .how-eyebrow {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 12px !important; font-weight: 500 !important;
+  letter-spacing: 0.1em !important; color: var(--or) !important;
+  margin-bottom: 14px !important; display: block !important;
+}
+
+section#how .how-title {
+  font-size: clamp(36px, 5vw, 68px) !important;
+  font-weight: 500 !important; letter-spacing: -0.02em !important;
+  text-transform: uppercase !important; color: #1A1206 !important;
+  margin: 0 0 16px !important; line-height: 1.05 !important;
+}
+
+section#how .how-sub {
+  font-size: 15px !important; color: #7A6C62 !important;
+  line-height: 1.6 !important; margin: 0 0 64px !important;
+}
+
+/* Steps wrapper */
+section#how .how-steps-wrap {
+  position: relative !important;
+  margin-bottom: 60px !important;
+}
+
+/* Connector line */
+section#how .how-connector {
+  display: block !important;
+  position: absolute !important;
+  top: 27px !important;
+  left: calc(16.67% + 10px) !important;
+  right: calc(16.67% + 10px) !important;
+  height: 2px !important;
+  background: var(--or) !important;
+  z-index: 0 !important;
+}
+
+/* Steps grid */
+section#how .how-steps-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 32px !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+section#how .how-step {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+}
+
+/* Numbered circles */
+section#how .how-num {
+  width: 54px !important; height: 54px !important;
+  border-radius: 50% !important;
+  background: var(--or) !important;
+  color: #fff !important;
+  font-size: 22px !important; font-weight: 600 !important;
+  display: flex !important; align-items: center !important;
+  justify-content: center !important;
+  margin-bottom: 28px !important;
+  position: relative !important; z-index: 2 !important;
+  box-shadow: 0 4px 16px rgba(255,106,19,0.35) !important;
+  font-family: -apple-system, sans-serif !important;
+  flex-shrink: 0 !important;
+}
+
+section#how .how-step-title {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif !important;
+  font-size: 17px !important; font-weight: 500 !important;
+  letter-spacing: -0.01em !important;
+  text-transform: uppercase !important;
+  color: #1A1206 !important;
+  margin: 0 0 14px !important; line-height: 1.2 !important;
+  text-align: center !important;
+}
+
+section#how .how-step-desc {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 14px !important; line-height: 1.7 !important;
+  color: #7A6C62 !important; margin: 0 0 14px !important;
+  text-align: center !important;
+}
+
+section#how .how-badge {
+  display: inline-block !important;
+  padding: 5px 14px !important; border-radius: 20px !important;
+  border: 1px solid rgba(255,106,19,0.35) !important;
+  background: rgba(255,106,19,0.06) !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 11px !important; font-weight: 600 !important;
+  letter-spacing: 0.05em !important; color: var(--or) !important;
+  text-transform: uppercase !important;
+}
+
+/* CTA */
+section#how .how-cta {
+  display: flex !important; flex-direction: column !important;
+  align-items: center !important; gap: 12px !important;
+}
+
+section#how .how-btn {
+  display: inline-flex !important; align-items: center !important;
+  padding: 16px 36px !important; border-radius: 40px !important;
+  background: var(--or) !important; color: #fff !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 16px !important; font-weight: 600 !important;
+  text-decoration: none !important;
+}
+section#how .how-btn:hover { background: #E55200 !important; }
+
+section#how .how-cta-sub {
+  font-size: 13px !important; color: #B0A498 !important;
+  margin: 0 !important; font-family: 'Inter', sans-serif !important;
+}
+
+@media (max-width: 768px) {
+  section#how .how-steps-grid { grid-template-columns: 1fr !important; }
+  section#how .how-connector  { display: none !important; }
+}
