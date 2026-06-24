@@ -1706,3 +1706,73 @@ h1, h2, h3, h4,
   .cta-div-num { font-size: clamp(64px, 20vw, 100px); }
   .footer-big-tagline { font-size: clamp(32px, 10vw, 60px); padding: 20px 0; }
 }
+
+
+/* ═══════════════════════════════════════════
+   REAL ASSETS — Figma photos applied
+   ═══════════════════════════════════════════ */
+
+/* ── WHY section → Section1 orange ring image ── */
+#why {
+  background: url('../img/why-bg.png') center center / cover no-repeat !important;
+  position: relative;
+}
+#why::before { display: none !important; }
+
+/* ── SERVICES → derive orange from same palette ── */
+#services {
+  background: linear-gradient(175deg, #B83000 0%, #D44000 35%, #9A2400 100%) !important;
+}
+#services::before {
+  background: radial-gradient(ellipse at 60% 70%, rgba(255,100,20,0.4) 0%, transparent 60%) !important;
+}
+
+/* ── CTA DIVIDER → Section2 dark model on right ── */
+.cta-divider {
+  background: #0D0603 !important;
+  position: relative; overflow: hidden;
+}
+.cta-divider::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    url('../img/model-dark.png') right center / 55% auto no-repeat,
+    radial-gradient(ellipse at 30% 60%, rgba(200,50,0,0.4) 0%, transparent 55%);
+  z-index: 0;
+}
+.cta-div-inner { position: relative; z-index: 1; }
+
+/* ── Replace SVG placeholder with nothing (image in ::before) ── */
+.cta-div-model { display: none; }
+.cta-div-right { background: transparent !important; border: none !important; }
+
+/* ── MODELS PREVIEW → dark atmospheric (keep CSS glow, enhance) ── */
+#models-preview {
+  background:
+    radial-gradient(ellipse at 50% 50%, rgba(180,40,0,0.55) 0%, rgba(20,6,0,0.8) 50%, #0D0603 100%),
+    #0D0603 !important;
+}
+#models-preview::before { display: none !important; }
+
+/* ── FOOTER → Section3 orange model as background ── */
+.footer {
+  background:
+    url('../img/footer-model.png') center bottom / cover no-repeat !important;
+  position: relative;
+}
+.footer::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: rgba(6, 3, 1, 0.72);
+  z-index: 0;
+}
+.footer-inner   { position: relative; z-index: 2; }
+.footer-big-tagline {
+  position: relative; z-index: 2;
+  color: rgba(240,235,227,0.12) !important;
+  font-size: clamp(52px, 9vw, 130px) !important;
+  text-align: left !important;
+  padding: 0 32px 40px !important;
+  max-width: 1260px; margin: 0 auto !important;
+  border-top: none !important;
+}
