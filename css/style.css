@@ -2084,3 +2084,28 @@ h1, h2, h3, h4,
   .stat-item:nth-child(3) { border-top: 1px solid #E0D8D0; }
   .stat-item { padding: 32px 24px !important; }
 }
+
+
+/* ── MARQUEE edge fades → dark (fix white gradient) ── */
+.marquee-wrapper {
+  position: relative !important;
+  overflow: hidden !important;
+}
+.marquee-wrapper::before,
+.marquee-wrapper::after {
+  content: '' !important;
+  display: block !important;
+  position: absolute !important;
+  top: 0 !important; bottom: 0 !important;
+  width: 120px !important;
+  z-index: 2 !important;
+  pointer-events: none !important;
+}
+.marquee-wrapper::before {
+  left: 0 !important;
+  background: linear-gradient(90deg, #160800 0%, transparent 100%) !important;
+}
+.marquee-wrapper::after {
+  right: 0 !important;
+  background: linear-gradient(-90deg, #160800 0%, transparent 100%) !important;
+}
