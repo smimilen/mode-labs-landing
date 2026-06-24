@@ -1776,3 +1776,184 @@ h1, h2, h3, h4,
   max-width: 1260px; margin: 0 auto !important;
   border-top: none !important;
 }
+
+
+/* ═══════════════════════════════════════════
+   HERO REBUILD — Figma pixel-perfect
+   ═══════════════════════════════════════════ */
+
+/* ── Hero container ── */
+#hero {
+  min-height: 100vh;
+  background: #1D0800 !important;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding-top: var(--nav-h);
+}
+
+/* ── Orange glow top-right ── */
+.hero-glow {
+  position: absolute;
+  top: -120px; right: -80px;
+  width: 680px; height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 60% 30%,
+    #FF5500 0%,
+    rgba(210,60,0,0.75) 25%,
+    rgba(140,30,0,0.35) 50%,
+    transparent 70%);
+  pointer-events: none; z-index: 0;
+}
+
+/* ── Inner layout ── */
+.hero-inner {
+  max-width: 1260px; margin: 0 auto;
+  padding: 80px 32px 60px;
+  display: flex; align-items: center;
+  gap: 40px; flex: 1;
+  position: relative; z-index: 1;
+}
+
+/* ── LEFT content ── */
+.hero-content { flex: 0 0 52%; max-width: 620px; }
+
+/* ── Eyebrow pill ── */
+.hero-eyebrow-pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 7px 16px;
+  border: 1px solid rgba(240,235,227,0.22);
+  border-radius: 24px;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: rgba(240,235,227,0.75);
+  margin-bottom: 28px;
+}
+.hero-eyebrow-dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--or); flex-shrink: 0;
+}
+
+/* ── Title ── */
+.hero-title {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif !important;
+  font-size: clamp(52px, 5.5vw, 88px) !important;
+  font-weight: 500 !important;
+  line-height: 1.0 !important;
+  letter-spacing: -0.025em !important;
+  text-transform: uppercase !important;
+  color: #F0EBE3 !important;
+  margin-bottom: 28px;
+}
+
+/* ── Italic orange line ── */
+.hero-italic {
+  font-style: italic !important;
+  font-weight: 300 !important;
+  color: var(--or) !important;
+  text-transform: uppercase !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif !important;
+  letter-spacing: -0.02em !important;
+}
+
+/* ── Description ── */
+.hero-desc {
+  font-family: 'Inter', system-ui, sans-serif !important;
+  font-size: 15px !important; font-weight: 400 !important;
+  line-height: 1.75 !important;
+  color: rgba(240,235,227,0.55) !important;
+  max-width: 480px;
+  margin-bottom: 36px;
+}
+
+/* ── Action buttons ── */
+.hero-actions {
+  display: flex; gap: 12px; flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+.hero-btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 14px 28px; border-radius: 40px;
+  background: var(--or); color: #fff;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 15px; font-weight: 600;
+  text-decoration: none; transition: all .2s;
+  white-space: nowrap;
+}
+.hero-btn-primary:hover { background: #E55200; transform: translateY(-1px); }
+.hero-btn-secondary {
+  display: inline-flex; align-items: center;
+  padding: 14px 28px; border-radius: 40px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: rgba(240,235,227,0.85);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 15px; font-weight: 500;
+  text-decoration: none; transition: all .2s;
+  white-space: nowrap;
+}
+.hero-btn-secondary:hover { background: rgba(255,255,255,0.13); color: #fff; }
+
+/* ── Trust badges row ── */
+.hero-trust {
+  display: flex; gap: 10px; flex-wrap: wrap;
+}
+.hero-trust-item {
+  display: inline-flex; align-items: center;
+  padding: 6px 14px; border-radius: 20px;
+  border: 1px solid rgba(240,235,227,0.18);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 12px; font-weight: 400;
+  color: rgba(240,235,227,0.55);
+  white-space: nowrap;
+}
+
+/* ── RIGHT visual ── */
+.hero-visual {
+  flex: 1; display: flex; align-items: center; justify-content: center;
+  position: relative;
+}
+.hero-cards-img {
+  width: 100%; max-width: 520px; height: auto;
+  display: block;
+  filter: drop-shadow(0 20px 60px rgba(0,0,0,0.4));
+}
+
+/* ── Scroll indicator ── */
+.hero-scroll-ind {
+  position: absolute; bottom: 32px; left: 50%;
+  transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  z-index: 2;
+}
+.hero-scroll-ind span {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: rgba(240,235,227,0.35);
+}
+
+/* ── Nav on hero stays transparent until scrolled ── */
+.nav { background: transparent !important; }
+.nav .nav-link, .nav .logo-svg { color: rgba(240,235,227,0.85) !important; }
+.nav .btn-nav { background: var(--or) !important; color: #fff !important; }
+.nav.scrolled {
+  background: rgba(248,245,241,0.95) !important;
+  box-shadow: 0 1px 0 #D4CCC4 !important;
+}
+.nav.scrolled .nav-link { color: #1A1206 !important; }
+
+/* ── Hero responsive ── */
+@media (max-width: 900px) {
+  .hero-inner { flex-direction: column; padding: 48px 20px 80px; align-items: flex-start; }
+  .hero-content { flex: none; max-width: 100%; }
+  .hero-visual { width: 100%; justify-content: center; }
+  .hero-cards-img { max-width: 380px; }
+}
+@media (max-width: 600px) {
+  .hero-title { font-size: clamp(38px, 10vw, 56px) !important; }
+  .hero-trust { flex-direction: column; }
+  .hero-glow { width: 400px; height: 350px; }
+}
