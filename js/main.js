@@ -261,8 +261,8 @@ function initBA(el) {
   const setPos = (clientX) => {
     const r = el.getBoundingClientRect();
     const pos = Math.max(2, Math.min(98, ((clientX - r.left) / r.width) * 100));
-    handle.style.left = pos + '%';
-    before.style.clipPath = `inset(0 ${100 - pos}% 0 0)`;
+    handle.style.setProperty('left', pos + '%', 'important');
+    before.style.setProperty('clip-path', `inset(0 ${100 - pos}% 0 0)`, 'important');
   };
 
   // Mouse
@@ -548,8 +548,8 @@ function initPortSlider(el) {
   const setPos = (clientX) => {
     const r = el.getBoundingClientRect();
     const pos = Math.max(2, Math.min(98, ((clientX - r.left) / r.width) * 100));
-    handle.style.left = pos + '%';
-    before.style.clipPath = `inset(0 ${100 - pos}% 0 0)`;
+    handle.style.setProperty('left', pos + '%', 'important');
+    before.style.setProperty('clip-path', `inset(0 ${100 - pos}% 0 0)`, 'important');
   };
 
   handle.addEventListener('mousedown',  (e) => { dragging = true; e.preventDefault(); });
