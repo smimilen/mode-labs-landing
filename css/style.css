@@ -2742,7 +2742,7 @@ section#portfolio-preview::after { display: none !important; }
   width: 100% !important; height: 100% !important;
 }
 .port-after  { z-index: 1 !important; }
-.port-before { z-index: 2 !important; clip-path: inset(0 50% 0 0) !important; }
+.port-before { z-index: 2 !important; clip-path: inset(0 50% 0 0); /* no !important — JS overrides */ }
 
 .port-after  img,
 .port-before img {
@@ -2855,7 +2855,7 @@ section#portfolio-preview .port-slider .port-card-overlay .port-card-sub {
 section#portfolio-preview .port-slider .port-handle {
   position: absolute !important;
   top: 0 !important; bottom: 0 !important;
-  left: 50% !important;
+  left: 50%; /* no !important — JS overrides this */
   transform: translateX(-50%) !important;
   width: 2px !important;
   background: rgba(255,255,255,0.6) !important;
