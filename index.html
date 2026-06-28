@@ -500,127 +500,87 @@
 <!-- ════════════════════════════════════════
      MODELS PREVIEW
 ════════════════════════════════════════ -->
-<section class="section-alt" id="models-preview">
-  <div class="section-inner">
-    <div class="section-head" style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+<section id="models-preview">
+
+  <!-- Orange glow blobs -->
+  <div class="mp-glow mp-glow-tr"></div>
+  <div class="mp-glow mp-glow-br"></div>
+
+  <div class="models-inner">
+
+    <!-- Header row -->
+    <div class="models-head">
       <div>
-        <div class="section-eyebrow">Модели</div>
-        <h2 class="section-title">Наши AI-модели</h2>
-        <p class="section-sub">Выберите модель под ваш товар и аудиторию маркетплейса</p>
+        <div class="models-eyebrow">— МОДЕЛИ</div>
+        <img src="img/cta-text.svg" alt="Наши AI-модели" class="models-title-svg">
+        <p class="models-sub">Выберите модель под ваш товар и аудиторию маркетплейса</p>
       </div>
-      <a href="models.html" class="btn-ghost">Все модели
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
+      <a href="models.html" class="models-btn-all">Все модели →</a>
     </div>
 
-    <div class="models-preview-grid">
+    <!-- Model cards -->
+    <div class="models-grid">
 
-      <div class="model-card">
-        <div class="mc-bg" style="background:linear-gradient(160deg,#1e1208 0%,#2d1a08 50%,#1a1008 100%);">
-          <svg width="70" height="140" viewBox="0 0 60 120" fill="none">
-            <circle cx="30" cy="12" r="11" fill="rgba(220,160,100,0.5)"/>
-            <path d="M10 30 Q10 24 18 23 L42 23 Q50 24 50 30 L53 85 Q30 98 7 85Z" fill="rgba(220,160,100,0.3)" stroke="rgba(220,160,100,0.4)" stroke-width="1"/>
-            <rect x="14" y="83" width="11" height="32" rx="5" fill="rgba(220,160,100,0.25)"/>
-            <rect x="35" y="83" width="11" height="32" rx="5" fill="rgba(220,160,100,0.25)"/>
-          </svg>
-        </div>
-        <div class="mc-overlay"></div>
-        <div class="mc-hover-tag">Доступна</div>
-        <div class="mc-info">
-          <div class="mc-type">Женская · Европейская</div>
-          <div class="mc-name">Аяна</div>
-          <div class="mc-stats">175 см · Размер S/M</div>
+      <div class="model-card-fig">
+        <img src="img/model1.jpg" alt="Аяна" class="model-photo">
+        <div class="model-card-overlay">
+          <div class="model-cat">ЖЕНСКАЯ · ЕВРОПЕЙСКАЯ</div>
+          <div class="model-name">АЯНА</div>
+          <div class="model-stats">175 см · Размер S/M</div>
         </div>
       </div>
 
-      <div class="model-card">
-        <div class="mc-bg" style="background:linear-gradient(160deg,#1a1220 0%,#261830 50%,#160e1e 100%);">
-          <svg width="70" height="140" viewBox="0 0 60 120" fill="none">
-            <circle cx="30" cy="12" r="11" fill="rgba(180,140,220,0.5)"/>
-            <path d="M10 30 Q10 24 18 23 L42 23 Q50 24 50 30 L53 85 Q30 98 7 85Z" fill="rgba(180,140,220,0.3)" stroke="rgba(180,140,220,0.4)" stroke-width="1"/>
-            <rect x="14" y="83" width="11" height="32" rx="5" fill="rgba(180,140,220,0.25)"/>
-            <rect x="35" y="83" width="11" height="32" rx="5" fill="rgba(180,140,220,0.25)"/>
-          </svg>
-        </div>
-        <div class="mc-overlay"></div>
-        <div class="mc-hover-tag">Доступна</div>
-        <div class="mc-info">
-          <div class="mc-type">Женская · Азиатская</div>
-          <div class="mc-name">Кирра</div>
-          <div class="mc-stats">172 см · Размер XS/S</div>
+      <div class="model-card-fig">
+        <span class="model-badge">Доступна</span>
+        <img src="img/model2.jpg" alt="Кирра" class="model-photo">
+        <div class="model-card-overlay">
+          <div class="model-cat">ЖЕНСКАЯ · АЗИАТСКАЯ</div>
+          <div class="model-name">КИРРА</div>
+          <div class="model-stats">172 см · Размер XS/S</div>
         </div>
       </div>
 
-      <div class="model-card">
-        <div class="mc-bg" style="background:linear-gradient(160deg,#0e1820 0%,#142430 50%,#0a1220 100%);">
-          <svg width="70" height="140" viewBox="0 0 60 130" fill="none">
-            <circle cx="30" cy="12" r="12" fill="rgba(100,160,220,0.5)"/>
-            <path d="M6 32 Q6 26 16 24 L44 24 Q54 26 54 32 L57 90 Q30 105 3 90Z" fill="rgba(100,160,220,0.3)" stroke="rgba(100,160,220,0.4)" stroke-width="1"/>
-            <rect x="12" y="88" width="13" height="36" rx="6" fill="rgba(100,160,220,0.25)"/>
-            <rect x="35" y="88" width="13" height="36" rx="6" fill="rgba(100,160,220,0.25)"/>
-          </svg>
-        </div>
-        <div class="mc-overlay"></div>
-        <div class="mc-hover-tag">Доступен</div>
-        <div class="mc-info">
-          <div class="mc-type">Мужская · Европейская</div>
-          <div class="mc-name">Марко</div>
-          <div class="mc-stats">182 см · Размер M/L</div>
+      <div class="model-card-fig">
+        <img src="img/model3.jpg" alt="Марко" class="model-photo">
+        <div class="model-card-overlay">
+          <div class="model-cat">МУЖСКАЯ · ЕВРОПЕЙСКАЯ</div>
+          <div class="model-name">МАРКО</div>
+          <div class="model-stats">182 см · Размер M/L</div>
         </div>
       </div>
 
-      <div class="model-card">
-        <div class="mc-bg" style="background:linear-gradient(160deg,#201208 0%,#301a08 50%,#1e1008 100%);">
-          <svg width="70" height="140" viewBox="0 0 60 120" fill="none">
-            <circle cx="30" cy="12" r="11" fill="rgba(255,160,80,0.5)"/>
-            <path d="M10 30 Q10 24 18 23 L42 23 Q50 24 50 30 L53 85 Q30 98 7 85Z" fill="rgba(255,160,80,0.3)" stroke="rgba(255,160,80,0.4)" stroke-width="1"/>
-            <rect x="14" y="83" width="11" height="32" rx="5" fill="rgba(255,160,80,0.25)"/>
-            <rect x="35" y="83" width="11" height="32" rx="5" fill="rgba(255,160,80,0.25)"/>
-          </svg>
-        </div>
-        <div class="mc-overlay"></div>
-        <div class="mc-hover-tag">Доступна</div>
-        <div class="mc-info">
-          <div class="mc-type">Женская · Ближний восток</div>
-          <div class="mc-name">Зара</div>
-          <div class="mc-stats">168 см · Размер M</div>
+      <div class="model-card-fig">
+        <img src="img/model4.jpg" alt="Зара" class="model-photo">
+        <div class="model-card-overlay">
+          <div class="model-cat">ЖЕНСКАЯ · БЛИЖНИЙ ВОСТОК</div>
+          <div class="model-name">ЗАРА</div>
+          <div class="model-stats">168 см · Размер M</div>
         </div>
       </div>
 
-    </div><!-- /models-preview-grid -->
+    </div>
 
+    <!-- CTA button -->
     <div style="text-align:center;margin-top:40px;">
-      <a href="models.html" class="btn-ghost">
-        Смотреть все модели
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
+      <a href="#contact" class="models-btn-try">Попробовать сейчас →</a>
     </div>
+
   </div>
 </section>
 
 
-<!-- ════════════════════════════════════════
-     CTA DIVIDER — 24Ч
-════════════════════════════════════════ -->
-<div class="cta-divider">
-  <div class="cta-div-inner">
-    <div class="cta-div-left">
-      <div class="cta-div-num">24<span>Ч</span></div>
-      <div class="cta-div-label">Время выполнения заказа</div>
+<!-- CTA 24Ч DIVIDER -->
+<div class="cta24-section">
+  <div class="cta24-inner">
+    <div class="cta24-left">
+      <div class="cta24-num">24</div>
+      <div class="cta24-unit">Ч</div>
     </div>
-    <div class="cta-div-right">
-      <div class="cta-div-model">
-        <svg width="180" height="300" viewBox="0 0 60 120" fill="none">
-          <circle cx="30" cy="11" r="10" fill="rgba(255,150,80,0.55)"/>
-          <path d="M10 28 Q10 22 18 21 L42 21 Q50 22 50 28 L53 82 Q30 96 7 82Z"
-                fill="rgba(255,100,30,0.35)" stroke="rgba(255,100,30,0.5)" stroke-width="1"/>
-          <rect x="14" y="80" width="11" height="36" rx="5" fill="rgba(255,100,30,0.28)"/>
-          <rect x="35" y="80" width="11" height="36" rx="5" fill="rgba(255,100,30,0.28)"/>
-        </svg>
-      </div>
-    </div>
+    <div class="cta24-label">Время выполнения<br>заказа</div>
   </div>
 </div>
+
+
 
 <!-- ════════════════════════════════════════
      CONTACT — Форма заявки
