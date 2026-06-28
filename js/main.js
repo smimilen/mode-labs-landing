@@ -418,7 +418,7 @@ document.addEventListener('DOMContentLoaded', () => {
   loader.innerHTML = `
     <div class="loader-inner">
       <div class="loader-logo-text">
-        <span class="loader-mode">Mode</span><span class="loader-labs">(labs)</span>
+        <img src="logo.svg" alt="Mode(gen)" style="height:32px;width:auto;display:block;">
       </div>
       <div class="loader-bar"><div class="loader-fill"></div></div>
     </div>`;
