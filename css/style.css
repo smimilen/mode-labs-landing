@@ -3275,3 +3275,13 @@ section#models-preview::after { display: none !important; }
   .footer-content { grid-template-columns: 1fr; }
   .footer-tagline-wrap { padding: 40px 20px 32px; }
 }
+
+
+/* Hero SVG text "БЕЗ ФОТОСЕССИИ" */
+.hero-italic-svg {
+  display: block !important;
+  width: 100% !important;
+  max-width: 680px !important;
+  height: auto !important;
+  margin-top: 4px !important;
+}
