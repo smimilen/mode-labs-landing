@@ -3285,3 +3285,14 @@ section#models-preview::after { display: none !important; }
   height: auto !important;
   margin-top: 4px !important;
 }
+
+
+/* ── Hide slider line stripes ── */
+.port-handle-line,
+.port-handle::before,
+.port-handle::after { display: none !important; }
+
+.port-handle {
+  background: transparent !important;
+  width: 44px !important;
+}
