@@ -3068,3 +3068,69 @@ section#models-preview::after { display: none !important; }
   .cta24-num  { font-size: 80px; }
   .cta24-unit { font-size: 64px; }
 }
+
+
+/* ── CTA 24Ч — FINAL FIX ── */
+.cta24-section {
+  background: url('../img/model-dark.png') center center / cover no-repeat !important;
+  position: relative !important;
+  overflow: hidden !important;
+  min-height: 520px !important;
+  display: flex !important;
+  align-items: center !important;
+}
+.cta24-section::before {
+  content: '' !important;
+  position: absolute !important; inset: 0 !important;
+  background: linear-gradient(90deg, rgba(5,2,1,0.7) 0%, rgba(5,2,1,0.2) 60%, transparent 100%) !important;
+  z-index: 1 !important;
+}
+.cta24-inner {
+  max-width: 1260px !important;
+  margin: 0 auto !important;
+  padding: 80px 48px !important;
+  position: relative !important; z-index: 2 !important;
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 28px !important;
+  width: 100% !important;
+}
+.cta24-left {
+  display: flex !important;
+  flex-direction: column !important;
+  line-height: 1 !important;
+  flex-shrink: 0 !important;
+}
+.cta24-num {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif !important;
+  font-size: clamp(72px, 9vw, 130px) !important;
+  font-weight: 200 !important;
+  letter-spacing: -0.04em !important;
+  color: rgba(240,235,227,0.9) !important;
+  line-height: 1 !important;
+  display: block !important;
+  text-shadow: none !important;
+  background: none !important;
+}
+.cta24-unit {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif !important;
+  font-size: clamp(60px, 8vw, 110px) !important;
+  font-weight: 200 !important;
+  letter-spacing: -0.04em !important;
+  color: rgba(240,235,227,0.4) !important;
+  line-height: 1 !important;
+  margin-top: -8px !important;
+  display: block !important;
+  text-shadow: none !important;
+  background: none !important;
+}
+.cta24-label {
+  font-family: 'Inter', sans-serif !important;
+  font-size: clamp(14px, 1.4vw, 18px) !important;
+  font-weight: 400 !important;
+  color: rgba(240,235,227,0.55) !important;
+  line-height: 1.45 !important;
+  align-self: flex-start !important;
+  padding-top: 12px !important;
+  background: none !important;
+}
