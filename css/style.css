@@ -3150,3 +3150,23 @@ section#models-preview::after { display: none !important; }
   background-repeat: no-repeat !important;
   min-height: 620px !important;
 }
+
+
+/* ── Shared dark background: Models + 24Ч ── */
+.dark-bg-wrapper {
+  background: url('../img/cta24-bg.jpg') center center / cover no-repeat;
+  position: relative;
+}
+
+/* Both children: transparent bg */
+.dark-bg-wrapper section#models-preview,
+.dark-bg-wrapper .cta24-section {
+  background: transparent !important;
+  background-image: none !important;
+}
+.dark-bg-wrapper section#models-preview::before,
+.dark-bg-wrapper section#models-preview::after,
+.dark-bg-wrapper .cta24-section::before { display: none !important; }
+
+/* Keep orange glows for models section */
+.dark-bg-wrapper .mp-glow { display: block !important; }
