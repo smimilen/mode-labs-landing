@@ -747,54 +747,62 @@
 <!-- ════════════════════════════════════════
      FOOTER
 ════════════════════════════════════════ -->
-<footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-main">
+<footer class="footer-new">
 
-      <div class="footer-brand">
-        <a href="index.html" class="logo-link" aria-label="Mode(gen) — главная">
-      <img src="logo.svg" alt="Mode(gen)" class="logo-svg">
-    </a>
-        <p>AI-фотосессии для маркетплейсов — без студии и фотографа</p>
-        <div class="footer-socials">
-          <a href="#" class="social-link" title="Telegram">✈</a>
-          <a href="#" class="social-link" title="Instagram">◻</a>
-          <a href="mailto:smimilen@gmail.com" class="social-link" title="Email">@</a>
-        </div>
+  <!-- Background -->
+  <div class="footer-bg"></div>
+
+  <!-- "больше чем мода" SVG text -->
+  <div class="footer-tagline-wrap">
+    <img src="img/footer-text.svg" alt="больше чем мода" class="footer-tagline-img">
+  </div>
+
+  <!-- Main content -->
+  <div class="footer-content">
+    <div class="footer-col footer-brand-col">
+      <a href="index.html" aria-label="Mode(gen)">
+        <img src="logo.svg" alt="Mode(gen)" class="footer-logo-img">
+      </a>
+      <p class="footer-tagline-text">AI-фотосессии для<br>маркетплейсов — без студии и<br>фотографа</p>
+      <div class="footer-socials-row">
+        <a href="https://t.me/modegen" class="footer-social-btn" target="_blank" rel="noopener">
+          <img src="img/icon-tg.svg" alt="Telegram">
+        </a>
+        <a href="https://www.instagram.com/modegen.ru?igsh=b2p6d3FkNXpzbWQ1" class="footer-social-btn" target="_blank" rel="noopener">
+          <img src="img/icon-inst.svg" alt="Instagram">
+        </a>
       </div>
-
-      <nav class="footer-nav">
-        <div class="fn-col">
-          <h4>Навигация</h4>
-          <a href="index.html">Главная</a>
-          <a href="portfolio.html">Портфолио</a>
-          <a href="models.html">Наши модели</a>
-          <a href="#contact">Оставить заявку</a>
-        </div>
-        <div class="fn-col">
-          <h4>Услуги</h4>
-          <span>Одежда на модели</span>
-          <span>Пакшот</span>
-          <span>Лукбук</span>
-          <span>WB · Ozon · Яндекс</span>
-        </div>
-        <div class="fn-col">
-          <h4>Контакты</h4>
-          <a href="mailto:smimilen@gmail.com">smimilen@gmail.com</a>
-          <a href="#contact">Написать в Telegram</a>
-          <span style="color:var(--dim);font-size:12px;">Ответим за 1 час</span>
-        </div>
-      </nav>
-
     </div>
 
-    <div class="footer-bottom">
-      <span>© 2025 Mode(gen) — все права защищены</span>
-      <span>Сделано с ♥ и AI</span>
+    <div class="footer-col">
+      <div class="footer-col-head">НАВИГАЦИЯ</div>
+      <a href="index.html"     class="footer-link">Главная</a>
+      <a href="portfolio.html" class="footer-link">Портфолио</a>
+      <a href="models.html"    class="footer-link">Наши модели</a>
+      <a href="#contact"       class="footer-link">Оставить заявку</a>
+    </div>
+
+    <div class="footer-col">
+      <div class="footer-col-head">УСЛУГИ</div>
+      <span class="footer-link">Одежда на модели</span>
+      <span class="footer-link">Пакшот</span>
+      <span class="footer-link">Лукбук</span>
+      <span class="footer-link">WB · Ozon · Яндекс</span>
+    </div>
+
+    <div class="footer-col">
+      <div class="footer-col-head">КОНТАКТЫ</div>
+      <a href="mailto:smimilen@gmail.com" class="footer-link">smimilen@gmail.com</a>
+      <a href="https://t.me/modegen" class="footer-link" target="_blank">Написать в Telegram</a>
+      <span class="footer-link footer-link-dim">Ответим за 1 час</span>
     </div>
   </div>
 
-  <div class="footer-big-tagline">больше чем мода</div>
+  <!-- Bottom bar -->
+  <div class="footer-bottom-bar">
+    <span>© 2026 Mode(gen) — все права защищены</span>
+  </div>
+
 </footer>
 
 
@@ -1806,7 +1814,6 @@ window.addEventListener('load', () => {
     </div>
   </div>
 
-  <div class="footer-big-tagline">больше чем мода</div>
 </footer>
 
 
