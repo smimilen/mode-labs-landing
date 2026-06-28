@@ -828,5 +828,35 @@ window.addEventListener('load', () => {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="js/main.js"></script>
 
+
+<script>
+// Pre-fill model from localStorage or URL param
+(function() {
+  function fillModel() {
+    var model = localStorage.getItem('selectedModel');
+    if (!model) {
+      var params = new URLSearchParams(window.location.search);
+      model = params.get('model');
+    }
+    if (model) {
+      var banner = document.getElementById('model-banner');
+      var name   = document.getElementById('model-banner-name');
+      var field  = document.getElementById('field-model');
+      if (banner) { banner.style.display = 'block'; }
+      if (name)   { name.textContent = model; }
+      if (field)  { field.value = model; }
+    }
+  }
+  window.addEventListener('load', fillModel);
+})();
+function clearModel(e) {
+  e.preventDefault();
+  localStorage.removeItem('selectedModel');
+  var b = document.getElementById('model-banner');
+  var f = document.getElementById('field-model');
+  if (b) b.style.display='none';
+  if (f) f.value='';
+}
+</script>
 </body>
 </html>
