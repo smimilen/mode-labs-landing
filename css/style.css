@@ -3134,3 +3134,9 @@ section#models-preview::after { display: none !important; }
   padding-top: 12px !important;
   background: none !important;
 }
+
+
+/* ── CTA 24Ч — correct background image ── */
+.cta24-section {
+  background: url('../img/cta24-bg.jpg') center center / cover no-repeat !important;
+}
