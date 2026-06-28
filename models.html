@@ -96,12 +96,9 @@
 </head>
 <body>
 
-<!-- NAV -->
 <nav class="nav scrolled" id="nav">
   <div class="nav-inner">
-    <a href="index.html" class="logo-link" aria-label="Mode(gen) — главная">
-      <img src="logo.svg" alt="Mode(gen)" class="logo-svg">
-    </a>
+    <a href="index.html" class="logo-link"><img src="logo.svg" alt="Mode(gen)" class="logo-svg"></a>
     <div class="nav-links">
       <a href="index.html"     class="nav-link">Главная</a>
       <a href="portfolio.html" class="nav-link">Портфолио</a>
@@ -113,351 +110,132 @@
   <div class="mobile-menu" id="mobileMenu">
     <a href="index.html">Главная</a>
     <a href="portfolio.html">Портфолио</a>
-    <a href="models.html" style="color:#FF5E00">Наши модели</a>
+    <a href="models.html" style="color:#FF6A13">Наши модели</a>
     <a href="index.html#contact" class="btn-mobile">Оставить заявку</a>
   </div>
 </nav>
 
-<!-- CONTENT -->
-<div style="padding-top:var(--nav-h)">
+<div style="padding-top:var(--nav-h);background:#0D0603;min-height:100vh;">
+  <div class="models-inner" style="padding-top:60px;padding-bottom:80px;">
 
-  <!-- PAGE HERO -->
-  <div class="page-hero">
-    <div class="section-eyebrow">AI-модели</div>
-    <h1 style="font-size:clamp(38px,6vw,72px);font-weight:900;letter-spacing:-0.03em;line-height:1.05;margin-bottom:18px;">
-      Выберите модель<br>под <span style="color:#FF5E00">ваш товар</span>
-    </h1>
-    <p style="font-size:17px;color:#9A8070;max-width:520px;line-height:1.75;margin-bottom:28px;">
-      Каждая модель обучена в пространстве физики ткани — одежда сидит реалистично, 
-      складки и форма сохраняются. Выбирайте подходящий фенотип и размер.
-    </p>
-    <div style="display:flex;gap:12px;flex-wrap:wrap;">
-      <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:#9A8070;background:rgba(255,255,255,0.04);border:1px solid var(--bd);padding:8px 16px;border-radius:24px;">
-        ✓ Физика драпировки сохранена
+    <div class="models-head">
+      <div>
+        <div class="models-eyebrow">— МОДЕЛИ</div>
+        <img src="img/cta-text.svg" alt="Наши AI-модели" class="models-title-svg">
+        <p class="models-sub">Выберите модель под ваш товар и аудиторию маркетплейса</p>
       </div>
-      <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:#9A8070;background:rgba(255,255,255,0.04);border:1px solid var(--bd);padding:8px 16px;border-radius:24px;">
-        ✓ Текстура ткани передаётся точно
+    </div>
+
+    <div class="models-grid">
+      
+      <div class="model-card-fig" style="position:relative;border-radius:14px;overflow:hidden;aspect-ratio:3/4;">
+        
+        <img src="img/model1.jpg" alt="Аяна" style="width:100%;height:100%;object-fit:cover;display:block;">
+        <div class="model-card-overlay" style="position:absolute;bottom:0;left:0;right:0;padding:48px 16px 16px;background:linear-gradient(to top,rgba(0,0,0,0.88),transparent);z-index:3;">
+          <div class="model-cat" style="font-family:Inter,sans-serif;font-size:10px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:4px;">ЖЕНСКАЯ · ЕВРОПЕЙСКАЯ</div>
+          <div class="model-name" style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;font-size:20px;font-weight:500;text-transform:uppercase;letter-spacing:-.01em;color:#fff;margin-bottom:3px;">Аяна</div>
+          <div class="model-stats" style="font-family:Inter,sans-serif;font-size:12px;color:rgba(255,255,255,.5);">175 см · Размер S/M</div>
+        </div>
       </div>
+      
+      <div class="model-card-fig" style="position:relative;border-radius:14px;overflow:hidden;aspect-ratio:3/4;">
+        <span class="model-badge">Доступна</span>
+        <img src="img/model2.jpg" alt="Кирра" style="width:100%;height:100%;object-fit:cover;display:block;">
+        <div class="model-card-overlay" style="position:absolute;bottom:0;left:0;right:0;padding:48px 16px 16px;background:linear-gradient(to top,rgba(0,0,0,0.88),transparent);z-index:3;">
+          <div class="model-cat" style="font-family:Inter,sans-serif;font-size:10px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:4px;">ЖЕНСКАЯ · АЗИАТСКАЯ</div>
+          <div class="model-name" style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;font-size:20px;font-weight:500;text-transform:uppercase;letter-spacing:-.01em;color:#fff;margin-bottom:3px;">Кирра</div>
+          <div class="model-stats" style="font-family:Inter,sans-serif;font-size:12px;color:rgba(255,255,255,.5);">172 см · Размер XS/S</div>
+        </div>
+      </div>
+      
+      <div class="model-card-fig" style="position:relative;border-radius:14px;overflow:hidden;aspect-ratio:3/4;">
+        
+        <img src="img/model3.jpg" alt="Марина" style="width:100%;height:100%;object-fit:cover;display:block;">
+        <div class="model-card-overlay" style="position:absolute;bottom:0;left:0;right:0;padding:48px 16px 16px;background:linear-gradient(to top,rgba(0,0,0,0.88),transparent);z-index:3;">
+          <div class="model-cat" style="font-family:Inter,sans-serif;font-size:10px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:4px;">ЖЕНСКАЯ · ЕВРОПЕЙСКАЯ</div>
+          <div class="model-name" style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;font-size:20px;font-weight:500;text-transform:uppercase;letter-spacing:-.01em;color:#fff;margin-bottom:3px;">Марина</div>
+          <div class="model-stats" style="font-family:Inter,sans-serif;font-size:12px;color:rgba(255,255,255,.5);">172 см · Размер S/M</div>
+        </div>
+      </div>
+      
+      <div class="model-card-fig" style="position:relative;border-radius:14px;overflow:hidden;aspect-ratio:3/4;">
+        
+        <img src="img/model4.jpg" alt="Зара" style="width:100%;height:100%;object-fit:cover;display:block;">
+        <div class="model-card-overlay" style="position:absolute;bottom:0;left:0;right:0;padding:48px 16px 16px;background:linear-gradient(to top,rgba(0,0,0,0.88),transparent);z-index:3;">
+          <div class="model-cat" style="font-family:Inter,sans-serif;font-size:10px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:4px;">ЖЕНСКАЯ · БЛИЖНИЙ ВОСТОК</div>
+          <div class="model-name" style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;font-size:20px;font-weight:500;text-transform:uppercase;letter-spacing:-.01em;color:#fff;margin-bottom:3px;">Зара</div>
+          <div class="model-stats" style="font-family:Inter,sans-serif;font-size:12px;color:rgba(255,255,255,.5);">168 см · Размер M</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:48px;">
+      <a href="index.html#contact" class="models-btn-try">Попробовать сейчас →</a>
+    </div>
+
+  </div>
+</div>
+
+<footer class="footer-new">
+
+  <!-- Background -->
+  <div class="footer-bg"></div>
+
+  <!-- "больше чем мода" SVG text -->
+  <div class="footer-tagline-wrap">
+    <img src="img/footer-text.svg" alt="больше чем мода" class="footer-tagline-img">
+  </div>
+
+  <!-- Main content -->
+  <div class="footer-content">
+    <div class="footer-col footer-brand-col">
+      <a href="index.html" aria-label="Mode(gen)">
+        <img src="logo.svg" alt="Mode(gen)" class="footer-logo-img">
+      </a>
+      <p class="footer-tagline-text">AI-фотосессии для<br>маркетплейсов — без студии и<br>фотографа</p>
+      <div class="footer-socials-row">
+        <a href="https://t.me/milenasmi" target="_blank" rel="noopener" class="footer-social-btn" target="_blank" rel="noopener">
+          <img src="img/icon-tg.svg" alt="Telegram">
+        </a>
+        <a href="https://www.instagram.com/modegen.ru?igsh=b2p6d3FkNXpzbWQ1" class="footer-social-btn" target="_blank" rel="noopener">
+          <img src="img/icon-inst.svg" alt="Instagram">
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <div class="footer-col-head">НАВИГАЦИЯ</div>
+      <a href="index.html"     class="footer-link">Главная</a>
+      <a href="portfolio.html" class="footer-link">Портфолио</a>
+      <a href="models.html"    class="footer-link">Наши модели</a>
+      <a href="#contact"       class="footer-link">Оставить заявку</a>
+    </div>
+
+    <div class="footer-col">
+      <div class="footer-col-head">УСЛУГИ</div>
+      <span class="footer-link">Одежда на модели</span>
+      <span class="footer-link">Пакшот</span>
+      <span class="footer-link">Лукбук</span>
+      <span class="footer-link">WB · Ozon · Яндекс</span>
+    </div>
+
+    <div class="footer-col">
+      <div class="footer-col-head">КОНТАКТЫ</div>
+      <a href="mailto:smimilen@gmail.com" class="footer-link">smimilen@gmail.com</a>
+      <a href="https://t.me/milenasmi" class="footer-link" target="_blank">Написать в Telegram</a>
+      <span class="footer-link footer-link-dim">Ответим за 1 час</span>
     </div>
   </div>
 
-  <!-- STATS BAR -->
-  <div class="model-stats-bar">
-    <div class="msb-item"><div class="msb-n">4+</div><div class="msb-l">AI-модели доступны</div></div>
-    <div class="msb-item"><div class="msb-n">2</div><div class="msb-l">Пола на выбор</div></div>
-    <div class="msb-item"><div class="msb-n">XS→XL</div><div class="msb-l">Диапазон размеров</div></div>
-    <div class="msb-item"><div class="msb-n">4</div><div class="msb-l">Фенотипа</div></div>
+  <!-- Bottom bar -->
+  <div class="footer-bottom-bar">
+    <span>© 2026 Mode(gen) — все права защищены</span>
   </div>
 
-  <!-- FILTERS -->
-  <div class="filter-bar">
-    <button class="filter-btn active" data-filter="all">Все модели</button>
-    <button class="filter-btn" data-filter="female">Женские</button>
-    <button class="filter-btn" data-filter="female">Мужские</button>
-  </div>
-
-  <!-- MODELS GRID -->
-  <div class="model-full-grid">
-
-    <!-- MODEL 1: Аяна -->
-    <div class="mf-card" data-filter="female">
-      <div class="mf-photo" style="background:#1a1008;">
-        <div class="mf-photo-grad" style="background:linear-gradient(160deg,rgba(255,120,40,0.25) 0%,transparent 60%);"></div>
-        <div class="mf-type-pill">Женская</div>
-        <svg width="100" height="200" viewBox="0 0 60 120" fill="none">
-          <circle cx="30" cy="12" r="11" fill="rgba(220,160,100,0.6)"/>
-          <path d="M10 30 Q10 24 18 23 L42 23 Q50 24 50 30 L53 85 Q30 98 7 85Z" fill="rgba(220,160,100,0.35)" stroke="rgba(220,160,100,0.5)" stroke-width="1"/>
-          <rect x="14" y="83" width="11" height="32" rx="5" fill="rgba(220,160,100,0.28)"/>
-          <rect x="35" y="83" width="11" height="32" rx="5" fill="rgba(220,160,100,0.28)"/>
-          <circle cx="30" cy="12" r="11" fill="rgba(220,160,100,0.6)" filter="blur(0)"/>
-        </svg>
-      </div>
-      <div class="mf-info">
-        <div class="mf-name">Аяна</div>
-        <div class="mf-subtitle">Европейский фенотип</div>
-        <div class="mf-params">
-          <div class="mf-param"><div class="mf-param-label">Рост</div><div class="mf-param-val">175 см</div></div>
-          <div class="mf-param"><div class="mf-param-label">Размер</div><div class="mf-param-val">S / M</div></div>
-          <div class="mf-param"><div class="mf-param-label">Грудь</div><div class="mf-param-val">87 см</div></div>
-          <div class="mf-param"><div class="mf-param-label">Талия</div><div class="mf-param-val">63 см</div></div>
-        </div>
-        <div class="mf-tags">
-          <span class="mf-tag">Верх</span>
-          <span class="mf-tag">Платья</span>
-          <span class="mf-tag">Низ</span>
-          <span class="mf-tag">Аксессуары</span>
-          <span class="mf-tag">WB · Ozon</span>
-        </div>
-        <div style="font-size:12px;color:var(--dim);margin-bottom:14px;">Примеры одежды на модели:</div>
-        <div class="mf-examples">
-          <div class="mf-ex" style="background:linear-gradient(160deg,#1e0e08,#2a1400);">
-            <svg width="22" height="44" viewBox="0 0 60 120" fill="none"><circle cx="30" cy="12" r="11" fill="rgba(255,94,0,0.4)"/><path d="M10 30 Q10 24 18 23 L42 23 Q50 24 50 30 L53 85 Q30 98 7 85Z" fill="rgba(255,94,0,0.28)"/></svg>
-            <div class="mf-ex-label">Верх</div>
-          </div>
-          <div class="mf-ex" style="background:linear-gradient(160deg,#1e0e18,#2d1228);">
-            <svg width="22" height="52" viewBox="0 0 52 128" fill="none"><circle cx="26" cy="10" r="10" fill="rgba(220,100,160,0.5)"/><path d="M4 26 Q4 20 12 19 L40 19 Q48 20 48 26 L52 80 Q26 98 0 80Z" fill="rgba(200,80,150,0.3)"/><path d="M0 80 L0 126 L12 126 L26 104 L40 126 L52 126 L52 80Z" fill="rgba(200,80,150,0.22)"/></svg>
-            <div class="mf-ex-label">Платье</div>
-          </div>
-          <div class="mf-ex" style="background:linear-gradient(160deg,#0e1420,#142030);">
-            <svg width="22" height="44" viewBox="0 0 60 120" fill="none"><circle cx="30" cy="12" r="10" fill="rgba(80,140,220,0.45)"/><path d="M8 28 Q8 22 18 21 L42 21 Q52 22 52 28 L55 68 Q30 82 5 68Z" fill="rgba(60,120,200,0.3)"/></svg>
-            <div class="mf-ex-label">Низ</div>
-          </div>
-        </div>
-        <div class="mf-cta">
-          <a href="index.html#contact" class="btn-primary" style="width:100%;justify-content:center;padding:13px;">
-            Выбрать Аяну
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- MODEL 2: Кирра -->
-    <div class="mf-card" data-filter="female">
-      <div class="mf-photo" style="background:#1a1020;">
-        <div class="mf-photo-grad" style="background:linear-gradient(160deg,rgba(180,100,220,0.2) 0%,transparent 60%);"></div>
-        <div class="mf-type-pill">Женская</div>
-        <svg width="100" height="200" viewBox="0 0 60 120" fill="none">
-          <circle cx="30" cy="12" r="11" fill="rgba(180,140,220,0.65)"/>
-          <path d="M10 30 Q10 24 18 23 L42 23 Q50 24 50 30 L53 85 Q30 98 7 85Z" fill="rgba(180,140,220,0.38)" stroke="rgba(180,140,220,0.52)" stroke-width="1"/>
-          <rect x="14" y="83" width="11" height="32" rx="5" fill="rgba(180,140,220,0.28)"/>
-          <rect x="35" y="83" width="11" height="32" rx="5" fill="rgba(180,140,220,0.28)"/>
-        </svg>
-      </div>
-      <div class="mf-info">
-        <div class="mf-name">Кирра</div>
-        <div class="mf-subtitle">Азиатский фенотип</div>
-        <div class="mf-params">
-          <div class="mf-param"><div class="mf-param-label">Рост</div><div class="mf-param-val">172 см</div></div>
-          <div class="mf-param"><div class="mf-param-label">Размер</div><div class="mf-param-val">XS / S</div></div>
-          <div class="mf-param"><div class="mf-param-label">Грудь</div><div class="mf-param-val">82 см</div></div>
-          <div class="mf-param"><div class="mf-param-label">Талия</div><div class="mf-param-val">59 см</div></div>
-        </div>
-        <div class="mf-tags">
-          <span class="mf-tag">Верх</span>
-          <span class="mf-tag">Платья</span>
-          <span class="mf-tag">Лукбук</span>
-          <span class="mf-tag">Аксессуары</span>
-          <span class="mf-tag">WB · Ozon</span>
-        </div>
-        <div style="font-size:12px;color:var(--dim);margin-bottom:14px;">Примеры одежды на модели:</div>
-        <div class="mf-examples">
-          <div class="mf-ex" style="background:linear-gradient(160deg,#141e0e,#1e2c0c);">
-            <svg width="22" height="44" viewBox="0 0 68 120" fill="none"><circle cx="34" cy="12" r="12" fill="rgba(120,200,80,0.4)"/><path d="M2 32 L16 22 L26 30 Q26 24 34 24 Q42 24 42 30 L52 22 L66 32 L62 58 L50 52 L50 92 L18 92 L18 52 L6 58Z" fill="rgba(100,180,60,0.28)"/></svg>
-            <div class="mf-ex-label">Худи</div>
-          </div>
-          <div class="mf-ex" style="background:linear-gradient(160deg,#1e0e18,#2d1228);">
-            <svg width="22" height="52" viewBox="0 0 52 128" fill="none"><circle cx="26" cy="10" r="10" fill="rgba(220,100,160,0.5)"/><path d="M4 26 Q4 20 12 19 L40 19 Q48 20 48 26 L52 80 Q26 98 0 80Z" fill="rgba(200,80,150,0.3)"/><path d="M0 80 L0 126 L12 126 L26 104 L40 126 L52 126 L52 80Z" fill="rgba(200,80,150,0.22)"/></svg>
-            <div class="mf-ex-label">Платье</div>
-          </div>
-          <div class="mf-ex" style="background:linear-gradient(160deg,#201206,#301a06);">
-            <svg width="22" height="44" viewBox="0 0 60 120" fill="none"><circle cx="30" cy="12" r="11" fill="rgba(255,160,60,0.5)"/><path d="M4 28 L14 21 L21 27 Q21 22 30 22 Q39 22 39 27 L46 21 L56 28 L53 55 L43 50 L43 88 L17 88 L17 50 L7 55Z" fill="rgba(255,140,40,0.3)"/></svg>
-            <div class="mf-ex-label">Лукбук</div>
-          </div>
-        </div>
-        <div class="mf-cta">
-          <a href="index.html#contact" class="btn-primary" style="width:100%;justify-content:center;padding:13px;">
-            Выбрать Кирру
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- MODEL 3: Марко -->
-    <div class="mf-card" data-filter="female">
-      <div class="mf-photo" style="background:#0e1820;">
-        <div class="mf-photo-grad" style="background:linear-gradient(160deg,rgba(60,140,220,0.2) 0%,transparent 60%);"></div>
-        <div class="mf-type-pill" style="background:#1E6FD4;">Мужская</div>
-        <svg width="110" height="220" viewBox="0 0 60 130" fill="none">
-          <circle cx="30" cy="12" r="12" fill="rgba(100,160,220,0.6)"/>
-          <path d="M4 32 L16 22 L24 29 Q24 24 30 24 Q36 24 36 29 L44 22 L56 32 L53 60 L43 54 L43 95 L17 95 L17 54 L7 60Z" fill="rgba(80,140,200,0.35)" stroke="rgba(80,140,200,0.5)" stroke-width="1"/>
-          <rect x="17" y="93" width="12" height="34" rx="6" fill="rgba(80,140,200,0.27)"/>
-          <rect x="31" y="93" width="12" height="34" rx="6" fill="rgba(80,140,200,0.27)"/>
-        </svg>
-      </div>
-      <div class="mf-info">
-        <div class="mf-name">Марина</div>
-        <div class="mf-subtitle">Европейский фенотип</div>
-        <div class="mf-params">
-          <div class="mf-param"><div class="mf-param-label">Рост</div><div class="mf-param-val">182 см</div></div>
-          <div class="mf-param"><div class="mf-param-label">Размер</div><div class="mf-param-val">M / L</div></div>
-          <div class="mf-param"><div class="mf-param-label">Грудь</div><div class="mf-param-val">98 см</div></div>
-          <div class="mf-param"><div class="mf-param-label">Талия</div><div class="mf-param-val">82 см</div></div>
-        </div>
-        <div class="mf-tags">
-          <span class="mf-tag">Верх</span>
-          <span class="mf-tag">Низ</span>
-          <span class="mf-tag">Куртки</span>
-          <span class="mf-tag">Спортивное</span>
-          <span class="mf-tag">WB · Ozon</span>
-        </div>
-        <div style="font-size:12px;color:var(--dim);margin-bottom:14px;">Примеры одежды на модели:</div>
-        <div class="mf-examples">
-          <div class="mf-ex" style="background:linear-gradient(160deg,#1e0e08,#2a1400);">
-            <svg width="26" height="44" viewBox="0 0 68 120" fill="none"><circle cx="34" cy="12" r="12" fill="rgba(255,94,0,0.4)"/><path d="M2 32 L16 22 L26 30 Q26 24 34 24 Q42 24 42 30 L52 22 L66 32 L62 58 L50 52 L50 92 L18 92 L18 52 L6 58Z" fill="rgba(255,94,0,0.28)"/></svg>
-            <div class="mf-ex-label">Футболка</div>
-          </div>
-          <div class="mf-ex" style="background:linear-gradient(160deg,#0e1420,#142030);">
-            <svg width="26" height="44" viewBox="0 0 60 120" fill="none"><circle cx="30" cy="12" r="10" fill="rgba(80,140,220,0.5)"/><rect x="8" y="26" width="44" height="40" rx="4" fill="rgba(60,120,200,0.3)"/><rect x="8" y="64" width="20" height="48" rx="5" fill="rgba(60,120,200,0.25)"/><rect x="32" y="64" width="20" height="48" rx="5" fill="rgba(60,120,200,0.25)"/></svg>
-            <div class="mf-ex-label">Джинсы</div>
-          </div>
-          <div class="mf-ex" style="background:linear-gradient(160deg,#141e0e,#1e2c0c);">
-            <svg width="26" height="44" viewBox="0 0 72 124" fill="none"><circle cx="36" cy="12" r="12" fill="rgba(100,180,60,0.4)"/><path d="M0 32 L18 20 L28 29 Q28 22 36 22 Q44 22 44 29 L54 20 L72 32 L68 62 L54 55 L54 96 L18 96 L18 55 L4 62Z" fill="rgba(80,160,40,0.28)"/></svg>
-            <div class="mf-ex-label">Куртка</div>
-          </div>
-        </div>
-        <div class="mf-cta">
-          <a href="index.html#contact" class="btn-primary" style="width:100%;justify-content:center;padding:13px;">
-            Выбрать Марко
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- MODEL 4: Зара -->
-    <div class="mf-card" data-filter="female">
-      <div class="mf-photo" style="background:#201208;">
-        <div class="mf-photo-grad" style="background:linear-gradient(160deg,rgba(255,140,40,0.22) 0%,transparent 60%);"></div>
-        <div class="mf-type-pill">Женская</div>
-        <svg width="100" height="200" viewBox="0 0 60 120" fill="none">
-          <circle cx="30" cy="12" r="11" fill="rgba(255,160,80,0.62)"/>
-          <path d="M10 30 Q10 24 18 23 L42 23 Q50 24 50 30 L53 85 Q30 98 7 85Z" fill="rgba(255,150,60,0.38)" stroke="rgba(255,150,60,0.52)" stroke-width="1"/>
-          <rect x="14" y="83" width="11" height="32" rx="5" fill="rgba(255,150,60,0.28)"/>
-          <rect x="35" y="83" width="11" height="32" rx="5" fill="rgba(255,150,60,0.28)"/>
-        </svg>
-      </div>
-      <div class="mf-info">
-        <div class="mf-name">Зара</div>
-        <div class="mf-subtitle">Ближневосточный фенотип</div>
-        <div class="mf-params">
-          <div class="mf-param"><div class="mf-param-label">Рост</div><div class="mf-param-val">168 см</div></div>
-          <div class="mf-param"><div class="mf-param-label">Размер</div><div class="mf-param-val">M</div></div>
-          <div class="mf-param"><div class="mf-param-label">Грудь</div><div class="mf-param-val">90 см</div></div>
-          <div class="mf-param"><div class="mf-param-label">Талия</div><div class="mf-param-val">68 см</div></div>
-        </div>
-        <div class="mf-tags">
-          <span class="mf-tag">Верх</span>
-          <span class="mf-tag">Платья</span>
-          <span class="mf-tag">Абая</span>
-          <span class="mf-tag">Лукбук</span>
-          <span class="mf-tag">WB · Ozon</span>
-        </div>
-        <div style="font-size:12px;color:var(--dim);margin-bottom:14px;">Примеры одежды на модели:</div>
-        <div class="mf-examples">
-          <div class="mf-ex" style="background:linear-gradient(160deg,#1e0e08,#2a1400);">
-            <svg width="22" height="44" viewBox="0 0 60 120" fill="none"><circle cx="30" cy="12" r="11" fill="rgba(255,94,0,0.4)"/><path d="M4 28 L14 21 L21 27 Q21 22 30 22 Q39 22 39 27 L46 21 L56 28 L53 55 L43 50 L43 88 L17 88 L17 50 L7 55Z" fill="rgba(255,94,0,0.3)"/></svg>
-            <div class="mf-ex-label">Верх</div>
-          </div>
-          <div class="mf-ex" style="background:linear-gradient(160deg,#180e20,#261430);">
-            <svg width="22" height="52" viewBox="0 0 52 128" fill="none"><circle cx="26" cy="10" r="10" fill="rgba(180,100,220,0.5)"/><path d="M4 26 Q4 20 12 19 L40 19 Q48 20 48 26 L52 80 Q26 98 0 80Z" fill="rgba(160,80,200,0.3)"/><path d="M0 80 L0 126 L52 126 L52 80Z" fill="rgba(160,80,200,0.22)"/></svg>
-            <div class="mf-ex-label">Абая</div>
-          </div>
-          <div class="mf-ex" style="background:linear-gradient(160deg,#1e0e12,#2d1220);">
-            <svg width="22" height="52" viewBox="0 0 52 128" fill="none"><circle cx="26" cy="10" r="10" fill="rgba(220,100,160,0.5)"/><path d="M4 26 Q4 20 12 19 L40 19 Q48 20 48 26 L52 80 Q26 98 0 80Z" fill="rgba(200,80,150,0.3)"/><path d="M0 80 L0 126 L12 126 L26 104 L40 126 L52 126 L52 80Z" fill="rgba(200,80,150,0.22)"/></svg>
-            <div class="mf-ex-label">Платье</div>
-          </div>
-        </div>
-        <div class="mf-cta">
-          <a href="index.html#contact" class="btn-primary" style="width:100%;justify-content:center;padding:13px;">
-            Выбрать Зару
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-      </div>
-    </div>
-
-  </div><!-- /model-full-grid -->
-
-  <!-- CTA STRIP -->
-  <div class="cta-strip">
-    <h2>Не нашли подходящую модель?</h2>
-    <p>Расскажите о задаче — подберём оптимальный вариант под ваш товар и аудиторию</p>
-    <a href="index.html#contact" class="btn-primary" style="padding:14px 36px;font-size:16px;">
-      Обсудить задачу
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-    </a>
-  </div>
-
-</div><!-- /padding-top -->
-
-
-<footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-main">
-      <div class="footer-brand">
-        <a href="index.html" class="logo-link" aria-label="Mode(gen) — главная">
-      <img src="logo.svg" alt="Mode(gen)" class="logo-svg">
-    </a>
-        <p>AI-фотосессии для маркетплейсов — без студии и фотографа</p>
-        <div class="footer-socials">
-          <a href="#" class="social-link">✈</a>
-          <a href="#" class="social-link">◻</a>
-          <a href="mailto:smimilen@gmail.com" class="social-link">@</a>
-        </div>
-      </div>
-      <nav class="footer-nav">
-        <div class="fn-col"><h4>Навигация</h4>
-          <a href="index.html">Главная</a>
-          <a href="portfolio.html">Портфолио</a>
-          <a href="models.html">Наши модели</a>
-          <a href="index.html#contact">Оставить заявку</a>
-        </div>
-        <div class="fn-col"><h4>Услуги</h4>
-          <span>Одежда на модели</span>
-          <span>Пакшот</span>
-          <span>Лукбук</span>
-        </div>
-        <div class="fn-col"><h4>Контакты</h4>
-          <a href="mailto:smimilen@gmail.com">smimilen@gmail.com</a>
-          <a href="index.html#contact">Написать в Telegram</a>
-        </div>
-      </nav>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2025 Mode(gen)</span>
-      <span>Сделано с ♥ и AI</span>
-    </div>
-  </div>
 </footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="js/main.js"></script>
-<script>
-// Models filter
-document.querySelectorAll('.filter-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    const cat = btn.dataset.filter;
-    document.querySelectorAll('.mf-card').forEach((card, i) => {
-      const show = cat === 'all' || card.dataset.filter === cat;
-      card.style.display = show ? '' : 'none';
-      if (show && typeof gsap !== 'undefined') {
-        gsap.from(card, { opacity:0, y:20, duration:0.45, delay:i*0.08, ease:'power2.out' });
-      }
-    });
-  });
-});
-
-window.addEventListener('load', () => {
-  if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.from('.page-hero h1', { opacity:0, y:30, duration:0.8, ease:'power3.out', delay:0.2 });
-    gsap.from('.page-hero p', { opacity:0, y:20, duration:0.7, ease:'power2.out', delay:0.4 });
-    gsap.from('.mf-card', {
-      scrollTrigger:{ trigger:'.model-full-grid', start:'top 80%', once:true },
-      opacity:0, y:40, stagger:0.18, duration:0.75, ease:'power3.out',
-    });
-    gsap.from('.msb-item', {
-      scrollTrigger:{ trigger:'.model-stats-bar', start:'top 85%', once:true },
-      opacity:0, y:20, stagger:0.1, duration:0.6, ease:'power2.out',
-    });
-  }
-});
-</script>
-
 </body>
 </html>
