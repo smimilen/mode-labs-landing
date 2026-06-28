@@ -3140,3 +3140,13 @@ section#models-preview::after { display: none !important; }
 .cta24-section {
   background: url('../img/cta24-bg.jpg') center center / cover no-repeat !important;
 }
+
+
+/* ── CTA 24Ч background — final correct ── */
+.cta24-section {
+  background-image: url('../img/cta24-bg.jpg') !important;
+  background-size: cover !important;
+  background-position: center 30% !important;
+  background-repeat: no-repeat !important;
+  min-height: 620px !important;
+}
