@@ -200,6 +200,160 @@
   </div>
 </div>
 
+
+<section class="section-alt" id="contact">
+  <div class="section-inner">
+
+    <div class="contact-grid">
+
+      <!-- LEFT: info -->
+      <div class="contact-info-col">
+        <div class="section-eyebrow">Заявка</div>
+        <h2 class="section-title">Давайте<br>обсудим<br>проект</h2>
+        <p class="contact-tagline">
+          Загрузите фото сегодня — завтра получаете готовые
+          карточки для маркетплейса. Берём от 1 позиции.
+        </p>
+
+        <div class="contact-details">
+          <div class="cd-item">
+            <div class="cd-icon">📬</div>
+            <div>
+              <div class="cd-label">Email</div>
+              <div class="cd-val"><a href="mailto:smimilen@gmail.com">smimilen@gmail.com</a></div>
+            </div>
+          </div>
+          <div class="cd-item">
+            <div class="cd-icon">💬</div>
+            <div>
+              <div class="cd-label">Telegram</div>
+              <div class="cd-val"><a href="#">Напишите нам</a></div>
+            </div>
+          </div>
+          <div class="cd-item">
+            <div class="cd-icon">🕐</div>
+            <div>
+              <div class="cd-label">Время ответа</div>
+              <div class="cd-val">В течение 1 часа</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="trust-list">
+          <div class="trust-item">Первый расчёт — бесплатно</div>
+          <div class="trust-item">Работаем от 1 позиции</div>
+          <div class="trust-item">Результат за 24 часа</div>
+          <div class="trust-item">Форматы WB, Ozon, Яндекс готовы</div>
+        </div>
+      </div>
+
+      <!-- RIGHT: form -->
+      <div class="contact-form-col">
+        <div class="form-card">
+
+          <!--
+          ════════════════════════════════════════
+          НАСТРОЙКА ОТПРАВКИ ФОРМЫ (3 шага!)
+          ════════════════════════════════════════
+          1. Перейдите на https://web3forms.com
+          2. Введите email: smimilen@gmail.com
+          3. Нажмите "Get Access Key"
+          4. Скопируйте ключ и вставьте ниже
+             вместо "ВАШ_КЛЮЧ_ЗДЕСЬ"
+          ════════════════════════════════════════
+          -->
+
+          <form id="contact-form" novalidate>
+            <input type="hidden" name="access_key"  value="ВАШ_КЛЮЧ_ЗДЕСЬ">
+            <input type="hidden" name="subject"     value="Новая заявка — Mode(gen)">
+            <input type="hidden" name="from_name"   value="Mode(gen) сайт">
+            <input type="hidden" name="replyto"     value="smimilen@gmail.com">
+            <!-- Защита от спам-ботов -->
+            <input type="checkbox" name="botcheck"  style="display:none" tabindex="-1">
+
+            <div class="form-row">
+              <div class="form-field">
+                <label class="form-label">Ваше имя <span class="req">*</span></label>
+                <input class="form-input" type="text" name="name" placeholder="Как к вам обращаться?" required>
+                <span class="form-err"></span>
+              </div>
+              <div class="form-field">
+                <label class="form-label">Telegram / WhatsApp <span class="req">*</span></label>
+                <input class="form-input" type="text" name="contact" placeholder="@username или +7 999..." required>
+                <span class="form-err"></span>
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label class="form-label">Email <span class="opt">(необязательно)</span></label>
+              <input class="form-input" type="email" name="email" placeholder="для отправки результатов">
+            </div>
+
+            <div class="form-field">
+              <label class="form-label">Услуга <span class="req">*</span></label>
+              <div class="service-select">
+                <label class="ss-opt">
+                  <input type="radio" name="service" value="Одежда на модели">
+                  <div class="ss-opt-inner"><span class="ss-emoji">👗</span>Одежда<br>на модели</div>
+                </label>
+                <label class="ss-opt">
+                  <input type="radio" name="service" value="Пакшот и Лукбук">
+                  <div class="ss-opt-inner"><span class="ss-emoji">📦</span>Пакшот<br>&amp; Лукбук</div>
+                </label>
+                <label class="ss-opt">
+                  <input type="radio" name="service" value="Всё сразу">
+                  <div class="ss-opt-inner"><span class="ss-emoji">✨</span>Всё<br>сразу</div>
+                </label>
+              </div>
+              <span class="form-err service-err"></span>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label class="form-label">Маркетплейс</label>
+                <div class="market-select">
+                  <label class="ms-opt"><input type="checkbox" name="marketplace" value="WB"><div class="ms-opt-inner">WB</div></label>
+                  <label class="ms-opt"><input type="checkbox" name="marketplace" value="Ozon"><div class="ms-opt-inner">Ozon</div></label>
+                  <label class="ms-opt"><input type="checkbox" name="marketplace" value="Яндекс"><div class="ms-opt-inner">Яндекс</div></label>
+                  <label class="ms-opt"><input type="checkbox" name="marketplace" value="Другой"><div class="ms-opt-inner">Другой</div></label>
+                </div>
+              </div>
+              <div class="form-field">
+                <label class="form-label">Кол-во позиций</label>
+                <input class="form-input" type="number" name="quantity" placeholder="Например: 30" min="1">
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label class="form-label">Комментарий <span class="opt">(необязательно)</span></label>
+              <textarea class="form-textarea" name="message" placeholder="Расскажите подробнее о вашем товаре и задаче..." rows="3"></textarea>
+            </div>
+
+            <button type="submit" class="form-submit" id="formSubmit">
+              <span class="btn-text">Отправить заявку</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </form>
+
+          <!-- Success state -->
+          <div class="form-success" id="formSuccess">
+            <div class="fs-icon">✓</div>
+            <div class="fs-title">Заявка отправлена!</div>
+            <div class="fs-sub">
+              Мы получили вашу заявку и ответим<br>
+              в течение <strong>1 часа</strong> в рабочее время.<br>
+              Ответ придёт в Telegram или на Email.
+            </div>
+            <a href="portfolio.html" class="btn-ghost" style="margin-top:8px;">Смотреть портфолио →</a>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <footer class="footer-new">
 
   <!-- Background -->
@@ -261,5 +415,35 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="js/main.js"></script>
+
+<script>
+// Pre-fill model from localStorage or URL param
+(function() {
+  function fillModel() {
+    var model = localStorage.getItem('selectedModel');
+    if (!model) {
+      var params = new URLSearchParams(window.location.search);
+      model = params.get('model');
+    }
+    if (model) {
+      var banner = document.getElementById('model-banner');
+      var name   = document.getElementById('model-banner-name');
+      var field  = document.getElementById('field-model');
+      if (banner) { banner.style.display = 'block'; }
+      if (name)   { name.textContent = model; }
+      if (field)  { field.value = model; }
+    }
+  }
+  window.addEventListener('load', fillModel);
+})();
+function clearModel(e) {
+  e.preventDefault();
+  localStorage.removeItem('selectedModel');
+  var b = document.getElementById('model-banner');
+  var f = document.getElementById('field-model');
+  if (b) b.style.display='none';
+  if (f) f.value='';
+}
+</script>
 </body>
 </html>
