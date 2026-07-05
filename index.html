@@ -596,67 +596,108 @@
 
       <!-- LEFT -->
       <div class="contact-info-col">
-        <div class="section-eyebrow">Бесплатный тест</div>
-        <h2 class="section-title">Оставьте контакт —<br>пришлём 1 фото<br><span style="color:var(--or)">бесплатно</span></h2>
+        <div class="section-eyebrow">Заявка</div>
+        <h2 class="section-title">Давайте<br>обсудим<br>проект</h2>
         <p class="contact-tagline">
-          Загрузите любое фото товара — мы сделаем одну тестовую генерацию на AI-модели и пришлём результат. Без оплаты, без обязательств.
+          Оставьте контакт — мы сделаем вам<br>
+          <strong style="color:var(--or)">1 тестовое фото бесплатно</strong>
         </p>
         <div class="contact-details">
-          <div class="cd-item"><div class="cd-icon">📬</div><div><div class="cd-label">Email</div><div class="cd-val"><a href="mailto:smimilen@gmail.com">smimilen@gmail.com</a></div></div></div>
-          <div class="cd-item"><div class="cd-icon">💬</div><div><div class="cd-label">Telegram</div><div class="cd-val"><a href="https://t.me/milenasmi" target="_blank">@milenasmi</a></div></div></div>
+          <div class="cd-item">
+            <div class="cd-icon">📬</div>
+            <div>
+              <div class="cd-label">Email</div>
+              <div class="cd-val"><a href="mailto:smimilen@gmail.com">smimilen@gmail.com</a></div>
+            </div>
+          </div>
+          <div class="cd-item">
+            <div class="cd-icon">💬</div>
+            <div>
+              <div class="cd-label">Telegram</div>
+              <div class="cd-val"><a href="https://t.me/milenasmi" target="_blank">@milenasmi</a></div>
+            </div>
+          </div>
+          <div class="cd-item">
+            <div class="cd-icon">🕐</div>
+            <div>
+              <div class="cd-label">Время ответа</div>
+              <div class="cd-val">В течение 1 часа</div>
+            </div>
+          </div>
         </div>
         <div class="trust-list">
           <div class="trust-item">1 тестовое фото — бесплатно</div>
           <div class="trust-item">Ответим в течение 1 часа</div>
-          <div class="trust-item">Без кредитной карты</div>
+          <div class="trust-item">Работаем от 1 позиции</div>
+          <div class="trust-item">Результат за 24 часа</div>
         </div>
       </div>
 
-      <!-- RIGHT: simplified form -->
+      <!-- RIGHT: простая форма -->
       <div class="contact-form-col">
         <div class="form-card">
 
-          <div id="formSuccess" class="form-success" style="display:none;">
-            <div class="fs-icon">✓</div>
-            <div class="fs-title">Заявка отправлена!</div>
-            <div class="fs-sub">Ответим в течение 1 часа — пришлём ваше тестовое фото.</div>
+          <div style="margin-bottom:24px;">
+            <h3 style="font-family:-apple-system,sans-serif;font-size:20px;font-weight:600;color:var(--tx);margin-bottom:6px;">
+              Получите тестовое фото
+            </h3>
+            <p style="font-family:Inter,sans-serif;font-size:14px;color:var(--mu);">
+              Оставьте контакт — пришлём результат в течение 24 часов
+            </p>
           </div>
 
-          <form id="contact-form" novalidate>
-
-            <p style="font-family:Inter,sans-serif;font-size:14px;color:var(--mu);margin-bottom:24px;line-height:1.6;">
-              Оставьте любой способ связи — телефон, Telegram или email. Мы свяжемся и пришлём <strong style="color:var(--tx)">1 бесплатное тестовое фото</strong> вашего товара на AI-модели.
-            </p>
+          <!-- FormSubmit.co — works without API keys -->
+          <form id="contact-form" action="https://formsubmit.co/smimilen@gmail.com" method="POST" novalidate>
+            <!-- FormSubmit settings -->
+            <input type="hidden" name="_subject"  value="Новая заявка — Mode(gen) 🔥">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha"  value="false">
+            <input type="hidden" name="_next"     value="https://modegen.ru/?sent=1">
+            <input type="text"   name="_honey"    style="display:none">
 
             <div class="form-field">
-              <label class="form-label">Ваше имя <span class="req">*</span></label>
-              <input class="form-input" type="text" name="name" id="f-name"
-                     placeholder="Как к вам обращаться?" required>
-              <span class="form-err" id="err-name"></span>
+              <label class="form-label">Ваше имя</label>
+              <input class="form-input" type="text" name="name"
+                     placeholder="Как к вам обращаться?">
             </div>
 
             <div class="form-field">
-              <label class="form-label">Телефон, Telegram или Email <span class="req">*</span></label>
-              <input class="form-input" type="text" name="contact" id="f-contact"
-                     placeholder="+7 999... или @username или email" required>
-              <span class="form-err" id="err-contact"></span>
+              <label class="form-label">
+                Телефон / Email / Telegram <span class="req">*</span>
+              </label>
+              <input class="form-input" type="text" name="contact" id="contact-field"
+                     placeholder="+7 999... или @username или email@..." required>
+              <span class="form-err" id="contact-err"></span>
             </div>
 
             <div class="form-field">
-              <label class="form-label">Что продаёте? <span class="opt">(необязательно)</span></label>
-              <input class="form-input" type="text" name="product"
-                     placeholder="Например: женские платья, обувь, куртки...">
+              <label class="form-label">Что хотите снять? <span class="opt">(необязательно)</span></label>
+              <textarea class="form-textarea" name="message" rows="3"
+                        placeholder="Опишите товар, маркетплейс, количество позиций..."></textarea>
             </div>
 
             <button type="submit" class="form-submit" id="formSubmit">
-              <span class="btn-text">Получить бесплатное фото →</span>
+              <span class="btn-text">Получить тестовое фото бесплатно</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </button>
 
-            <p style="font-family:Inter,sans-serif;font-size:11px;color:var(--dim);text-align:center;margin-top:12px;">
-              Нажимая кнопку, вы соглашаетесь на обратную связь от Mode(gen)
+            <p style="text-align:center;font-size:12px;color:var(--dim);margin-top:12px;">
+              Нажимая кнопку, вы соглашаетесь на обработку персональных данных
             </p>
-
           </form>
+
+          <!-- Success (shown when ?sent=1 in URL) -->
+          <div class="form-success" id="formSuccess">
+            <div class="fs-icon">✓</div>
+            <div class="fs-title">Заявка отправлена!</div>
+            <div class="fs-sub">
+              Мы получили вашу заявку и свяжемся<br>
+              в течение <strong>1 часа</strong>.<br>
+              Тестовое фото — в течение 24 часов.
+            </div>
+            <a href="portfolio.html" class="btn-ghost" style="margin-top:8px;">Смотреть портфолио →</a>
+          </div>
+
         </div>
       </div>
 
@@ -845,6 +886,33 @@ function clearModel(e) {
     });
   });
 })();
+</script>
+
+<script>
+// Show success if redirected back after form submit
+if (window.location.search.includes('sent=1')) {
+  var form = document.getElementById('contact-form');
+  var success = document.getElementById('formSuccess');
+  if (form) form.style.display = 'none';
+  if (success) success.style.display = 'flex';
+  // Scroll to contact section
+  var s = document.getElementById('contact');
+  if (s) setTimeout(function(){ s.scrollIntoView({behavior:'smooth'}); }, 300);
+}
+// Simple validation
+var f = document.getElementById('contact-form');
+if (f) f.addEventListener('submit', function(e) {
+  var v = document.getElementById('contact-field');
+  var err = document.getElementById('contact-err');
+  if (v && !v.value.trim()) {
+    e.preventDefault();
+    if (err) err.textContent = 'Укажите контакт для связи';
+    v.classList.add('error');
+    return;
+  }
+  var btn = document.getElementById('formSubmit');
+  if (btn) { btn.classList.add('loading'); btn.querySelector('.btn-text').textContent = 'Отправляем...'; }
+});
 </script>
 </body>
 </html>
