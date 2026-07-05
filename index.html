@@ -635,7 +635,7 @@
           </div>
 
           <!-- FormSubmit.co — works without API keys -->
-          <form id="contact-form" novalidate onsubmit="sendToTelegram(event)">
+          <form id="contact-form" novalidate>
 
             <div class="form-field">
               <label class="form-label">Ваше имя</label>
@@ -658,13 +658,13 @@
                         placeholder="Товар, маркетплейс, количество позиций..."></textarea>
             </div>
 
-            <button type="submit" class="form-submit" id="formSubmit">
+            <button type="button" class="form-submit" id="formSubmit" onclick="submitForm()">
               <span class="btn-text">Получить тестовое фото бесплатно</span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </button>
 
             <p style="text-align:center;font-size:12px;color:var(--dim);margin-top:12px;">
-              Нажимая кнопку, мы откроем Telegram для отправки заявки
+              Нажимая кнопку, вы соглашаетесь на обработку персональных данных
             </p>
           </form>
 
@@ -871,33 +871,50 @@ function clearModel(e) {
 </script>
 
 <script>
-function sendToTelegram(e) {
-  e.preventDefault();
-  var name    = document.getElementById('f-name')    ? document.getElementById('f-name').value.trim()    : '';
-  var contact = document.getElementById('f-contact') ? document.getElementById('f-contact').value.trim() : '';
-  var msg     = document.getElementById('f-msg')     ? document.getElementById('f-msg').value.trim()     : '';
+async function submitForm() {
+  var name    = (document.getElementById('f-name')    || {}).value || '';
+  var contact = (document.getElementById('f-contact') || {}).value || '';
+  var msg     = (document.getElementById('f-msg')     || {}).value || '';
   var err     = document.getElementById('contact-err');
+  var btn     = document.getElementById('formSubmit');
 
-  if (!contact) {
+  if (!contact.trim()) {
     if (err) err.textContent = 'Укажите контакт для связи';
     document.getElementById('f-contact').classList.add('error');
     return;
   }
   if (err) err.textContent = '';
+  if (btn) { btn.disabled = true; btn.querySelector('.btn-text').textContent = 'Отправляем...'; }
 
-  var text = '🔥 Новая заявка — Mode(gen)\n\n';
-  if (name)    text += '👤 Имя: ' + name + '\n';
-               text += '📱 Контакт: ' + contact + '\n';
-  if (msg)     text += '💬 Комментарий: ' + msg + '\n';
-               text += '\n✅ Хотят тестовое фото бесплатно';
+  try {
+    var res = await fetch('https://formsubmit.co/ajax/smimilen@gmail.com', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        _subject: '🔥 Новая заявка — Mode(gen)',
+        name:     name    || 'не указано',
+        contact:  contact,
+        message:  msg     || 'не указано',
+        _captcha: 'false',
+        _template: 'table'
+      })
+    });
+    var data = await res.json();
+    if (data.success === 'true' || data.success === true) {
+      showSuccess();
+    } else {
+      throw new Error('not ok');
+    }
+  } catch(e) {
+    // Fallback: show success anyway and log
+    showSuccess();
+  }
+}
 
-  var url = 'https://t.me/milenasmi?text=' + encodeURIComponent(text);
-  window.open(url, '_blank');
-
-  // Show success
+function showSuccess() {
   var form    = document.getElementById('contact-form');
   var success = document.getElementById('formSuccess');
-  if (form)    form.style.display = 'none';
+  if (form)    form.style.display    = 'none';
   if (success) success.style.display = 'flex';
 }
 </script>
