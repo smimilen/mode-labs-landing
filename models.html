@@ -58,7 +58,32 @@ body{font-family:Inter,-apple-system,sans-serif;background:#0D0603;color:#F0EBE3
          padding:8px 18px;border-radius:30px;background:var(--or);
          color:#fff;font-size:12px;font-weight:600;text-decoration:none}
 
-/* RESPONSIVE */
+
+/* ── Mobile nav ── */
+.nav-links { display: flex; gap: 28px; }
+.hamburger { display: none; flex-direction: column; gap: 5px; background: none;
+             border: none; cursor: pointer; padding: 4px; }
+.hamburger span { display: block; width: 24px; height: 2px;
+                  background: rgba(240,235,227,.85); border-radius: 2px; transition: .3s; }
+.mobile-menu { display: none; position: fixed; top: var(--nav-h); left: 0; right: 0;
+               background: rgba(13,6,3,.97); backdrop-filter: blur(16px);
+               padding: 16px 24px 24px; z-index: 99; flex-direction: column; gap: 4px;
+               border-bottom: 1px solid rgba(255,255,255,.1); }
+.mobile-menu.open { display: flex; }
+.mobile-menu a { color: rgba(240,235,227,.8); text-decoration: none; font-size: 16px;
+                 font-weight: 500; padding: 12px 0;
+                 border-bottom: 1px solid rgba(255,255,255,.06); }
+.mobile-menu a:last-child { border-bottom: none; }
+.btn-mobile { background: var(--or); color: #fff !important; text-align: center;
+              border-radius: 30px; padding: 12px 0 !important; margin-top: 8px;
+              font-weight: 600 !important; }
+@media (max-width: 768px) {
+  .nav-links  { display: none !important; }
+  .desktop-only { display: none !important; }
+  .hamburger  { display: flex !important; }
+}
+
+    /* RESPONSIVE */
 @media(max-width:1024px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:700px) {.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}}
 @media(max-width:400px) {.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
@@ -93,15 +118,24 @@ body{font-family:Inter,-apple-system,sans-serif;background:#0D0603;color:#F0EBE3
 </head>
 <body>
 
-<nav class="nav">
+<nav class="nav" id="nav">
   <a href="index.html"><img src="logo.svg" alt="Mode(gen)" class="logo-img"></a>
-  <div class="nav-links">
+  <div class="nav-links" id="navLinks">
     <a href="index.html">Главная</a>
     <a href="portfolio.html">Портфолио</a>
     <a href="models.html" class="active">Наши модели</a>
   </div>
-  <a href="index.html#contact" class="btn-nav">Оставить заявку</a>
+  <a href="index.html#contact" class="btn-nav desktop-only">Оставить заявку</a>
+  <button class="hamburger" id="hamburger" aria-label="Меню">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Главная</a>
+  <a href="portfolio.html">Портфолио</a>
+  <a href="models.html" style="color:#FF6A13">Наши модели</a>
+  <a href="index.html#contact" class="btn-mobile">Оставить заявку</a>
+</div>
 
 <div class="page">
   <div class="inner">
@@ -303,6 +337,21 @@ window.addEventListener('load',function(){
   var m=localStorage.getItem('selectedModel');
   if(m){var b=document.getElementById('model-banner');if(b)b.style.display='block';}
 });
+</script>
+
+<script>
+var hb = document.getElementById('hamburger');
+var mm = document.getElementById('mobileMenu');
+if (hb && mm) {
+  hb.addEventListener('click', function() {
+    mm.classList.toggle('open');
+  });
+  document.addEventListener('click', function(e) {
+    if (!hb.contains(e.target) && !mm.contains(e.target)) {
+      mm.classList.remove('open');
+    }
+  });
+}
 </script>
 </body>
 </html>
