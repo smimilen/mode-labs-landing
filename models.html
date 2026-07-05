@@ -4,97 +4,59 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
   <title>Наши модели — Mode(gen)</title>
-  <meta name="description" content="AI-модели для вашей одежды — женские и мужские, разные фенотипы и размеры."/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Nunito:wght@300;400;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="css/style.css"/>
   <style>
-    .model-full-grid {
-      display: grid; grid-template-columns: repeat(2, 1fr);
-      gap: 24px; max-width: 1260px; margin: 44px auto 0; padding: 0 32px 80px;
+    /* ── Models grid — ID beats !important class rules ── */
+    #models-grid {
+      display: grid !important;
+      grid-template-columns: repeat(4, 1fr) !important;
+      gap: 14px;
+      margin-top: 40px;
     }
-    @media(max-width:900px){ .model-full-grid{ grid-template-columns:1fr; } }
-    @media(max-width:600px){ .model-full-grid{ padding:0 16px 60px; } }
-
-    .mf-card {
-      display: grid; grid-template-columns: 280px 1fr;
-      border: 1px solid var(--bd); border-radius: 20px; overflow: hidden;
-      transition: border-color .3s, transform .3s;
+    @media (max-width: 1024px) {
+      #models-grid { grid-template-columns: repeat(3, 1fr) !important; }
     }
-    .mf-card:hover { border-color: rgba(255,94,0,0.4); transform: translateY(-3px); }
-
-    .mf-photo {
-      position: relative; display: flex; align-items: center; justify-content: center;
-      min-height: 380px;
+    @media (max-width: 700px) {
+      #models-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px; }
     }
-    .mf-photo-grad { position: absolute; inset: 0; }
-    .mf-type-pill {
-      position: absolute; top: 18px; left: 18px; z-index: 2;
-      font-size: 10px; font-weight: 800; letter-spacing: 0.1em;
-      text-transform: uppercase; background: var(--or); color: #fff;
-      padding: 5px 12px; border-radius: 20px;
+    .mc-item {
+      position: relative; border-radius: 14px; overflow: hidden;
+      background: #1A1206; aspect-ratio: 3/4;
     }
-    .mf-photo svg { position: relative; z-index: 1; }
-
-    .mf-info { padding: 32px 28px; display: flex; flex-direction: column; gap: 0; }
-    .mf-name { font-size: 32px; font-weight: 900; letter-spacing: -0.02em; margin-bottom: 6px; }
-    .mf-subtitle { font-size: 13px; color: var(--or); font-weight: 700; margin-bottom: 18px; }
-
-    .mf-params {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 22px;
+    .mc-item img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
     }
-    .mf-param {
-      background: var(--sf2); border: 1px solid var(--bd); border-radius: 10px;
-      padding: 10px 14px;
+    .mc-badge {
+      position: absolute; top: 12px; left: 50%; transform: translateX(-50%);
+      background: #FF6A13; color: #fff; font-family: Inter, sans-serif;
+      font-size: 11px; font-weight: 600; padding: 4px 12px;
+      border-radius: 20px; z-index: 4; white-space: nowrap;
     }
-    .mf-param-label { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--dim); margin-bottom: 4px; }
-    .mf-param-val   { font-size: 15px; font-weight: 800; }
-
-    .mf-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 22px; }
-    .mf-tag  {
-      font-size: 12px; font-weight: 600; color: var(--mu);
-      border: 1px solid var(--bd); padding: 5px 12px; border-radius: 20px;
-      transition: all .18s;
+    .mc-info {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 48px 14px 14px;
+      background: linear-gradient(to top, rgba(0,0,0,.88), transparent);
+      z-index: 3;
     }
-    .mf-tag:hover { border-color: rgba(255,94,0,0.4); color: var(--or); }
-
-    .mf-examples { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; margin-bottom: 24px; }
-    .mf-ex {
-      aspect-ratio: 3/4; border-radius: 10px; overflow: hidden;
-      display: flex; align-items: center; justify-content: center;
-      border: 1px solid var(--bd); position: relative;
-    }
-    .mf-ex-label {
-      position: absolute; bottom: 6px; left: 50%; transform: translateX(-50%);
-      font-size: 9px; font-weight: 700; color: rgba(255,255,255,0.6);
-      white-space: nowrap;
-    }
-
-    .mf-cta { margin-top: auto; }
-
-    /* Stat bar */
-    .model-stats-bar {
-      display: flex; gap: 0; border-top: 1px solid var(--bd); border-bottom: 1px solid var(--bd);
-      max-width: 1260px; margin: 0 auto; padding: 0 32px;
-    }
-    .msb-item {
-      flex: 1; padding: 28px 20px; text-align: center; border-right: 1px solid var(--bd);
-    }
-    .msb-item:last-child { border-right: none; }
-    .msb-n { font-size: 28px; font-weight: 900; color: var(--or); }
-    .msb-l { font-size: 12px; color: var(--mu); margin-top: 5px; }
-
-    @media(max-width:900px){
-      .mf-card { grid-template-columns: 1fr; }
-      .mf-photo { min-height: 260px; }
-      .model-stats-bar { flex-wrap: wrap; }
-      .msb-item { flex: 0 0 50%; border-right: 1px solid var(--bd); }
-      .msb-item:nth-child(2) { border-right: none; }
-    }
+    .mc-cat  { font-family: Inter,sans-serif; font-size: 9px; font-weight: 500;
+                letter-spacing: .07em; text-transform: uppercase;
+                color: rgba(255,255,255,.45); margin-bottom: 3px; }
+    .mc-name { font-family: -apple-system,BlinkMacSystemFont,"SF Pro Display",sans-serif;
+                font-size: 18px; font-weight: 500; text-transform: uppercase;
+                letter-spacing: -.01em; color: #fff; margin-bottom: 2px; }
+    .mc-size { font-family: Inter,sans-serif; font-size: 11px;
+                color: rgba(255,255,255,.45); margin-bottom: 12px; }
+    .mc-btn  { display: inline-flex; align-items: center; gap: 4px;
+                padding: 8px 18px; border-radius: 30px;
+                background: #FF6A13; color: #fff; font-family: Inter,sans-serif;
+                font-size: 12px; font-weight: 600; text-decoration: none; }
   </style>
 </head>
 <body>
+
 <nav class="nav scrolled" id="nav">
   <div class="nav-inner">
     <a href="index.html" class="logo-link"><img src="logo.svg" alt="Mode(gen)" class="logo-svg"></a>
@@ -115,226 +77,199 @@
 </nav>
 
 <div style="padding-top:var(--nav-h);background:#0D0603;min-height:100vh;">
-  <div class="models-inner" style="padding-top:60px;padding-bottom:80px;">
+  <div style="max-width:1260px;margin:0 auto;padding:60px 24px 80px;">
 
-    <div class="models-head">
-      <div>
-        <div class="models-eyebrow">— МОДЕЛИ</div>
-        <img src="img/cta-text.svg" alt="Наши AI-модели" class="models-title-svg">
-        <p class="models-sub">16 AI-моделей под любую задачу — разные фенотипы, размеры и стили</p>
-      </div>
+    <div style="margin-bottom:40px;">
+      <div class="models-eyebrow">— МОДЕЛИ</div>
+      <img src="img/cta-text.svg" alt="Наши AI-модели" class="models-title-svg">
+      <p class="models-sub">15 AI-моделей под любую задачу — разные фенотипы, размеры и стили</p>
     </div>
 
-    <!-- 4 per row on desktop, 2 on mobile -->
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:40px;" class="models-full-grid-16">
-      <div style="position:relative;border-radius:16px;overflow:hidden;background:#1A1206;">
-        <span style="position:absolute;top:14px;left:50%;transform:translateX(-50%);background:#FF6A13;color:#fff;font-family:Inter,sans-serif;font-size:11px;font-weight:600;padding:5px 14px;border-radius:20px;z-index:5;white-space:nowrap;">Доступна</span>
-        <img src="img/model2.jpg" alt="Кирра" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;">
-        <div style="position:absolute;bottom:0;left:0;right:0;padding:70px 20px 20px;background:linear-gradient(to top,rgba(0,0,0,0.9),transparent);z-index:3;">
-          <div style="font-family:Inter,sans-serif;font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:5px;">ЖЕНСКАЯ · АЗИАТСКАЯ</div>
-          <div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;font-size:22px;font-weight:500;text-transform:uppercase;letter-spacing:-.01em;color:#fff;margin-bottom:3px;">Кирра</div>
-          <div style="font-family:Inter,sans-serif;font-size:12px;color:rgba(255,255,255,.5);margin-bottom:16px;">172 см · Размер XS/S</div>
-          <a href="index.html#contact?model=Кирра" onclick="localStorage.setItem('selectedModel','Кирра')"
-             style="display:inline-flex;align-items:center;gap:6px;padding:10px 22px;border-radius:30px;background:#FF6A13;color:#fff;font-family:Inter,sans-serif;font-size:13px;font-weight:600;text-decoration:none;">
-            Выбрать →
-          </a>
+    <div id="models-grid">
+        <div class="mc-item">
+          <span class="mc-badge">Доступна</span>
+          <img src="img/model2.jpg" alt="Кирра">
+          <div class="mc-info">
+            <div class="mc-cat">ЖЕНСКАЯ · АЗИАТСКАЯ</div>
+            <div class="mc-name">Кирра</div>
+            <div class="mc-size">172 см · Размер XS/S</div>
+            <a href="index.html#contact?model=Кирра"
+               onclick="localStorage.setItem('selectedModel','Кирра')"
+               class="mc-btn">Выбрать →</a>
+          </div>
         </div>
-      </div>
-      <div style="position:relative;border-radius:16px;overflow:hidden;background:#1A1206;">
-        <span style="position:absolute;top:14px;left:50%;transform:translateX(-50%);background:#FF6A13;color:#fff;font-family:Inter,sans-serif;font-size:11px;font-weight:600;padding:5px 14px;border-radius:20px;z-index:5;white-space:nowrap;">Доступна</span>
-        <img src="img/model3.jpg" alt="Марина" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;">
-        <div style="position:absolute;bottom:0;left:0;right:0;padding:70px 20px 20px;background:linear-gradient(to top,rgba(0,0,0,0.9),transparent);z-index:3;">
-          <div style="font-family:Inter,sans-serif;font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:5px;">ЖЕНСКАЯ · ЕВРОПЕЙСКАЯ</div>
-          <div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;font-size:22px;font-weight:500;text-transform:uppercase;letter-spacing:-.01em;color:#fff;margin-bottom:3px;">Марина</div>
-          <div style="font-family:Inter,sans-serif;font-size:12px;color:rgba(255,255,255,.5);margin-bottom:16px;">172 см · Размер S/M</div>
-          <a href="index.html#contact?model=Марина" onclick="localStorage.setItem('selectedModel','Марина')"
-             style="display:inline-flex;align-items:center;gap:6px;padding:10px 22px;border-radius:30px;background:#FF6A13;color:#fff;font-family:Inter,sans-serif;font-size:13px;font-weight:600;text-decoration:none;">
-            Выбрать →
-          </a>
+        <div class="mc-item">
+          <span class="mc-badge">Доступна</span>
+          <img src="img/model3.jpg" alt="Марина">
+          <div class="mc-info">
+            <div class="mc-cat">ЖЕНСКАЯ · ЕВРОПЕЙСКАЯ</div>
+            <div class="mc-name">Марина</div>
+            <div class="mc-size">172 см · Размер S/M</div>
+            <a href="index.html#contact?model=Марина"
+               onclick="localStorage.setItem('selectedModel','Марина')"
+               class="mc-btn">Выбрать →</a>
+          </div>
         </div>
-      </div>
-      <div style="position:relative;border-radius:16px;overflow:hidden;background:#1A1206;">
-        <span style="position:absolute;top:14px;left:50%;transform:translateX(-50%);background:#FF6A13;color:#fff;font-family:Inter,sans-serif;font-size:11px;font-weight:600;padding:5px 14px;border-radius:20px;z-index:5;white-space:nowrap;">Доступна</span>
-        <img src="img/model4.jpg" alt="Зара" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;">
-        <div style="position:absolute;bottom:0;left:0;right:0;padding:70px 20px 20px;background:linear-gradient(to top,rgba(0,0,0,0.9),transparent);z-index:3;">
-          <div style="font-family:Inter,sans-serif;font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:5px;">ЖЕНСКАЯ · БЛИЖНИЙ ВОСТОК</div>
-          <div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;font-size:22px;font-weight:500;text-transform:uppercase;letter-spacing:-.01em;color:#fff;margin-bottom:3px;">Зара</div>
-          <div style="font-family:Inter,sans-serif;font-size:12px;color:rgba(255,255,255,.5);margin-bottom:16px;">168 см · Размер M</div>
-          <a href="index.html#contact?model=Зара" onclick="localStorage.setItem('selectedModel','Зара')"
-             style="display:inline-flex;align-items:center;gap:6px;padding:10px 22px;border-radius:30px;background:#FF6A13;color:#fff;font-family:Inter,sans-serif;font-size:13px;font-weight:600;text-decoration:none;">
-            Выбрать →
-          </a>
+        <div class="mc-item">
+          <span class="mc-badge">Доступна</span>
+          <img src="img/model4.jpg" alt="Зара">
+          <div class="mc-info">
+            <div class="mc-cat">ЖЕНСКАЯ · БЛИЖНИЙ ВОСТОК</div>
+            <div class="mc-name">Зара</div>
+            <div class="mc-size">168 см · Размер M</div>
+            <a href="index.html#contact?model=Зара"
+               onclick="localStorage.setItem('selectedModel','Зара')"
+               class="mc-btn">Выбрать →</a>
+          </div>
         </div>
-      </div>
-      <div style="position:relative;border-radius:16px;overflow:hidden;background:#1A1206;">
-        <span style="position:absolute;top:14px;left:50%;transform:translateX(-50%);background:#FF6A13;color:#fff;font-family:Inter,sans-serif;font-size:11px;font-weight:600;padding:5px 14px;border-radius:20px;z-index:5;white-space:nowrap;">Доступна</span>
-        <img src="img/model5.jpg" alt="Нова" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;">
-        <div style="position:absolute;bottom:0;left:0;right:0;padding:70px 20px 20px;background:linear-gradient(to top,rgba(0,0,0,0.9),transparent);z-index:3;">
-          <div style="font-family:Inter,sans-serif;font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:5px;">ЖЕНСКАЯ · СКАНДИНАВСКАЯ</div>
-          <div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;font-size:22px;font-weight:500;text-transform:uppercase;letter-spacing:-.01em;color:#fff;margin-bottom:3px;">Нова</div>
-          <div style="font-family:Inter,sans-serif;font-size:12px;color:rgba(255,255,255,.5);margin-bottom:16px;">178 см · Размер S</div>
-          <a href="index.html#contact?model=Нова" onclick="localStorage.setItem('selectedModel','Нова')"
-             style="display:inline-flex;align-items:center;gap:6px;padding:10px 22px;border-radius:30px;background:#FF6A13;color:#fff;font-family:Inter,sans-serif;font-size:13px;font-weight:600;text-decoration:none;">
-            Выбрать →
-          </a>
+        <div class="mc-item">
+          <span class="mc-badge">Доступна</span>
+          <img src="img/model5.jpg" alt="Нова">
+          <div class="mc-info">
+            <div class="mc-cat">ЖЕНСКАЯ · СКАНДИНАВСКАЯ</div>
+            <div class="mc-name">Нова</div>
+            <div class="mc-size">178 см · Размер S</div>
+            <a href="index.html#contact?model=Нова"
+               onclick="localStorage.setItem('selectedModel','Нова')"
+               class="mc-btn">Выбрать →</a>
+          </div>
         </div>
-      </div>
-      <div style="position:relative;border-radius:16px;overflow:hidden;background:#1A1206;">
-        <span style="position:absolute;top:14px;left:50%;transform:translateX(-50%);background:#FF6A13;color:#fff;font-family:Inter,sans-serif;font-size:11px;font-weight:600;padding:5px 14px;border-radius:20px;z-index:5;white-space:nowrap;">Доступна</span>
-        <img src="img/model6.jpg" alt="Сэй" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;">
-        <div style="position:absolute;bottom:0;left:0;right:0;padding:70px 20px 20px;background:linear-gradient(to top,rgba(0,0,0,0.9),transparent);z-index:3;">
-          <div style="font-family:Inter,sans-serif;font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:5px;">ЖЕНСКАЯ · ВОСТОЧНАЯ</div>
-          <div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;font-size:22px;font-weight:500;text-transform:uppercase;letter-spacing:-.01em;color:#fff;margin-bottom:3px;">Сэй</div>
-          <div style="font-family:Inter,sans-serif;font-size:12px;color:rgba(255,255,255,.5);margin-bottom:16px;">165 см · Размер XS</div>
-          <a href="index.html#contact?model=Сэй" onclick="localStorage.setItem('selectedModel','Сэй')"
-             style="display:inline-flex;align-items:center;gap:6px;padding:10px 22px;border-radius:30px;background:#FF6A13;color:#fff;font-family:Inter,sans-serif;font-size:13px;font-weight:600;text-decoration:none;">
-            Выбрать →
-          </a>
+        <div class="mc-item">
+          <span class="mc-badge">Доступна</span>
+          <img src="img/model6.jpg" alt="Сэй" loading="lazy">
+          <div class="mc-info">
+            <div class="mc-cat">ЖЕНСКАЯ · ВОСТОЧНАЯ</div>
+            <div class="mc-name">Сэй</div>
+            <div class="mc-size">165 см · Размер XS</div>
+            <a href="index.html#contact?model=Сэй"
+               onclick="localStorage.setItem('selectedModel','Сэй')"
+               class="mc-btn">Выбрать →</a>
+          </div>
         </div>
-      </div>
-      <div style="position:relative;border-radius:16px;overflow:hidden;background:#1A1206;">
-        <span style="position:absolute;top:14px;left:50%;transform:translateX(-50%);background:#FF6A13;color:#fff;font-family:Inter,sans-serif;font-size:11px;font-weight:600;padding:5px 14px;border-radius:20px;z-index:5;white-space:nowrap;">Доступна</span>
-        <img src="img/model7.jpg" alt="Рия" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;">
-        <div style="position:absolute;bottom:0;left:0;right:0;padding:70px 20px 20px;background:linear-gradient(to top,rgba(0,0,0,0.9),transparent);z-index:3;">
-          <div style="font-family:Inter,sans-serif;font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:5px;">ЖЕНСКАЯ · ЮЖНОАЗИАТСКАЯ</div>
-          <div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;font-size:22px;font-weight:500;text-transform:uppercase;letter-spacing:-.01em;color:#fff;margin-bottom:3px;">Рия</div>
-          <div style="font-family:Inter,sans-serif;font-size:12px;color:rgba(255,255,255,.5);margin-bottom:16px;">163 см · Размер XS/S</div>
-          <a href="index.html#contact?model=Рия" onclick="localStorage.setItem('selectedModel','Рия')"
-             style="display:inline-flex;align-items:center;gap:6px;padding:10px 22px;border-radius:30px;background:#FF6A13;color:#fff;font-family:Inter,sans-serif;font-size:13px;font-weight:600;text-decoration:none;">
-            Выбрать →
-          </a>
+        <div class="mc-item">
+          <span class="mc-badge">Доступна</span>
+          <img src="img/model7.jpg" alt="Рия" loading="lazy">
+          <div class="mc-info">
+            <div class="mc-cat">ЖЕНСКАЯ · ЮЖНОАЗИАТСКАЯ</div>
+            <div class="mc-name">Рия</div>
+            <div class="mc-size">163 см · Размер XS/S</div>
+            <a href="index.html#contact?model=Рия"
+               onclick="localStorage.setItem('selectedModel','Рия')"
+               class="mc-btn">Выбрать →</a>
+          </div>
         </div>
-      </div>
-      <div style="position:relative;border-radius:16px;overflow:hidden;background:#1A1206;">
-        <span style="position:absolute;top:14px;left:50%;transform:translateX(-50%);background:#FF6A13;color:#fff;font-family:Inter,sans-serif;font-size:11px;font-weight:600;padding:5px 14px;border-radius:20px;z-index:5;white-space:nowrap;">Доступна</span>
-        <img src="img/model8.jpg" alt="Эмре" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;">
-        <div style="position:absolute;bottom:0;left:0;right:0;padding:70px 20px 20px;background:linear-gradient(to top,rgba(0,0,0,0.9),transparent);z-index:3;">
-          <div style="font-family:Inter,sans-serif;font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:5px;">МУЖСКАЯ · БЛИЖНИЙ ВОСТОК</div>
-          <div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;font-size:22px;font-weight:500;text-transform:uppercase;letter-spacing:-.01em;color:#fff;margin-bottom:3px;">Эмре</div>
-          <div style="font-family:Inter,sans-serif;font-size:12px;color:rgba(255,255,255,.5);margin-bottom:16px;">180 см · Размер M/L</div>
-          <a href="index.html#contact?model=Эмре" onclick="localStorage.setItem('selectedModel','Эмре')"
-             style="display:inline-flex;align-items:center;gap:6px;padding:10px 22px;border-radius:30px;background:#FF6A13;color:#fff;font-family:Inter,sans-serif;font-size:13px;font-weight:600;text-decoration:none;">
-            Выбрать →
-          </a>
+        <div class="mc-item">
+          <span class="mc-badge">Доступна</span>
+          <img src="img/model8.jpg" alt="Эмре" loading="lazy">
+          <div class="mc-info">
+            <div class="mc-cat">МУЖСКАЯ · БЛИЖНИЙ ВОСТОК</div>
+            <div class="mc-name">Эмре</div>
+            <div class="mc-size">180 см · Размер M/L</div>
+            <a href="index.html#contact?model=Эмре"
+               onclick="localStorage.setItem('selectedModel','Эмре')"
+               class="mc-btn">Выбрать →</a>
+          </div>
         </div>
-      </div>
-      <div style="position:relative;border-radius:16px;overflow:hidden;background:#1A1206;">
-        <span style="position:absolute;top:14px;left:50%;transform:translateX(-50%);background:#FF6A13;color:#fff;font-family:Inter,sans-serif;font-size:11px;font-weight:600;padding:5px 14px;border-radius:20px;z-index:5;white-space:nowrap;">Доступна</span>
-        <img src="img/model9.jpg" alt="Лина" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;">
-        <div style="position:absolute;bottom:0;left:0;right:0;padding:70px 20px 20px;background:linear-gradient(to top,rgba(0,0,0,0.9),transparent);z-index:3;">
-          <div style="font-family:Inter,sans-serif;font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:5px;">ЖЕНСКАЯ · ЛАТИНСКАЯ</div>
-          <div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;font-size:22px;font-weight:500;text-transform:uppercase;letter-spacing:-.01em;color:#fff;margin-bottom:3px;">Лина</div>
-          <div style="font-family:Inter,sans-serif;font-size:12px;color:rgba(255,255,255,.5);margin-bottom:16px;">170 см · Размер S/M</div>
-          <a href="index.html#contact?model=Лина" onclick="localStorage.setItem('selectedModel','Лина')"
-             style="display:inline-flex;align-items:center;gap:6px;padding:10px 22px;border-radius:30px;background:#FF6A13;color:#fff;font-family:Inter,sans-serif;font-size:13px;font-weight:600;text-decoration:none;">
-            Выбрать →
-          </a>
+        <div class="mc-item">
+          <span class="mc-badge">Доступна</span>
+          <img src="img/model9.jpg" alt="Лина" loading="lazy">
+          <div class="mc-info">
+            <div class="mc-cat">ЖЕНСКАЯ · ЛАТИНСКАЯ</div>
+            <div class="mc-name">Лина</div>
+            <div class="mc-size">170 см · Размер S/M</div>
+            <a href="index.html#contact?model=Лина"
+               onclick="localStorage.setItem('selectedModel','Лина')"
+               class="mc-btn">Выбрать →</a>
+          </div>
         </div>
-      </div>
-      <div style="position:relative;border-radius:16px;overflow:hidden;background:#1A1206;">
-        <span style="position:absolute;top:14px;left:50%;transform:translateX(-50%);background:#FF6A13;color:#fff;font-family:Inter,sans-serif;font-size:11px;font-weight:600;padding:5px 14px;border-radius:20px;z-index:5;white-space:nowrap;">Доступна</span>
-        <img src="img/model10.jpg" alt="Каора" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;">
-        <div style="position:absolute;bottom:0;left:0;right:0;padding:70px 20px 20px;background:linear-gradient(to top,rgba(0,0,0,0.9),transparent);z-index:3;">
-          <div style="font-family:Inter,sans-serif;font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:5px;">ЖЕНСКАЯ · ЯПОНСКАЯ</div>
-          <div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;font-size:22px;font-weight:500;text-transform:uppercase;letter-spacing:-.01em;color:#fff;margin-bottom:3px;">Каора</div>
-          <div style="font-family:Inter,sans-serif;font-size:12px;color:rgba(255,255,255,.5);margin-bottom:16px;">162 см · Размер XS</div>
-          <a href="index.html#contact?model=Каора" onclick="localStorage.setItem('selectedModel','Каора')"
-             style="display:inline-flex;align-items:center;gap:6px;padding:10px 22px;border-radius:30px;background:#FF6A13;color:#fff;font-family:Inter,sans-serif;font-size:13px;font-weight:600;text-decoration:none;">
-            Выбрать →
-          </a>
+        <div class="mc-item">
+          <span class="mc-badge">Доступна</span>
+          <img src="img/model10.jpg" alt="Каора" loading="lazy">
+          <div class="mc-info">
+            <div class="mc-cat">ЖЕНСКАЯ · ЯПОНСКАЯ</div>
+            <div class="mc-name">Каора</div>
+            <div class="mc-size">162 см · Размер XS</div>
+            <a href="index.html#contact?model=Каора"
+               onclick="localStorage.setItem('selectedModel','Каора')"
+               class="mc-btn">Выбрать →</a>
+          </div>
         </div>
-      </div>
-      <div style="position:relative;border-radius:16px;overflow:hidden;background:#1A1206;">
-        <span style="position:absolute;top:14px;left:50%;transform:translateX(-50%);background:#FF6A13;color:#fff;font-family:Inter,sans-serif;font-size:11px;font-weight:600;padding:5px 14px;border-radius:20px;z-index:5;white-space:nowrap;">Доступна</span>
-        <img src="img/model11.jpg" alt="Диана" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;">
-        <div style="position:absolute;bottom:0;left:0;right:0;padding:70px 20px 20px;background:linear-gradient(to top,rgba(0,0,0,0.9),transparent);z-index:3;">
-          <div style="font-family:Inter,sans-serif;font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:5px;">ЖЕНСКАЯ · ВОСТОЧНОЕВРОП.</div>
-          <div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;font-size:22px;font-weight:500;text-transform:uppercase;letter-spacing:-.01em;color:#fff;margin-bottom:3px;">Диана</div>
-          <div style="font-family:Inter,sans-serif;font-size:12px;color:rgba(255,255,255,.5);margin-bottom:16px;">176 см · Размер S/M</div>
-          <a href="index.html#contact?model=Диана" onclick="localStorage.setItem('selectedModel','Диана')"
-             style="display:inline-flex;align-items:center;gap:6px;padding:10px 22px;border-radius:30px;background:#FF6A13;color:#fff;font-family:Inter,sans-serif;font-size:13px;font-weight:600;text-decoration:none;">
-            Выбрать →
-          </a>
+        <div class="mc-item">
+          <span class="mc-badge">Доступна</span>
+          <img src="img/model11.jpg" alt="Диана" loading="lazy">
+          <div class="mc-info">
+            <div class="mc-cat">ЖЕНСКАЯ · ВОСТОЧНОЕВРОПЕЙСКАЯ</div>
+            <div class="mc-name">Диана</div>
+            <div class="mc-size">176 см · Размер S/M</div>
+            <a href="index.html#contact?model=Диана"
+               onclick="localStorage.setItem('selectedModel','Диана')"
+               class="mc-btn">Выбрать →</a>
+          </div>
         </div>
-      </div>
-      <div style="position:relative;border-radius:16px;overflow:hidden;background:#1A1206;">
-        <span style="position:absolute;top:14px;left:50%;transform:translateX(-50%);background:#FF6A13;color:#fff;font-family:Inter,sans-serif;font-size:11px;font-weight:600;padding:5px 14px;border-radius:20px;z-index:5;white-space:nowrap;">Доступна</span>
-        <img src="img/model12.jpg" alt="Оливия" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;">
-        <div style="position:absolute;bottom:0;left:0;right:0;padding:70px 20px 20px;background:linear-gradient(to top,rgba(0,0,0,0.9),transparent);z-index:3;">
-          <div style="font-family:Inter,sans-serif;font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:5px;">ЖЕНСКАЯ · АНГЛОСАКСОНСКАЯ</div>
-          <div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;font-size:22px;font-weight:500;text-transform:uppercase;letter-spacing:-.01em;color:#fff;margin-bottom:3px;">Оливия</div>
-          <div style="font-family:Inter,sans-serif;font-size:12px;color:rgba(255,255,255,.5);margin-bottom:16px;">174 см · Размер S</div>
-          <a href="index.html#contact?model=Оливия" onclick="localStorage.setItem('selectedModel','Оливия')"
-             style="display:inline-flex;align-items:center;gap:6px;padding:10px 22px;border-radius:30px;background:#FF6A13;color:#fff;font-family:Inter,sans-serif;font-size:13px;font-weight:600;text-decoration:none;">
-            Выбрать →
-          </a>
+        <div class="mc-item">
+          <span class="mc-badge">Доступна</span>
+          <img src="img/model12.jpg" alt="Оливия" loading="lazy">
+          <div class="mc-info">
+            <div class="mc-cat">ЖЕНСКАЯ · АНГЛОСАКСОНСКАЯ</div>
+            <div class="mc-name">Оливия</div>
+            <div class="mc-size">174 см · Размер S</div>
+            <a href="index.html#contact?model=Оливия"
+               onclick="localStorage.setItem('selectedModel','Оливия')"
+               class="mc-btn">Выбрать →</a>
+          </div>
         </div>
-      </div>
-      <div style="position:relative;border-radius:16px;overflow:hidden;background:#1A1206;">
-        <span style="position:absolute;top:14px;left:50%;transform:translateX(-50%);background:#FF6A13;color:#fff;font-family:Inter,sans-serif;font-size:11px;font-weight:600;padding:5px 14px;border-radius:20px;z-index:5;white-space:nowrap;">Доступна</span>
-        <img src="img/model13.jpg" alt="Марко" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;">
-        <div style="position:absolute;bottom:0;left:0;right:0;padding:70px 20px 20px;background:linear-gradient(to top,rgba(0,0,0,0.9),transparent);z-index:3;">
-          <div style="font-family:Inter,sans-serif;font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:5px;">МУЖСКАЯ · ЕВРОПЕЙСКАЯ</div>
-          <div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;font-size:22px;font-weight:500;text-transform:uppercase;letter-spacing:-.01em;color:#fff;margin-bottom:3px;">Марко</div>
-          <div style="font-family:Inter,sans-serif;font-size:12px;color:rgba(255,255,255,.5);margin-bottom:16px;">182 см · Размер M/L</div>
-          <a href="index.html#contact?model=Марко" onclick="localStorage.setItem('selectedModel','Марко')"
-             style="display:inline-flex;align-items:center;gap:6px;padding:10px 22px;border-radius:30px;background:#FF6A13;color:#fff;font-family:Inter,sans-serif;font-size:13px;font-weight:600;text-decoration:none;">
-            Выбрать →
-          </a>
+        <div class="mc-item">
+          <span class="mc-badge">Доступна</span>
+          <img src="img/model13.jpg" alt="Марко" loading="lazy">
+          <div class="mc-info">
+            <div class="mc-cat">МУЖСКАЯ · ЕВРОПЕЙСКАЯ</div>
+            <div class="mc-name">Марко</div>
+            <div class="mc-size">182 см · Размер M/L</div>
+            <a href="index.html#contact?model=Марко"
+               onclick="localStorage.setItem('selectedModel','Марко')"
+               class="mc-btn">Выбрать →</a>
+          </div>
         </div>
-      </div>
-      <div style="position:relative;border-radius:16px;overflow:hidden;background:#1A1206;">
-        <span style="position:absolute;top:14px;left:50%;transform:translateX(-50%);background:#FF6A13;color:#fff;font-family:Inter,sans-serif;font-size:11px;font-weight:600;padding:5px 14px;border-radius:20px;z-index:5;white-space:nowrap;">Доступна</span>
-        <img src="img/model14.jpg" alt="Джина" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;">
-        <div style="position:absolute;bottom:0;left:0;right:0;padding:70px 20px 20px;background:linear-gradient(to top,rgba(0,0,0,0.9),transparent);z-index:3;">
-          <div style="font-family:Inter,sans-serif;font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:5px;">ЖЕНСКАЯ · АФРОАМЕРИК.</div>
-          <div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;font-size:22px;font-weight:500;text-transform:uppercase;letter-spacing:-.01em;color:#fff;margin-bottom:3px;">Джина</div>
-          <div style="font-family:Inter,sans-serif;font-size:12px;color:rgba(255,255,255,.5);margin-bottom:16px;">171 см · Размер S/M</div>
-          <a href="index.html#contact?model=Джина" onclick="localStorage.setItem('selectedModel','Джина')"
-             style="display:inline-flex;align-items:center;gap:6px;padding:10px 22px;border-radius:30px;background:#FF6A13;color:#fff;font-family:Inter,sans-serif;font-size:13px;font-weight:600;text-decoration:none;">
-            Выбрать →
-          </a>
+        <div class="mc-item">
+          <span class="mc-badge">Доступна</span>
+          <img src="img/model14.jpg" alt="Джина" loading="lazy">
+          <div class="mc-info">
+            <div class="mc-cat">ЖЕНСКАЯ · АФРОАМЕРИКАНСКАЯ</div>
+            <div class="mc-name">Джина</div>
+            <div class="mc-size">171 см · Размер S/M</div>
+            <a href="index.html#contact?model=Джина"
+               onclick="localStorage.setItem('selectedModel','Джина')"
+               class="mc-btn">Выбрать →</a>
+          </div>
         </div>
-      </div>
-      <div style="position:relative;border-radius:16px;overflow:hidden;background:#1A1206;">
-        <span style="position:absolute;top:14px;left:50%;transform:translateX(-50%);background:#FF6A13;color:#fff;font-family:Inter,sans-serif;font-size:11px;font-weight:600;padding:5px 14px;border-radius:20px;z-index:5;white-space:nowrap;">Доступна</span>
-        <img src="img/model15.jpg" alt="Алина" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;">
-        <div style="position:absolute;bottom:0;left:0;right:0;padding:70px 20px 20px;background:linear-gradient(to top,rgba(0,0,0,0.9),transparent);z-index:3;">
-          <div style="font-family:Inter,sans-serif;font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:5px;">ЖЕНСКАЯ · SLAVIC</div>
-          <div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;font-size:22px;font-weight:500;text-transform:uppercase;letter-spacing:-.01em;color:#fff;margin-bottom:3px;">Алина</div>
-          <div style="font-family:Inter,sans-serif;font-size:12px;color:rgba(255,255,255,.5);margin-bottom:16px;">173 см · Размер S</div>
-          <a href="index.html#contact?model=Алина" onclick="localStorage.setItem('selectedModel','Алина')"
-             style="display:inline-flex;align-items:center;gap:6px;padding:10px 22px;border-radius:30px;background:#FF6A13;color:#fff;font-family:Inter,sans-serif;font-size:13px;font-weight:600;text-decoration:none;">
-            Выбрать →
-          </a>
+        <div class="mc-item">
+          <span class="mc-badge">Доступна</span>
+          <img src="img/model15.jpg" alt="Алина" loading="lazy">
+          <div class="mc-info">
+            <div class="mc-cat">ЖЕНСКАЯ · СЛАВЯНСКАЯ</div>
+            <div class="mc-name">Алина</div>
+            <div class="mc-size">173 см · Размер S</div>
+            <a href="index.html#contact?model=Алина"
+               onclick="localStorage.setItem('selectedModel','Алина')"
+               class="mc-btn">Выбрать →</a>
+          </div>
         </div>
-      </div>
-      <div style="position:relative;border-radius:16px;overflow:hidden;background:#1A1206;">
-        <span style="position:absolute;top:14px;left:50%;transform:translateX(-50%);background:#FF6A13;color:#fff;font-family:Inter,sans-serif;font-size:11px;font-weight:600;padding:5px 14px;border-radius:20px;z-index:5;white-space:nowrap;">Доступна</span>
-        <img src="img/model16.jpg" alt="Кай" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;">
-        <div style="position:absolute;bottom:0;left:0;right:0;padding:70px 20px 20px;background:linear-gradient(to top,rgba(0,0,0,0.9),transparent);z-index:3;">
-          <div style="font-family:Inter,sans-serif;font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:5px;">МУЖСКАЯ · АЗИАТСКАЯ</div>
-          <div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;font-size:22px;font-weight:500;text-transform:uppercase;letter-spacing:-.01em;color:#fff;margin-bottom:3px;">Кай</div>
-          <div style="font-family:Inter,sans-serif;font-size:12px;color:rgba(255,255,255,.5);margin-bottom:16px;">177 см · Размер M</div>
-          <a href="index.html#contact?model=Кай" onclick="localStorage.setItem('selectedModel','Кай')"
-             style="display:inline-flex;align-items:center;gap:6px;padding:10px 22px;border-radius:30px;background:#FF6A13;color:#fff;font-family:Inter,sans-serif;font-size:13px;font-weight:600;text-decoration:none;">
-            Выбрать →
-          </a>
+        <div class="mc-item">
+          <span class="mc-badge">Доступна</span>
+          <img src="img/model16.jpg" alt="Кай" loading="lazy">
+          <div class="mc-info">
+            <div class="mc-cat">МУЖСКАЯ · АЗИАТСКАЯ</div>
+            <div class="mc-name">Кай</div>
+            <div class="mc-size">177 см · Размер M</div>
+            <a href="index.html#contact?model=Кай"
+               onclick="localStorage.setItem('selectedModel','Кай')"
+               class="mc-btn">Выбрать →</a>
+          </div>
         </div>
-      </div>
     </div>
 
   </div>
 </div>
-
-<style>
-@media(max-width:900px){
-  .models-full-grid-16{grid-template-columns:repeat(2,1fr)!important;}
-}
-@media(max-width:500px){
-  .models-full-grid-16{grid-template-columns:1fr 1fr!important;gap:8px!important;}
-}
-</style>
 
 <footer class="footer-new">
 
@@ -394,8 +329,7 @@
 
 </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="js/main.js" defer></script>
 </body>
 </html>
