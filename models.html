@@ -121,77 +121,217 @@
       <div>
         <div class="models-eyebrow">— МОДЕЛИ</div>
         <img src="img/cta-text.svg" alt="Наши AI-модели" class="models-title-svg">
-        <p class="models-sub">Выберите модель под ваш товар и аудиторию маркетплейса</p>
+        <p class="models-sub">16 AI-моделей под любую задачу — разные фенотипы, размеры и стили</p>
       </div>
     </div>
 
-    <!-- 2 per row grid -->
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px;">
+    <!-- 4 per row on desktop, 2 on mobile -->
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:40px;" class="models-full-grid-16">
       <div style="position:relative;border-radius:16px;overflow:hidden;background:#1A1206;">
-        <!-- Badge доступна -->
         <span style="position:absolute;top:14px;left:50%;transform:translateX(-50%);background:#FF6A13;color:#fff;font-family:Inter,sans-serif;font-size:11px;font-weight:600;padding:5px 14px;border-radius:20px;z-index:5;white-space:nowrap;">Доступна</span>
-        <!-- Photo -->
         <img src="img/model1.jpg" alt="Аяна" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;">
-        <!-- Overlay info -->
-        <div style="position:absolute;bottom:0;left:0;right:0;padding:70px 20px 20px;background:linear-gradient(to top,rgba(0,0,0,0.9) 0%,transparent 100%);z-index:3;">
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:70px 20px 20px;background:linear-gradient(to top,rgba(0,0,0,0.9),transparent);z-index:3;">
           <div style="font-family:Inter,sans-serif;font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:5px;">ЖЕНСКАЯ · ЕВРОПЕЙСКАЯ</div>
           <div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;font-size:22px;font-weight:500;text-transform:uppercase;letter-spacing:-.01em;color:#fff;margin-bottom:3px;">Аяна</div>
           <div style="font-family:Inter,sans-serif;font-size:12px;color:rgba(255,255,255,.5);margin-bottom:16px;">175 см · Размер S/M</div>
-          <a href="index.html#contact?model=Аяна"
-             onclick="localStorage.setItem('selectedModel','Аяна')"
+          <a href="index.html#contact?model=Аяна" onclick="localStorage.setItem('selectedModel','Аяна')"
              style="display:inline-flex;align-items:center;gap:6px;padding:10px 22px;border-radius:30px;background:#FF6A13;color:#fff;font-family:Inter,sans-serif;font-size:13px;font-weight:600;text-decoration:none;">
-            Выбрать Аяна →
+            Выбрать →
           </a>
         </div>
       </div>
       <div style="position:relative;border-radius:16px;overflow:hidden;background:#1A1206;">
-        <!-- Badge доступна -->
         <span style="position:absolute;top:14px;left:50%;transform:translateX(-50%);background:#FF6A13;color:#fff;font-family:Inter,sans-serif;font-size:11px;font-weight:600;padding:5px 14px;border-radius:20px;z-index:5;white-space:nowrap;">Доступна</span>
-        <!-- Photo -->
         <img src="img/model2.jpg" alt="Кирра" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;">
-        <!-- Overlay info -->
-        <div style="position:absolute;bottom:0;left:0;right:0;padding:70px 20px 20px;background:linear-gradient(to top,rgba(0,0,0,0.9) 0%,transparent 100%);z-index:3;">
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:70px 20px 20px;background:linear-gradient(to top,rgba(0,0,0,0.9),transparent);z-index:3;">
           <div style="font-family:Inter,sans-serif;font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:5px;">ЖЕНСКАЯ · АЗИАТСКАЯ</div>
           <div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;font-size:22px;font-weight:500;text-transform:uppercase;letter-spacing:-.01em;color:#fff;margin-bottom:3px;">Кирра</div>
           <div style="font-family:Inter,sans-serif;font-size:12px;color:rgba(255,255,255,.5);margin-bottom:16px;">172 см · Размер XS/S</div>
-          <a href="index.html#contact?model=Кирра"
-             onclick="localStorage.setItem('selectedModel','Кирра')"
+          <a href="index.html#contact?model=Кирра" onclick="localStorage.setItem('selectedModel','Кирра')"
              style="display:inline-flex;align-items:center;gap:6px;padding:10px 22px;border-radius:30px;background:#FF6A13;color:#fff;font-family:Inter,sans-serif;font-size:13px;font-weight:600;text-decoration:none;">
-            Выбрать Кирра →
+            Выбрать →
           </a>
         </div>
       </div>
       <div style="position:relative;border-radius:16px;overflow:hidden;background:#1A1206;">
-        <!-- Badge доступна -->
         <span style="position:absolute;top:14px;left:50%;transform:translateX(-50%);background:#FF6A13;color:#fff;font-family:Inter,sans-serif;font-size:11px;font-weight:600;padding:5px 14px;border-radius:20px;z-index:5;white-space:nowrap;">Доступна</span>
-        <!-- Photo -->
         <img src="img/model3.jpg" alt="Марина" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;">
-        <!-- Overlay info -->
-        <div style="position:absolute;bottom:0;left:0;right:0;padding:70px 20px 20px;background:linear-gradient(to top,rgba(0,0,0,0.9) 0%,transparent 100%);z-index:3;">
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:70px 20px 20px;background:linear-gradient(to top,rgba(0,0,0,0.9),transparent);z-index:3;">
           <div style="font-family:Inter,sans-serif;font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:5px;">ЖЕНСКАЯ · ЕВРОПЕЙСКАЯ</div>
           <div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;font-size:22px;font-weight:500;text-transform:uppercase;letter-spacing:-.01em;color:#fff;margin-bottom:3px;">Марина</div>
           <div style="font-family:Inter,sans-serif;font-size:12px;color:rgba(255,255,255,.5);margin-bottom:16px;">172 см · Размер S/M</div>
-          <a href="index.html#contact?model=Марина"
-             onclick="localStorage.setItem('selectedModel','Марина')"
+          <a href="index.html#contact?model=Марина" onclick="localStorage.setItem('selectedModel','Марина')"
              style="display:inline-flex;align-items:center;gap:6px;padding:10px 22px;border-radius:30px;background:#FF6A13;color:#fff;font-family:Inter,sans-serif;font-size:13px;font-weight:600;text-decoration:none;">
-            Выбрать Марина →
+            Выбрать →
           </a>
         </div>
       </div>
       <div style="position:relative;border-radius:16px;overflow:hidden;background:#1A1206;">
-        <!-- Badge доступна -->
         <span style="position:absolute;top:14px;left:50%;transform:translateX(-50%);background:#FF6A13;color:#fff;font-family:Inter,sans-serif;font-size:11px;font-weight:600;padding:5px 14px;border-radius:20px;z-index:5;white-space:nowrap;">Доступна</span>
-        <!-- Photo -->
         <img src="img/model4.jpg" alt="Зара" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;">
-        <!-- Overlay info -->
-        <div style="position:absolute;bottom:0;left:0;right:0;padding:70px 20px 20px;background:linear-gradient(to top,rgba(0,0,0,0.9) 0%,transparent 100%);z-index:3;">
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:70px 20px 20px;background:linear-gradient(to top,rgba(0,0,0,0.9),transparent);z-index:3;">
           <div style="font-family:Inter,sans-serif;font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:5px;">ЖЕНСКАЯ · БЛИЖНИЙ ВОСТОК</div>
           <div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;font-size:22px;font-weight:500;text-transform:uppercase;letter-spacing:-.01em;color:#fff;margin-bottom:3px;">Зара</div>
           <div style="font-family:Inter,sans-serif;font-size:12px;color:rgba(255,255,255,.5);margin-bottom:16px;">168 см · Размер M</div>
-          <a href="index.html#contact?model=Зара"
-             onclick="localStorage.setItem('selectedModel','Зара')"
+          <a href="index.html#contact?model=Зара" onclick="localStorage.setItem('selectedModel','Зара')"
              style="display:inline-flex;align-items:center;gap:6px;padding:10px 22px;border-radius:30px;background:#FF6A13;color:#fff;font-family:Inter,sans-serif;font-size:13px;font-weight:600;text-decoration:none;">
-            Выбрать Зара →
+            Выбрать →
+          </a>
+        </div>
+      </div>
+      <div style="position:relative;border-radius:16px;overflow:hidden;background:#1A1206;">
+        <span style="position:absolute;top:14px;left:50%;transform:translateX(-50%);background:#FF6A13;color:#fff;font-family:Inter,sans-serif;font-size:11px;font-weight:600;padding:5px 14px;border-radius:20px;z-index:5;white-space:nowrap;">Доступна</span>
+        <img src="img/model5.jpg" alt="Нова" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;">
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:70px 20px 20px;background:linear-gradient(to top,rgba(0,0,0,0.9),transparent);z-index:3;">
+          <div style="font-family:Inter,sans-serif;font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:5px;">ЖЕНСКАЯ · СКАНДИНАВСКАЯ</div>
+          <div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;font-size:22px;font-weight:500;text-transform:uppercase;letter-spacing:-.01em;color:#fff;margin-bottom:3px;">Нова</div>
+          <div style="font-family:Inter,sans-serif;font-size:12px;color:rgba(255,255,255,.5);margin-bottom:16px;">178 см · Размер S</div>
+          <a href="index.html#contact?model=Нова" onclick="localStorage.setItem('selectedModel','Нова')"
+             style="display:inline-flex;align-items:center;gap:6px;padding:10px 22px;border-radius:30px;background:#FF6A13;color:#fff;font-family:Inter,sans-serif;font-size:13px;font-weight:600;text-decoration:none;">
+            Выбрать →
+          </a>
+        </div>
+      </div>
+      <div style="position:relative;border-radius:16px;overflow:hidden;background:#1A1206;">
+        <span style="position:absolute;top:14px;left:50%;transform:translateX(-50%);background:#FF6A13;color:#fff;font-family:Inter,sans-serif;font-size:11px;font-weight:600;padding:5px 14px;border-radius:20px;z-index:5;white-space:nowrap;">Доступна</span>
+        <img src="img/model6.jpg" alt="Сэй" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;">
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:70px 20px 20px;background:linear-gradient(to top,rgba(0,0,0,0.9),transparent);z-index:3;">
+          <div style="font-family:Inter,sans-serif;font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:5px;">ЖЕНСКАЯ · ВОСТОЧНАЯ</div>
+          <div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;font-size:22px;font-weight:500;text-transform:uppercase;letter-spacing:-.01em;color:#fff;margin-bottom:3px;">Сэй</div>
+          <div style="font-family:Inter,sans-serif;font-size:12px;color:rgba(255,255,255,.5);margin-bottom:16px;">165 см · Размер XS</div>
+          <a href="index.html#contact?model=Сэй" onclick="localStorage.setItem('selectedModel','Сэй')"
+             style="display:inline-flex;align-items:center;gap:6px;padding:10px 22px;border-radius:30px;background:#FF6A13;color:#fff;font-family:Inter,sans-serif;font-size:13px;font-weight:600;text-decoration:none;">
+            Выбрать →
+          </a>
+        </div>
+      </div>
+      <div style="position:relative;border-radius:16px;overflow:hidden;background:#1A1206;">
+        <span style="position:absolute;top:14px;left:50%;transform:translateX(-50%);background:#FF6A13;color:#fff;font-family:Inter,sans-serif;font-size:11px;font-weight:600;padding:5px 14px;border-radius:20px;z-index:5;white-space:nowrap;">Доступна</span>
+        <img src="img/model7.jpg" alt="Рия" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;">
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:70px 20px 20px;background:linear-gradient(to top,rgba(0,0,0,0.9),transparent);z-index:3;">
+          <div style="font-family:Inter,sans-serif;font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:5px;">ЖЕНСКАЯ · ЮЖНОАЗИАТСКАЯ</div>
+          <div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;font-size:22px;font-weight:500;text-transform:uppercase;letter-spacing:-.01em;color:#fff;margin-bottom:3px;">Рия</div>
+          <div style="font-family:Inter,sans-serif;font-size:12px;color:rgba(255,255,255,.5);margin-bottom:16px;">163 см · Размер XS/S</div>
+          <a href="index.html#contact?model=Рия" onclick="localStorage.setItem('selectedModel','Рия')"
+             style="display:inline-flex;align-items:center;gap:6px;padding:10px 22px;border-radius:30px;background:#FF6A13;color:#fff;font-family:Inter,sans-serif;font-size:13px;font-weight:600;text-decoration:none;">
+            Выбрать →
+          </a>
+        </div>
+      </div>
+      <div style="position:relative;border-radius:16px;overflow:hidden;background:#1A1206;">
+        <span style="position:absolute;top:14px;left:50%;transform:translateX(-50%);background:#FF6A13;color:#fff;font-family:Inter,sans-serif;font-size:11px;font-weight:600;padding:5px 14px;border-radius:20px;z-index:5;white-space:nowrap;">Доступна</span>
+        <img src="img/model8.jpg" alt="Эмре" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;">
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:70px 20px 20px;background:linear-gradient(to top,rgba(0,0,0,0.9),transparent);z-index:3;">
+          <div style="font-family:Inter,sans-serif;font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:5px;">МУЖСКАЯ · БЛИЖНИЙ ВОСТОК</div>
+          <div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;font-size:22px;font-weight:500;text-transform:uppercase;letter-spacing:-.01em;color:#fff;margin-bottom:3px;">Эмре</div>
+          <div style="font-family:Inter,sans-serif;font-size:12px;color:rgba(255,255,255,.5);margin-bottom:16px;">180 см · Размер M/L</div>
+          <a href="index.html#contact?model=Эмре" onclick="localStorage.setItem('selectedModel','Эмре')"
+             style="display:inline-flex;align-items:center;gap:6px;padding:10px 22px;border-radius:30px;background:#FF6A13;color:#fff;font-family:Inter,sans-serif;font-size:13px;font-weight:600;text-decoration:none;">
+            Выбрать →
+          </a>
+        </div>
+      </div>
+      <div style="position:relative;border-radius:16px;overflow:hidden;background:#1A1206;">
+        <span style="position:absolute;top:14px;left:50%;transform:translateX(-50%);background:#FF6A13;color:#fff;font-family:Inter,sans-serif;font-size:11px;font-weight:600;padding:5px 14px;border-radius:20px;z-index:5;white-space:nowrap;">Доступна</span>
+        <img src="img/model9.jpg" alt="Лина" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;">
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:70px 20px 20px;background:linear-gradient(to top,rgba(0,0,0,0.9),transparent);z-index:3;">
+          <div style="font-family:Inter,sans-serif;font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:5px;">ЖЕНСКАЯ · ЛАТИНСКАЯ</div>
+          <div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;font-size:22px;font-weight:500;text-transform:uppercase;letter-spacing:-.01em;color:#fff;margin-bottom:3px;">Лина</div>
+          <div style="font-family:Inter,sans-serif;font-size:12px;color:rgba(255,255,255,.5);margin-bottom:16px;">170 см · Размер S/M</div>
+          <a href="index.html#contact?model=Лина" onclick="localStorage.setItem('selectedModel','Лина')"
+             style="display:inline-flex;align-items:center;gap:6px;padding:10px 22px;border-radius:30px;background:#FF6A13;color:#fff;font-family:Inter,sans-serif;font-size:13px;font-weight:600;text-decoration:none;">
+            Выбрать →
+          </a>
+        </div>
+      </div>
+      <div style="position:relative;border-radius:16px;overflow:hidden;background:#1A1206;">
+        <span style="position:absolute;top:14px;left:50%;transform:translateX(-50%);background:#FF6A13;color:#fff;font-family:Inter,sans-serif;font-size:11px;font-weight:600;padding:5px 14px;border-radius:20px;z-index:5;white-space:nowrap;">Доступна</span>
+        <img src="img/model10.jpg" alt="Каора" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;">
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:70px 20px 20px;background:linear-gradient(to top,rgba(0,0,0,0.9),transparent);z-index:3;">
+          <div style="font-family:Inter,sans-serif;font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:5px;">ЖЕНСКАЯ · ЯПОНСКАЯ</div>
+          <div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;font-size:22px;font-weight:500;text-transform:uppercase;letter-spacing:-.01em;color:#fff;margin-bottom:3px;">Каора</div>
+          <div style="font-family:Inter,sans-serif;font-size:12px;color:rgba(255,255,255,.5);margin-bottom:16px;">162 см · Размер XS</div>
+          <a href="index.html#contact?model=Каора" onclick="localStorage.setItem('selectedModel','Каора')"
+             style="display:inline-flex;align-items:center;gap:6px;padding:10px 22px;border-radius:30px;background:#FF6A13;color:#fff;font-family:Inter,sans-serif;font-size:13px;font-weight:600;text-decoration:none;">
+            Выбрать →
+          </a>
+        </div>
+      </div>
+      <div style="position:relative;border-radius:16px;overflow:hidden;background:#1A1206;">
+        <span style="position:absolute;top:14px;left:50%;transform:translateX(-50%);background:#FF6A13;color:#fff;font-family:Inter,sans-serif;font-size:11px;font-weight:600;padding:5px 14px;border-radius:20px;z-index:5;white-space:nowrap;">Доступна</span>
+        <img src="img/model11.jpg" alt="Диана" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;">
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:70px 20px 20px;background:linear-gradient(to top,rgba(0,0,0,0.9),transparent);z-index:3;">
+          <div style="font-family:Inter,sans-serif;font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:5px;">ЖЕНСКАЯ · ВОСТОЧНОЕВРОП.</div>
+          <div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;font-size:22px;font-weight:500;text-transform:uppercase;letter-spacing:-.01em;color:#fff;margin-bottom:3px;">Диана</div>
+          <div style="font-family:Inter,sans-serif;font-size:12px;color:rgba(255,255,255,.5);margin-bottom:16px;">176 см · Размер S/M</div>
+          <a href="index.html#contact?model=Диана" onclick="localStorage.setItem('selectedModel','Диана')"
+             style="display:inline-flex;align-items:center;gap:6px;padding:10px 22px;border-radius:30px;background:#FF6A13;color:#fff;font-family:Inter,sans-serif;font-size:13px;font-weight:600;text-decoration:none;">
+            Выбрать →
+          </a>
+        </div>
+      </div>
+      <div style="position:relative;border-radius:16px;overflow:hidden;background:#1A1206;">
+        <span style="position:absolute;top:14px;left:50%;transform:translateX(-50%);background:#FF6A13;color:#fff;font-family:Inter,sans-serif;font-size:11px;font-weight:600;padding:5px 14px;border-radius:20px;z-index:5;white-space:nowrap;">Доступна</span>
+        <img src="img/model12.jpg" alt="Оливия" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;">
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:70px 20px 20px;background:linear-gradient(to top,rgba(0,0,0,0.9),transparent);z-index:3;">
+          <div style="font-family:Inter,sans-serif;font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:5px;">ЖЕНСКАЯ · АНГЛОСАКСОНСКАЯ</div>
+          <div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;font-size:22px;font-weight:500;text-transform:uppercase;letter-spacing:-.01em;color:#fff;margin-bottom:3px;">Оливия</div>
+          <div style="font-family:Inter,sans-serif;font-size:12px;color:rgba(255,255,255,.5);margin-bottom:16px;">174 см · Размер S</div>
+          <a href="index.html#contact?model=Оливия" onclick="localStorage.setItem('selectedModel','Оливия')"
+             style="display:inline-flex;align-items:center;gap:6px;padding:10px 22px;border-radius:30px;background:#FF6A13;color:#fff;font-family:Inter,sans-serif;font-size:13px;font-weight:600;text-decoration:none;">
+            Выбрать →
+          </a>
+        </div>
+      </div>
+      <div style="position:relative;border-radius:16px;overflow:hidden;background:#1A1206;">
+        <span style="position:absolute;top:14px;left:50%;transform:translateX(-50%);background:#FF6A13;color:#fff;font-family:Inter,sans-serif;font-size:11px;font-weight:600;padding:5px 14px;border-radius:20px;z-index:5;white-space:nowrap;">Доступна</span>
+        <img src="img/model13.jpg" alt="Марко" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;">
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:70px 20px 20px;background:linear-gradient(to top,rgba(0,0,0,0.9),transparent);z-index:3;">
+          <div style="font-family:Inter,sans-serif;font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:5px;">МУЖСКАЯ · ЕВРОПЕЙСКАЯ</div>
+          <div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;font-size:22px;font-weight:500;text-transform:uppercase;letter-spacing:-.01em;color:#fff;margin-bottom:3px;">Марко</div>
+          <div style="font-family:Inter,sans-serif;font-size:12px;color:rgba(255,255,255,.5);margin-bottom:16px;">182 см · Размер M/L</div>
+          <a href="index.html#contact?model=Марко" onclick="localStorage.setItem('selectedModel','Марко')"
+             style="display:inline-flex;align-items:center;gap:6px;padding:10px 22px;border-radius:30px;background:#FF6A13;color:#fff;font-family:Inter,sans-serif;font-size:13px;font-weight:600;text-decoration:none;">
+            Выбрать →
+          </a>
+        </div>
+      </div>
+      <div style="position:relative;border-radius:16px;overflow:hidden;background:#1A1206;">
+        <span style="position:absolute;top:14px;left:50%;transform:translateX(-50%);background:#FF6A13;color:#fff;font-family:Inter,sans-serif;font-size:11px;font-weight:600;padding:5px 14px;border-radius:20px;z-index:5;white-space:nowrap;">Доступна</span>
+        <img src="img/model14.jpg" alt="Джина" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;">
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:70px 20px 20px;background:linear-gradient(to top,rgba(0,0,0,0.9),transparent);z-index:3;">
+          <div style="font-family:Inter,sans-serif;font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:5px;">ЖЕНСКАЯ · АФРОАМЕРИК.</div>
+          <div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;font-size:22px;font-weight:500;text-transform:uppercase;letter-spacing:-.01em;color:#fff;margin-bottom:3px;">Джина</div>
+          <div style="font-family:Inter,sans-serif;font-size:12px;color:rgba(255,255,255,.5);margin-bottom:16px;">171 см · Размер S/M</div>
+          <a href="index.html#contact?model=Джина" onclick="localStorage.setItem('selectedModel','Джина')"
+             style="display:inline-flex;align-items:center;gap:6px;padding:10px 22px;border-radius:30px;background:#FF6A13;color:#fff;font-family:Inter,sans-serif;font-size:13px;font-weight:600;text-decoration:none;">
+            Выбрать →
+          </a>
+        </div>
+      </div>
+      <div style="position:relative;border-radius:16px;overflow:hidden;background:#1A1206;">
+        <span style="position:absolute;top:14px;left:50%;transform:translateX(-50%);background:#FF6A13;color:#fff;font-family:Inter,sans-serif;font-size:11px;font-weight:600;padding:5px 14px;border-radius:20px;z-index:5;white-space:nowrap;">Доступна</span>
+        <img src="img/model15.jpg" alt="Алина" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;">
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:70px 20px 20px;background:linear-gradient(to top,rgba(0,0,0,0.9),transparent);z-index:3;">
+          <div style="font-family:Inter,sans-serif;font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:5px;">ЖЕНСКАЯ · SLAVIC</div>
+          <div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;font-size:22px;font-weight:500;text-transform:uppercase;letter-spacing:-.01em;color:#fff;margin-bottom:3px;">Алина</div>
+          <div style="font-family:Inter,sans-serif;font-size:12px;color:rgba(255,255,255,.5);margin-bottom:16px;">173 см · Размер S</div>
+          <a href="index.html#contact?model=Алина" onclick="localStorage.setItem('selectedModel','Алина')"
+             style="display:inline-flex;align-items:center;gap:6px;padding:10px 22px;border-radius:30px;background:#FF6A13;color:#fff;font-family:Inter,sans-serif;font-size:13px;font-weight:600;text-decoration:none;">
+            Выбрать →
+          </a>
+        </div>
+      </div>
+      <div style="position:relative;border-radius:16px;overflow:hidden;background:#1A1206;">
+        <span style="position:absolute;top:14px;left:50%;transform:translateX(-50%);background:#FF6A13;color:#fff;font-family:Inter,sans-serif;font-size:11px;font-weight:600;padding:5px 14px;border-radius:20px;z-index:5;white-space:nowrap;">Доступна</span>
+        <img src="img/model16.jpg" alt="Кай" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;">
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:70px 20px 20px;background:linear-gradient(to top,rgba(0,0,0,0.9),transparent);z-index:3;">
+          <div style="font-family:Inter,sans-serif;font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:5px;">МУЖСКАЯ · АЗИАТСКАЯ</div>
+          <div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;font-size:22px;font-weight:500;text-transform:uppercase;letter-spacing:-.01em;color:#fff;margin-bottom:3px;">Кай</div>
+          <div style="font-family:Inter,sans-serif;font-size:12px;color:rgba(255,255,255,.5);margin-bottom:16px;">177 см · Размер M</div>
+          <a href="index.html#contact?model=Кай" onclick="localStorage.setItem('selectedModel','Кай')"
+             style="display:inline-flex;align-items:center;gap:6px;padding:10px 22px;border-radius:30px;background:#FF6A13;color:#fff;font-family:Inter,sans-serif;font-size:13px;font-weight:600;text-decoration:none;">
+            Выбрать →
           </a>
         </div>
       </div>
@@ -200,159 +340,14 @@
   </div>
 </div>
 
-
-<section class="section-alt" id="contact">
-  <div class="section-inner">
-
-    <div class="contact-grid">
-
-      <!-- LEFT: info -->
-      <div class="contact-info-col">
-        <div class="section-eyebrow">Заявка</div>
-        <h2 class="section-title">Давайте<br>обсудим<br>проект</h2>
-        <p class="contact-tagline">
-          Загрузите фото сегодня — завтра получаете готовые
-          карточки для маркетплейса. Берём от 1 позиции.
-        </p>
-
-        <div class="contact-details">
-          <div class="cd-item">
-            <div class="cd-icon">📬</div>
-            <div>
-              <div class="cd-label">Email</div>
-              <div class="cd-val"><a href="mailto:smimilen@gmail.com">smimilen@gmail.com</a></div>
-            </div>
-          </div>
-          <div class="cd-item">
-            <div class="cd-icon">💬</div>
-            <div>
-              <div class="cd-label">Telegram</div>
-              <div class="cd-val"><a href="#">Напишите нам</a></div>
-            </div>
-          </div>
-          <div class="cd-item">
-            <div class="cd-icon">🕐</div>
-            <div>
-              <div class="cd-label">Время ответа</div>
-              <div class="cd-val">В течение 1 часа</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="trust-list">
-          <div class="trust-item">Первый расчёт — бесплатно</div>
-          <div class="trust-item">Работаем от 1 позиции</div>
-          <div class="trust-item">Результат за 24 часа</div>
-          <div class="trust-item">Форматы WB, Ozon, Яндекс готовы</div>
-        </div>
-      </div>
-
-      <!-- RIGHT: form -->
-      <div class="contact-form-col">
-        <div class="form-card">
-
-          <!--
-          ════════════════════════════════════════
-          НАСТРОЙКА ОТПРАВКИ ФОРМЫ (3 шага!)
-          ════════════════════════════════════════
-          1. Перейдите на https://web3forms.com
-          2. Введите email: smimilen@gmail.com
-          3. Нажмите "Get Access Key"
-          4. Скопируйте ключ и вставьте ниже
-             вместо "ВАШ_КЛЮЧ_ЗДЕСЬ"
-          ════════════════════════════════════════
-          -->
-
-          <form id="contact-form" novalidate>
-            <input type="hidden" name="access_key"  value="ВАШ_КЛЮЧ_ЗДЕСЬ">
-            <input type="hidden" name="subject"     value="Новая заявка — Mode(gen)">
-            <input type="hidden" name="from_name"   value="Mode(gen) сайт">
-            <input type="hidden" name="replyto"     value="smimilen@gmail.com">
-            <!-- Защита от спам-ботов -->
-            <input type="checkbox" name="botcheck"  style="display:none" tabindex="-1">
-
-            <div class="form-row">
-              <div class="form-field">
-                <label class="form-label">Ваше имя <span class="req">*</span></label>
-                <input class="form-input" type="text" name="name" placeholder="Как к вам обращаться?" required>
-                <span class="form-err"></span>
-              </div>
-              <div class="form-field">
-                <label class="form-label">Telegram / WhatsApp <span class="req">*</span></label>
-                <input class="form-input" type="text" name="contact" placeholder="@username или +7 999..." required>
-                <span class="form-err"></span>
-              </div>
-            </div>
-
-            <div class="form-field">
-              <label class="form-label">Email <span class="opt">(необязательно)</span></label>
-              <input class="form-input" type="email" name="email" placeholder="для отправки результатов">
-            </div>
-
-            <div class="form-field">
-              <label class="form-label">Услуга <span class="req">*</span></label>
-              <div class="service-select">
-                <label class="ss-opt">
-                  <input type="radio" name="service" value="Одежда на модели">
-                  <div class="ss-opt-inner"><span class="ss-emoji">👗</span>Одежда<br>на модели</div>
-                </label>
-                <label class="ss-opt">
-                  <input type="radio" name="service" value="Пакшот и Лукбук">
-                  <div class="ss-opt-inner"><span class="ss-emoji">📦</span>Пакшот<br>&amp; Лукбук</div>
-                </label>
-                <label class="ss-opt">
-                  <input type="radio" name="service" value="Всё сразу">
-                  <div class="ss-opt-inner"><span class="ss-emoji">✨</span>Всё<br>сразу</div>
-                </label>
-              </div>
-              <span class="form-err service-err"></span>
-            </div>
-
-            <div class="form-row">
-              <div class="form-field">
-                <label class="form-label">Маркетплейс</label>
-                <div class="market-select">
-                  <label class="ms-opt"><input type="checkbox" name="marketplace" value="WB"><div class="ms-opt-inner">WB</div></label>
-                  <label class="ms-opt"><input type="checkbox" name="marketplace" value="Ozon"><div class="ms-opt-inner">Ozon</div></label>
-                  <label class="ms-opt"><input type="checkbox" name="marketplace" value="Яндекс"><div class="ms-opt-inner">Яндекс</div></label>
-                  <label class="ms-opt"><input type="checkbox" name="marketplace" value="Другой"><div class="ms-opt-inner">Другой</div></label>
-                </div>
-              </div>
-              <div class="form-field">
-                <label class="form-label">Кол-во позиций</label>
-                <input class="form-input" type="number" name="quantity" placeholder="Например: 30" min="1">
-              </div>
-            </div>
-
-            <div class="form-field">
-              <label class="form-label">Комментарий <span class="opt">(необязательно)</span></label>
-              <textarea class="form-textarea" name="message" placeholder="Расскажите подробнее о вашем товаре и задаче..." rows="3"></textarea>
-            </div>
-
-            <button type="submit" class="form-submit" id="formSubmit">
-              <span class="btn-text">Отправить заявку</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </button>
-          </form>
-
-          <!-- Success state -->
-          <div class="form-success" id="formSuccess">
-            <div class="fs-icon">✓</div>
-            <div class="fs-title">Заявка отправлена!</div>
-            <div class="fs-sub">
-              Мы получили вашу заявку и ответим<br>
-              в течение <strong>1 часа</strong> в рабочее время.<br>
-              Ответ придёт в Telegram или на Email.
-            </div>
-            <a href="portfolio.html" class="btn-ghost" style="margin-top:8px;">Смотреть портфолио →</a>
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
+<style>
+@media(max-width:900px){
+  .models-full-grid-16{grid-template-columns:repeat(2,1fr)!important;}
+}
+@media(max-width:500px){
+  .models-full-grid-16{grid-template-columns:1fr 1fr!important;gap:8px!important;}
+}
+</style>
 
 <footer class="footer-new">
 
@@ -415,35 +410,5 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="js/main.js"></script>
-
-<script>
-// Pre-fill model from localStorage or URL param
-(function() {
-  function fillModel() {
-    var model = localStorage.getItem('selectedModel');
-    if (!model) {
-      var params = new URLSearchParams(window.location.search);
-      model = params.get('model');
-    }
-    if (model) {
-      var banner = document.getElementById('model-banner');
-      var name   = document.getElementById('model-banner-name');
-      var field  = document.getElementById('field-model');
-      if (banner) { banner.style.display = 'block'; }
-      if (name)   { name.textContent = model; }
-      if (field)  { field.value = model; }
-    }
-  }
-  window.addEventListener('load', fillModel);
-})();
-function clearModel(e) {
-  e.preventDefault();
-  localStorage.removeItem('selectedModel');
-  var b = document.getElementById('model-banner');
-  var f = document.getElementById('field-model');
-  if (b) b.style.display='none';
-  if (f) f.value='';
-}
-</script>
 </body>
 </html>
