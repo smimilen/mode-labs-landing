@@ -647,17 +647,11 @@
           </div>
 
           <!-- FormSubmit.co — works without API keys -->
-          <form id="contact-form" action="https://formsubmit.co/smimilen@gmail.com" method="POST" novalidate>
-            <!-- FormSubmit settings -->
-            <input type="hidden" name="_subject"  value="Новая заявка — Mode(gen) 🔥">
-            <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_captcha"  value="false">
-            <input type="hidden" name="_next"     value="https://modegen.ru/?sent=1">
-            <input type="text"   name="_honey"    style="display:none">
+          <form id="contact-form" novalidate onsubmit="sendToTelegram(event)">
 
             <div class="form-field">
               <label class="form-label">Ваше имя</label>
-              <input class="form-input" type="text" name="name"
+              <input class="form-input" type="text" id="f-name"
                      placeholder="Как к вам обращаться?">
             </div>
 
@@ -665,15 +659,15 @@
               <label class="form-label">
                 Телефон / Email / Telegram <span class="req">*</span>
               </label>
-              <input class="form-input" type="text" name="contact" id="contact-field"
-                     placeholder="+7 999... или @username или email@..." required>
+              <input class="form-input" type="text" id="f-contact"
+                     placeholder="+7 999... или @username или email@...">
               <span class="form-err" id="contact-err"></span>
             </div>
 
             <div class="form-field">
               <label class="form-label">Что хотите снять? <span class="opt">(необязательно)</span></label>
-              <textarea class="form-textarea" name="message" rows="3"
-                        placeholder="Опишите товар, маркетплейс, количество позиций..."></textarea>
+              <textarea class="form-textarea" id="f-msg" rows="3"
+                        placeholder="Товар, маркетплейс, количество позиций..."></textarea>
             </div>
 
             <button type="submit" class="form-submit" id="formSubmit">
@@ -682,7 +676,7 @@
             </button>
 
             <p style="text-align:center;font-size:12px;color:var(--dim);margin-top:12px;">
-              Нажимая кнопку, вы соглашаетесь на обработку персональных данных
+              Нажимая кнопку, мы откроем Telegram для отправки заявки
             </p>
           </form>
 
@@ -889,30 +883,35 @@ function clearModel(e) {
 </script>
 
 <script>
-// Show success if redirected back after form submit
-if (window.location.search.includes('sent=1')) {
-  var form = document.getElementById('contact-form');
-  var success = document.getElementById('formSuccess');
-  if (form) form.style.display = 'none';
-  if (success) success.style.display = 'flex';
-  // Scroll to contact section
-  var s = document.getElementById('contact');
-  if (s) setTimeout(function(){ s.scrollIntoView({behavior:'smooth'}); }, 300);
-}
-// Simple validation
-var f = document.getElementById('contact-form');
-if (f) f.addEventListener('submit', function(e) {
-  var v = document.getElementById('contact-field');
-  var err = document.getElementById('contact-err');
-  if (v && !v.value.trim()) {
-    e.preventDefault();
+function sendToTelegram(e) {
+  e.preventDefault();
+  var name    = document.getElementById('f-name')    ? document.getElementById('f-name').value.trim()    : '';
+  var contact = document.getElementById('f-contact') ? document.getElementById('f-contact').value.trim() : '';
+  var msg     = document.getElementById('f-msg')     ? document.getElementById('f-msg').value.trim()     : '';
+  var err     = document.getElementById('contact-err');
+
+  if (!contact) {
     if (err) err.textContent = 'Укажите контакт для связи';
-    v.classList.add('error');
+    document.getElementById('f-contact').classList.add('error');
     return;
   }
-  var btn = document.getElementById('formSubmit');
-  if (btn) { btn.classList.add('loading'); btn.querySelector('.btn-text').textContent = 'Отправляем...'; }
-});
+  if (err) err.textContent = '';
+
+  var text = '🔥 Новая заявка — Mode(gen)\n\n';
+  if (name)    text += '👤 Имя: ' + name + '\n';
+               text += '📱 Контакт: ' + contact + '\n';
+  if (msg)     text += '💬 Комментарий: ' + msg + '\n';
+               text += '\n✅ Хотят тестовое фото бесплатно';
+
+  var url = 'https://t.me/milenasmi?text=' + encodeURIComponent(text);
+  window.open(url, '_blank');
+
+  // Show success
+  var form    = document.getElementById('contact-form');
+  var success = document.getElementById('formSuccess');
+  if (form)    form.style.display = 'none';
+  if (success) success.style.display = 'flex';
+}
 </script>
 </body>
 </html>
