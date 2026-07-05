@@ -1,269 +1,263 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>Наши модели — Mode(gen)</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="css/style.css"/>
-  <style>
-    /* ── Models grid — ID beats !important class rules ── */
-    #models-grid {
-      display: grid !important;
-      grid-template-columns: repeat(4, 1fr) !important;
-      gap: 14px;
-      margin-top: 40px;
-    }
-    @media (max-width: 1024px) {
-      #models-grid { grid-template-columns: repeat(3, 1fr) !important; }
-    }
-    @media (max-width: 700px) {
-      #models-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px; }
-    }
-    .mc-item {
-      position: relative; border-radius: 14px; overflow: hidden;
-      background: #1A1206; aspect-ratio: 3/4;
-    }
-    .mc-item img {
-      width: 100%; height: 100%; object-fit: cover; display: block;
-    }
-    .mc-badge {
-      position: absolute; top: 12px; left: 50%; transform: translateX(-50%);
-      background: #FF6A13; color: #fff; font-family: Inter, sans-serif;
-      font-size: 11px; font-weight: 600; padding: 4px 12px;
-      border-radius: 20px; z-index: 4; white-space: nowrap;
-    }
-    .mc-info {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      padding: 48px 14px 14px;
-      background: linear-gradient(to top, rgba(0,0,0,.88), transparent);
-      z-index: 3;
-    }
-    .mc-cat  { font-family: Inter,sans-serif; font-size: 9px; font-weight: 500;
-                letter-spacing: .07em; text-transform: uppercase;
-                color: rgba(255,255,255,.45); margin-bottom: 3px; }
-    .mc-name { font-family: -apple-system,BlinkMacSystemFont,"SF Pro Display",sans-serif;
-                font-size: 18px; font-weight: 500; text-transform: uppercase;
-                letter-spacing: -.01em; color: #fff; margin-bottom: 2px; }
-    .mc-size { font-family: Inter,sans-serif; font-size: 11px;
-                color: rgba(255,255,255,.45); margin-bottom: 12px; }
-    .mc-btn  { display: inline-flex; align-items: center; gap: 4px;
-                padding: 8px 18px; border-radius: 30px;
-                background: #FF6A13; color: #fff; font-family: Inter,sans-serif;
-                font-size: 12px; font-weight: 600; text-decoration: none; }
-  </style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Наши модели — Mode(gen)</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--or:#FF6A13;--nav-h:70px}
+body{font-family:Inter,-apple-system,sans-serif;background:#0D0603;color:#F0EBE3;min-height:100vh}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:rgba(13,6,3,.95);
+      backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.08);
+      display:flex;align-items:center;justify-content:space-between;
+      padding:0 32px;z-index:100}
+.logo-img{height:24px;width:auto;filter:brightness(0) invert(1)}
+.nav-links{display:flex;gap:32px}
+.nav-links a{color:rgba(240,235,227,.7);text-decoration:none;font-size:14px;font-weight:500}
+.nav-links a.active{color:#fff}
+.nav-links a:hover{color:#fff}
+.btn-nav{background:var(--or);color:#fff;padding:10px 22px;border-radius:30px;
+          text-decoration:none;font-size:14px;font-weight:600;white-space:nowrap}
+
+/* PAGE */
+.page{padding-top:var(--nav-h)}
+.inner{max-width:1260px;margin:0 auto;padding:60px 24px 80px}
+
+/* HEADER */
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+          color:var(--or);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.title-img{height:clamp(32px,5vw,52px);width:auto;display:block;margin-bottom:12px}
+.subtitle{font-size:14px;color:rgba(240,235,227,.5);margin-bottom:40px}
+
+/* GRID — 4 columns, no !important conflicts */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:14px;
+}
+
+/* CARD */
+.mc{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:3/4;background:#1A1206}
+.mc img{width:100%;height:100%;object-fit:cover;display:block}
+.mc-badge{position:absolute;top:12px;left:50%;transform:translateX(-50%);
+           background:var(--or);color:#fff;font-size:10px;font-weight:600;
+           padding:4px 12px;border-radius:20px;z-index:4;white-space:nowrap}
+.mc-info{position:absolute;bottom:0;left:0;right:0;
+          padding:50px 14px 14px;
+          background:linear-gradient(to top,rgba(0,0,0,.88),transparent);z-index:3}
+.mc-cat{font-size:9px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;
+         color:rgba(255,255,255,.4);margin-bottom:3px}
+.mc-name{font-size:18px;font-weight:500;text-transform:uppercase;
+          letter-spacing:-.01em;color:#fff;margin-bottom:2px}
+.mc-sz{font-size:11px;color:rgba(255,255,255,.4);margin-bottom:12px}
+.mc-btn{display:inline-flex;align-items:center;gap:4px;
+         padding:8px 18px;border-radius:30px;background:var(--or);
+         color:#fff;font-size:12px;font-weight:600;text-decoration:none}
+
+/* RESPONSIVE */
+@media(max-width:1024px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:700px) {.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}}
+@media(max-width:400px) {.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .nav-links{display:none}
+}
+
+/* FOOTER overrides */
+.footer-new{position:relative;overflow:hidden;background:#1A0800}
+.footer-bg{position:absolute;inset:0;background:url(img/footer-bg.jpg) center/cover no-repeat;z-index:0}
+.footer-tagline-wrap{position:relative;z-index:1;padding:60px 32px 48px;max-width:1260px;margin:0 auto}
+.footer-tagline-img{width:100%;max-width:1196px;height:auto;display:block}
+.footer-content{position:relative;z-index:1;max-width:1260px;margin:0 auto;
+                 padding:40px 32px 48px;
+                 display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;
+                 border-top:1px solid rgba(255,255,255,.12)}
+.footer-logo-img{height:28px;width:auto;display:block;margin-bottom:16px;
+                  filter:brightness(0) invert(1);opacity:.9}
+.footer-tagline-text{font-size:13px;line-height:1.65;color:rgba(255,255,255,.5);margin:0 0 24px}
+.footer-socials-row{display:flex;gap:10px}
+.footer-social-btn{width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.2);
+                    display:flex;align-items:center;justify-content:center}
+.footer-social-btn img{width:18px;height:18px}
+.footer-col-head{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+                  color:rgba(255,255,255,.35);margin-bottom:16px}
+.footer-link{display:block;font-size:14px;color:rgba(255,255,255,.7);
+              text-decoration:none;margin-bottom:10px}
+.footer-link:hover{color:#fff}
+.footer-bottom-bar{position:relative;z-index:1;max-width:1260px;margin:0 auto;
+                    padding:20px 32px 32px;border-top:1px solid rgba(255,255,255,.1);
+                    font-size:12px;color:rgba(255,255,255,.3)}
+</style>
 </head>
 <body>
 
-<nav class="nav scrolled" id="nav">
-  <div class="nav-inner">
-    <a href="index.html" class="logo-link"><img src="logo.svg" alt="Mode(gen)" class="logo-svg"></a>
-    <div class="nav-links">
-      <a href="index.html"     class="nav-link">Главная</a>
-      <a href="portfolio.html" class="nav-link">Портфолио</a>
-      <a href="models.html"    class="nav-link active">Наши модели</a>
-    </div>
-    <a href="index.html#contact" class="btn-nav">Оставить заявку</a>
-    <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
-  </div>
-  <div class="mobile-menu" id="mobileMenu">
+<nav class="nav">
+  <a href="index.html"><img src="logo.svg" alt="Mode(gen)" class="logo-img"></a>
+  <div class="nav-links">
     <a href="index.html">Главная</a>
     <a href="portfolio.html">Портфолио</a>
-    <a href="models.html" style="color:#FF6A13">Наши модели</a>
-    <a href="index.html#contact" class="btn-mobile">Оставить заявку</a>
+    <a href="models.html" class="active">Наши модели</a>
   </div>
+  <a href="index.html#contact" class="btn-nav">Оставить заявку</a>
 </nav>
 
-<div style="padding-top:var(--nav-h);background:#0D0603;min-height:100vh;">
-  <div style="max-width:1260px;margin:0 auto;padding:60px 24px 80px;">
+<div class="page">
+  <div class="inner">
 
-    <div style="margin-bottom:40px;">
-      <div class="models-eyebrow">— МОДЕЛИ</div>
-      <img src="img/cta-text.svg" alt="Наши AI-модели" class="models-title-svg">
-      <p class="models-sub">15 AI-моделей под любую задачу — разные фенотипы, размеры и стили</p>
-    </div>
+    <div class="eyebrow">— МОДЕЛИ</div>
+    <img src="img/cta-text.svg" alt="Наши AI-модели" class="title-img">
+    <p class="subtitle">15 AI-моделей — разные фенотипы, размеры и стили</p>
 
-    <div id="models-grid">
-        <div class="mc-item">
+    <div class="grid">
+      <div class="mc">
           <span class="mc-badge">Доступна</span>
           <img src="img/model2.jpg" alt="Кирра">
           <div class="mc-info">
-            <div class="mc-cat">ЖЕНСКАЯ · АЗИАТСКАЯ</div>
+            <div class="mc-cat">Женская · Азиатская</div>
             <div class="mc-name">Кирра</div>
-            <div class="mc-size">172 см · Размер XS/S</div>
-            <a href="index.html#contact?model=Кирра"
-               onclick="localStorage.setItem('selectedModel','Кирра')"
-               class="mc-btn">Выбрать →</a>
+            <div class="mc-sz">172 см · Размер XS/S</div>
+            <a href="index.html#contact?model=Кирра" onclick="localStorage.setItem('selectedModel','Кирра')" class="mc-btn">Выбрать →</a>
           </div>
         </div>
-        <div class="mc-item">
+        <div class="mc">
           <span class="mc-badge">Доступна</span>
           <img src="img/model3.jpg" alt="Марина">
           <div class="mc-info">
-            <div class="mc-cat">ЖЕНСКАЯ · ЕВРОПЕЙСКАЯ</div>
+            <div class="mc-cat">Женская · Европейская</div>
             <div class="mc-name">Марина</div>
-            <div class="mc-size">172 см · Размер S/M</div>
-            <a href="index.html#contact?model=Марина"
-               onclick="localStorage.setItem('selectedModel','Марина')"
-               class="mc-btn">Выбрать →</a>
+            <div class="mc-sz">172 см · Размер S/M</div>
+            <a href="index.html#contact?model=Марина" onclick="localStorage.setItem('selectedModel','Марина')" class="mc-btn">Выбрать →</a>
           </div>
         </div>
-        <div class="mc-item">
+        <div class="mc">
           <span class="mc-badge">Доступна</span>
           <img src="img/model4.jpg" alt="Зара">
           <div class="mc-info">
-            <div class="mc-cat">ЖЕНСКАЯ · БЛИЖНИЙ ВОСТОК</div>
+            <div class="mc-cat">Женская · Ближний Восток</div>
             <div class="mc-name">Зара</div>
-            <div class="mc-size">168 см · Размер M</div>
-            <a href="index.html#contact?model=Зара"
-               onclick="localStorage.setItem('selectedModel','Зара')"
-               class="mc-btn">Выбрать →</a>
+            <div class="mc-sz">168 см · Размер M</div>
+            <a href="index.html#contact?model=Зара" onclick="localStorage.setItem('selectedModel','Зара')" class="mc-btn">Выбрать →</a>
           </div>
         </div>
-        <div class="mc-item">
+        <div class="mc">
           <span class="mc-badge">Доступна</span>
           <img src="img/model5.jpg" alt="Нова">
           <div class="mc-info">
-            <div class="mc-cat">ЖЕНСКАЯ · СКАНДИНАВСКАЯ</div>
+            <div class="mc-cat">Женская · Скандинавская</div>
             <div class="mc-name">Нова</div>
-            <div class="mc-size">178 см · Размер S</div>
-            <a href="index.html#contact?model=Нова"
-               onclick="localStorage.setItem('selectedModel','Нова')"
-               class="mc-btn">Выбрать →</a>
+            <div class="mc-sz">178 см · Размер S</div>
+            <a href="index.html#contact?model=Нова" onclick="localStorage.setItem('selectedModel','Нова')" class="mc-btn">Выбрать →</a>
           </div>
         </div>
-        <div class="mc-item">
+        <div class="mc">
           <span class="mc-badge">Доступна</span>
           <img src="img/model6.jpg" alt="Сэй" loading="lazy">
           <div class="mc-info">
-            <div class="mc-cat">ЖЕНСКАЯ · ВОСТОЧНАЯ</div>
+            <div class="mc-cat">Женская · Восточная</div>
             <div class="mc-name">Сэй</div>
-            <div class="mc-size">165 см · Размер XS</div>
-            <a href="index.html#contact?model=Сэй"
-               onclick="localStorage.setItem('selectedModel','Сэй')"
-               class="mc-btn">Выбрать →</a>
+            <div class="mc-sz">165 см · Размер XS</div>
+            <a href="index.html#contact?model=Сэй" onclick="localStorage.setItem('selectedModel','Сэй')" class="mc-btn">Выбрать →</a>
           </div>
         </div>
-        <div class="mc-item">
+        <div class="mc">
           <span class="mc-badge">Доступна</span>
           <img src="img/model7.jpg" alt="Рия" loading="lazy">
           <div class="mc-info">
-            <div class="mc-cat">ЖЕНСКАЯ · ЮЖНОАЗИАТСКАЯ</div>
+            <div class="mc-cat">Женская · Южноазиатская</div>
             <div class="mc-name">Рия</div>
-            <div class="mc-size">163 см · Размер XS/S</div>
-            <a href="index.html#contact?model=Рия"
-               onclick="localStorage.setItem('selectedModel','Рия')"
-               class="mc-btn">Выбрать →</a>
+            <div class="mc-sz">163 см · Размер XS/S</div>
+            <a href="index.html#contact?model=Рия" onclick="localStorage.setItem('selectedModel','Рия')" class="mc-btn">Выбрать →</a>
           </div>
         </div>
-        <div class="mc-item">
+        <div class="mc">
           <span class="mc-badge">Доступна</span>
           <img src="img/model8.jpg" alt="Эмре" loading="lazy">
           <div class="mc-info">
-            <div class="mc-cat">МУЖСКАЯ · БЛИЖНИЙ ВОСТОК</div>
+            <div class="mc-cat">Мужская · Ближний Восток</div>
             <div class="mc-name">Эмре</div>
-            <div class="mc-size">180 см · Размер M/L</div>
-            <a href="index.html#contact?model=Эмре"
-               onclick="localStorage.setItem('selectedModel','Эмре')"
-               class="mc-btn">Выбрать →</a>
+            <div class="mc-sz">180 см · Размер M/L</div>
+            <a href="index.html#contact?model=Эмре" onclick="localStorage.setItem('selectedModel','Эмре')" class="mc-btn">Выбрать →</a>
           </div>
         </div>
-        <div class="mc-item">
+        <div class="mc">
           <span class="mc-badge">Доступна</span>
           <img src="img/model9.jpg" alt="Лина" loading="lazy">
           <div class="mc-info">
-            <div class="mc-cat">ЖЕНСКАЯ · ЛАТИНСКАЯ</div>
+            <div class="mc-cat">Женская · Латинская</div>
             <div class="mc-name">Лина</div>
-            <div class="mc-size">170 см · Размер S/M</div>
-            <a href="index.html#contact?model=Лина"
-               onclick="localStorage.setItem('selectedModel','Лина')"
-               class="mc-btn">Выбрать →</a>
+            <div class="mc-sz">170 см · Размер S/M</div>
+            <a href="index.html#contact?model=Лина" onclick="localStorage.setItem('selectedModel','Лина')" class="mc-btn">Выбрать →</a>
           </div>
         </div>
-        <div class="mc-item">
+        <div class="mc">
           <span class="mc-badge">Доступна</span>
           <img src="img/model10.jpg" alt="Каора" loading="lazy">
           <div class="mc-info">
-            <div class="mc-cat">ЖЕНСКАЯ · ЯПОНСКАЯ</div>
+            <div class="mc-cat">Женская · Японская</div>
             <div class="mc-name">Каора</div>
-            <div class="mc-size">162 см · Размер XS</div>
-            <a href="index.html#contact?model=Каора"
-               onclick="localStorage.setItem('selectedModel','Каора')"
-               class="mc-btn">Выбрать →</a>
+            <div class="mc-sz">162 см · Размер XS</div>
+            <a href="index.html#contact?model=Каора" onclick="localStorage.setItem('selectedModel','Каора')" class="mc-btn">Выбрать →</a>
           </div>
         </div>
-        <div class="mc-item">
+        <div class="mc">
           <span class="mc-badge">Доступна</span>
           <img src="img/model11.jpg" alt="Диана" loading="lazy">
           <div class="mc-info">
-            <div class="mc-cat">ЖЕНСКАЯ · ВОСТОЧНОЕВРОПЕЙСКАЯ</div>
+            <div class="mc-cat">Женская · Восточноевропейская</div>
             <div class="mc-name">Диана</div>
-            <div class="mc-size">176 см · Размер S/M</div>
-            <a href="index.html#contact?model=Диана"
-               onclick="localStorage.setItem('selectedModel','Диана')"
-               class="mc-btn">Выбрать →</a>
+            <div class="mc-sz">176 см · Размер S/M</div>
+            <a href="index.html#contact?model=Диана" onclick="localStorage.setItem('selectedModel','Диана')" class="mc-btn">Выбрать →</a>
           </div>
         </div>
-        <div class="mc-item">
+        <div class="mc">
           <span class="mc-badge">Доступна</span>
           <img src="img/model12.jpg" alt="Оливия" loading="lazy">
           <div class="mc-info">
-            <div class="mc-cat">ЖЕНСКАЯ · АНГЛОСАКСОНСКАЯ</div>
+            <div class="mc-cat">Женская · Англосаксонская</div>
             <div class="mc-name">Оливия</div>
-            <div class="mc-size">174 см · Размер S</div>
-            <a href="index.html#contact?model=Оливия"
-               onclick="localStorage.setItem('selectedModel','Оливия')"
-               class="mc-btn">Выбрать →</a>
+            <div class="mc-sz">174 см · Размер S</div>
+            <a href="index.html#contact?model=Оливия" onclick="localStorage.setItem('selectedModel','Оливия')" class="mc-btn">Выбрать →</a>
           </div>
         </div>
-        <div class="mc-item">
+        <div class="mc">
           <span class="mc-badge">Доступна</span>
           <img src="img/model13.jpg" alt="Марко" loading="lazy">
           <div class="mc-info">
-            <div class="mc-cat">МУЖСКАЯ · ЕВРОПЕЙСКАЯ</div>
+            <div class="mc-cat">Мужская · Европейская</div>
             <div class="mc-name">Марко</div>
-            <div class="mc-size">182 см · Размер M/L</div>
-            <a href="index.html#contact?model=Марко"
-               onclick="localStorage.setItem('selectedModel','Марко')"
-               class="mc-btn">Выбрать →</a>
+            <div class="mc-sz">182 см · Размер M/L</div>
+            <a href="index.html#contact?model=Марко" onclick="localStorage.setItem('selectedModel','Марко')" class="mc-btn">Выбрать →</a>
           </div>
         </div>
-        <div class="mc-item">
+        <div class="mc">
           <span class="mc-badge">Доступна</span>
           <img src="img/model14.jpg" alt="Джина" loading="lazy">
           <div class="mc-info">
-            <div class="mc-cat">ЖЕНСКАЯ · АФРОАМЕРИКАНСКАЯ</div>
+            <div class="mc-cat">Женская · Афроамериканская</div>
             <div class="mc-name">Джина</div>
-            <div class="mc-size">171 см · Размер S/M</div>
-            <a href="index.html#contact?model=Джина"
-               onclick="localStorage.setItem('selectedModel','Джина')"
-               class="mc-btn">Выбрать →</a>
+            <div class="mc-sz">171 см · Размер S/M</div>
+            <a href="index.html#contact?model=Джина" onclick="localStorage.setItem('selectedModel','Джина')" class="mc-btn">Выбрать →</a>
           </div>
         </div>
-        <div class="mc-item">
+        <div class="mc">
           <span class="mc-badge">Доступна</span>
           <img src="img/model15.jpg" alt="Алина" loading="lazy">
           <div class="mc-info">
-            <div class="mc-cat">ЖЕНСКАЯ · СЛАВЯНСКАЯ</div>
+            <div class="mc-cat">Женская · Славянская</div>
             <div class="mc-name">Алина</div>
-            <div class="mc-size">173 см · Размер S</div>
-            <a href="index.html#contact?model=Алина"
-               onclick="localStorage.setItem('selectedModel','Алина')"
-               class="mc-btn">Выбрать →</a>
+            <div class="mc-sz">173 см · Размер S</div>
+            <a href="index.html#contact?model=Алина" onclick="localStorage.setItem('selectedModel','Алина')" class="mc-btn">Выбрать →</a>
           </div>
         </div>
-        <div class="mc-item">
+        <div class="mc">
           <span class="mc-badge">Доступна</span>
           <img src="img/model16.jpg" alt="Кай" loading="lazy">
           <div class="mc-info">
-            <div class="mc-cat">МУЖСКАЯ · АЗИАТСКАЯ</div>
+            <div class="mc-cat">Мужская · Азиатская</div>
             <div class="mc-name">Кай</div>
-            <div class="mc-size">177 см · Размер M</div>
-            <a href="index.html#contact?model=Кай"
-               onclick="localStorage.setItem('selectedModel','Кай')"
-               class="mc-btn">Выбрать →</a>
+            <div class="mc-sz">177 см · Размер M</div>
+            <a href="index.html#contact?model=Кай" onclick="localStorage.setItem('selectedModel','Кай')" class="mc-btn">Выбрать →</a>
           </div>
         </div>
     </div>
@@ -329,7 +323,13 @@
 
 </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-<script src="js/main.js" defer></script>
+<script>
+// Hamburger not needed on this standalone page
+// Pre-fill model selection
+window.addEventListener('load',function(){
+  var m=localStorage.getItem('selectedModel');
+  if(m){var b=document.getElementById('model-banner');if(b)b.style.display='block';}
+});
+</script>
 </body>
 </html>
