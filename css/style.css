@@ -3303,3 +3303,11 @@ section#models-preview::after { display: none !important; }
   background: transparent !important;
   width: 44px !important;
 }
+
+
+/* ── Portfolio: 1 card per row on mobile ── */
+@media (max-width: 768px) {
+  .port-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
