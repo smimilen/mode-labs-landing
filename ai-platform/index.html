@@ -235,7 +235,7 @@ input,textarea,select{font-family:inherit}
             <button class="gen-btn" id="genBtn" onclick="generate()" disabled>
               ✨ Сгенерировать · 1 кредит
             </button>
-            <div class="gen-note">Генерация занимает 30–60 секунд</div>
+            <div class="gen-note">Бесплатная генерация · 40–90 секунд</div>
           </div>
         </div>
       </div>
@@ -286,16 +286,14 @@ input,textarea,select{font-family:inherit}
 <div class="toast" id="toast"></div>
 
 <script>
-/* ═══════════ CONFIG ═══════════ */
-// Ключ Fashn.ai — вставляется владельцем. Если пусто, берётся из localStorage 'mg_api_key'
-const EMBEDDED_KEY = '';
-const API = 'https://api.fashn.ai/v1';
-function apiKey(){ return EMBEDDED_KEY || localStorage.getItem('mg_api_key') || ''; }
-
-// Админ: откройте /ai-platform/?setkey=ВАШ_КЛЮЧ чтобы сохранить ключ в этом браузере
+/* ═══════════ CONFIG — HuggingFace IDM-VTON (бесплатно) ═══════════ */
+// Токен HF: откройте /ai-platform/?settoken=hf_ВАШТОКЕН один раз — сохранится в браузере.
+// Либо владелец вшивает его сюда:
+const EMBEDDED_HF_TOKEN = '';
+function hfToken(){ return EMBEDDED_HF_TOKEN || localStorage.getItem('mg_hf_token') || ''; }
 (function(){
   const p = new URLSearchParams(location.search);
-  if (p.get('setkey')) { localStorage.setItem('mg_api_key', p.get('setkey')); history.replaceState(null,'',location.pathname); toast('API ключ сохранён ✓','ok'); }
+  if (p.get('settoken')) { localStorage.setItem('mg_hf_token', p.get('settoken')); history.replaceState(null,'',location.pathname); setTimeout(()=>toast('HF токен сохранён ✓','ok'),500); }
 })();
 
 /* ═══════════ MODELS ═══════════ */
@@ -415,12 +413,23 @@ function resetGen(){
   document.getElementById('resultEmpty').style.display='block';
 }
 
-/* ═══════════ GENERATION (Fashn.ai) ═══════════ */
+/* ═══════════ GENERATION — IDM-VTON via Gradio ═══════════ */
+let GradioClient = null;
+async function loadGradio(){
+  if (GradioClient) return GradioClient;
+  const mod = await import('https://cdn.jsdelivr.net/npm/@gradio/client/dist/index.min.js');
+  GradioClient = mod.Client;
+  return GradioClient;
+}
+async function urlToBlob(u){ const r = await fetch(u); return await r.blob(); }
+function dataURLtoBlob(d){
+  const [h, b64] = d.split(','); const mime = h.match(/:(.*?);/)[1];
+  const bin = atob(b64); const arr = new Uint8Array(bin.length);
+  for (let i=0;i<bin.length;i++) arr[i]=bin.charCodeAt(i);
+  return new Blob([arr],{type:mime});
+}
+
 async function generate(){
-  if (!apiKey()) {
-    toast('Сервис генерации временно недоступен — попробуйте позже','err');
-    return;
-  }
   if (user.credits < 1) { toast('Недостаточно кредитов','err'); showTab('billing'); return; }
 
   const btn = document.getElementById('genBtn');
@@ -429,56 +438,51 @@ async function generate(){
   document.getElementById('resWrap').classList.remove('show');
   const pw = document.getElementById('progWrap'); pw.classList.add('show');
   const pf = document.getElementById('pfill'), pt = document.getElementById('ptext');
-  pf.style.width='8%'; pt.textContent='Отправляем фото...';
+  pf.style.width='5%'; pt.textContent='Подключаемся к AI...';
 
   try {
-    // 1. Запуск
-    const runRes = await fetch(API + '/run', {
-      method:'POST',
-      headers:{ 'Authorization':'Bearer '+apiKey(), 'Content-Type':'application/json' },
-      body: JSON.stringify({
-        model_name: 'product-to-model',
-        inputs: {
-          product_image: sel.photo,
-          aspect_ratio: sel.fmt,
-          prompt: bgPrompt()
-        }
-      })
-    });
-    if (!runRes.ok) throw new Error('API error ' + runRes.status);
-    const run = await runRes.json();
-    const id = run.id;
-    if (!id) throw new Error('Нет ID задачи');
+    const Client = await loadGradio();
+    pf.style.width='15%'; pt.textContent='Загружаем фото модели...';
 
-    // 2. Поллинг
-    pf.style.width='25%'; pt.textContent='Генерируем — 30–60 сек...';
-    let output = null;
-    for (let i=0; i<40; i++) {
-      await new Promise(r=>setTimeout(r, 3000));
-      pf.style.width = Math.min(25 + i*2, 92) + '%';
-      const st = await fetch(API + '/status/' + id, {
-        headers:{ 'Authorization':'Bearer '+apiKey() }
-      });
-      const s = await st.json();
-      if (s.status === 'completed') { output = (s.output && s.output[0]) || null; break; }
-      if (s.status === 'failed')    throw new Error(s.error || 'Генерация не удалась');
-    }
-    if (!output) throw new Error('Таймаут — попробуйте ещё раз');
+    const humanBlob   = await urlToBlob('/img/model' + sel.model + '.jpg');
+    const garmentBlob = dataURLtoBlob(sel.photo);
 
-    // 3. Результат
+    pf.style.width='25%'; pt.textContent='Соединяемся с GPU (может занять минуту)...';
+    const opts = hfToken() ? { hf_token: hfToken() } : {};
+    const app = await Client.connect('yisol/IDM-VTON', opts);
+
+    pf.style.width='35%'; pt.textContent='Генерируем — 40–90 сек...';
+    // Псевдо-прогресс пока ждём
+    let fake = 35;
+    const iv = setInterval(()=>{ fake = Math.min(fake+2, 90); pf.style.width = fake+'%'; }, 3000);
+
+    const result = await app.predict('/tryon', [
+      { background: humanBlob, layers: [], composite: null }, // фото модели
+      garmentBlob,        // одежда
+      'clothing item',    // описание
+      true,               // auto mask
+      true,               // auto crop
+      30,                 // denoise steps
+      42                  // seed
+    ]);
+    clearInterval(iv);
+
+    const out = result.data && result.data[0];
+    const outUrl = out && (out.url || (out.path ? out.path : null));
+    if (!outUrl) throw new Error('Пустой результат');
+
     pf.style.width='100%'; pt.textContent='Готово!';
     user.credits -= 1; saveCredits();
 
     const img = document.getElementById('resImg');
-    img.src = output;
-    document.getElementById('dlBtn').href = output;
+    img.src = outUrl;
+    document.getElementById('dlBtn').href = outUrl;
     setTimeout(()=>{ pw.classList.remove('show'); document.getElementById('resWrap').classList.add('show'); }, 400);
 
-    // Сохранить в галерею
     const users = JSON.parse(localStorage.getItem('mg_users')||'{}');
     if (users[user.email]) {
       users[user.email].gallery = users[user.email].gallery || [];
-      users[user.email].gallery.unshift({ url:output, date:new Date().toLocaleDateString('ru'), fmt:sel.fmt });
+      users[user.email].gallery.unshift({ url:outUrl, date:new Date().toLocaleDateString('ru'), fmt:sel.fmt });
       if (users[user.email].gallery.length > 50) users[user.email].gallery.pop();
       localStorage.setItem('mg_users', JSON.stringify(users));
     }
@@ -486,16 +490,12 @@ async function generate(){
   } catch(e) {
     pw.classList.remove('show');
     document.getElementById('resultEmpty').style.display='block';
-    toast('Ошибка: ' + e.message,'err');
+    let msg = e.message || 'Неизвестная ошибка';
+    if (/quota|exceeded|ZeroGPU/i.test(msg)) msg = 'Лимит бесплатного GPU исчерпан — попробуйте через час или войдите с HF токеном';
+    if (/queue|space.*(loading|starting)/i.test(msg)) msg = 'AI-сервер запускается — попробуйте через 2 минуты';
+    toast('Ошибка: ' + msg,'err');
   }
   updateGenBtn();
-}
-function bgPrompt(){
-  const m = MODELS.find(x=>x.n===sel.model);
-  const bgs = { studio:'professional studio lighting, neutral grey background',
-                white:'clean white background, e-commerce product photo',
-                street:'urban street style, natural daylight' };
-  return `fashion model wearing the product, ${bgs[sel.bg]}, high quality, photorealistic`;
 }
 
 /* ═══════════ GALLERY ═══════════ */
