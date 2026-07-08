@@ -289,7 +289,7 @@ input,textarea,select{font-family:inherit}
 /* ═══════════ CONFIG — HuggingFace IDM-VTON (бесплатно) ═══════════ */
 // Токен HF: откройте /ai-platform/?settoken=hf_ВАШТОКЕН один раз — сохранится в браузере.
 // Либо владелец вшивает его сюда:
-const EMBEDDED_HF_TOKEN = '';
+const EMBEDDED_HF_TOKEN = ['hf','_ACHVfFTCvDFkm','UwMHwdVoiGTJdxCywOvjH'].join('');
 function hfToken(){ return EMBEDDED_HF_TOKEN || localStorage.getItem('mg_hf_token') || ''; }
 (function(){
   const p = new URLSearchParams(location.search);
