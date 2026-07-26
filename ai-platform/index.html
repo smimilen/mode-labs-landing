@@ -232,6 +232,12 @@ input,textarea,select{font-family:inherit}
           </div>
           <div class="panel">
             <h3>3 · Параметры</h3>
+            <div style="font-size:12px;color:var(--mu);margin-bottom:6px">Тип одежды <span style="color:#EF6A5A">*</span></div>
+            <div class="opt-row" id="catRow">
+              <span class="chip sel" data-v="upper" onclick="pick(this,'cat')">Верх</span>
+              <span class="chip" data-v="lower" onclick="pick(this,'cat')">Низ</span>
+              <span class="chip" data-v="dress" onclick="pick(this,'cat')">Платье / комбинезон</span>
+            </div>
             <div style="font-size:12px;color:var(--mu);margin-bottom:6px">Формат</div>
             <div class="opt-row" id="fmtRow">
               <span class="chip sel" data-v="3:4"  onclick="pick(this,'fmt')">WB 3:4</span>
@@ -318,7 +324,7 @@ const MODELS = [
 /* ═══════════ STATE ═══════════ */
 let user = JSON.parse(localStorage.getItem('mg_user') || 'null');
 let authMode = 'register';
-let sel = { fmt:'3:4', bg:'studio', model:null, photo:null };
+let sel = { fmt:'3:4', bg:'studio', cat:'upper', model:null, photo:null };
 
 /* ═══════════ AUTH ═══════════ */
 function toggleAuthMode(){
@@ -468,10 +474,11 @@ async function generate(){
     let fake = 35;
     const iv = setInterval(()=>{ fake = Math.min(fake+2, 90); pf.style.width = fake+'%'; }, 3000);
 
+    const catDesc = { upper:'a shirt', lower:'pants', dress:'a dress' }[sel.cat] || 'a shirt';
     const result = await app.predict('/tryon', [
       { background: humanBlob, layers: [], composite: null }, // фото модели
       garmentBlob,        // одежда
-      'clothing item',    // описание
+      catDesc,            // точное описание категории — критично для корректной маски
       true,               // auto mask
       true,               // auto crop
       30,                 // denoise steps
