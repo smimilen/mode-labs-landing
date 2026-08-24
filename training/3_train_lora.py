@@ -58,12 +58,15 @@ diffusers.models.attention_processor.Attention, "хак" не трогает е�
 уменьшённым разрешением ждите пропорционально дольше на шаг; ориентир —
 проверять качество на промежуточных чекпоинтах, а не гнаться за TRAIN_STEPS.
 
-⚠️ СТАТУС (2026-08-25): последний прогон упал на самом первом шаге —
-restore_dataset() не нашёл _output_.zip, потому что ноутбук
-2_resume_densepose.py (PREV_DATASET_NOTEBOOK) не был подключён через
-"Add Input" перед запуском. Само обучение ещё ни разу не выполнялось.
-ФИКС: перед "Save & Run All" — Add Input → Notebook Output →
-notebookd4fbf8b5b7 (2_resume_densepose.py) → Add. См. training/README.md.
+⚠️ СТАТУС (2026-08-25): последний прогон (Version 2, Add Input сделан)
+всё равно упал на первом шаге с той же ошибкой "не нашёл _output_.zip".
+Причина — баг в restore_dataset(): Kaggle монтирует output подключённого
+ноутбука на глубину в несколько папок (напр.
+/kaggle/input/notebooks/<user>/<slug>/_output_.zip), а старый код искал
+только на один уровень (/kaggle/input/*/_output_.zip) и ничего не находил,
+даже когда Input был подключён верно. Исправлено на рекурсивный поиск
+(glob "**", recursive=True). Само обучение ещё ни разу не выполнялось —
+это первая попытка после фикса.
 """
 
 import os
@@ -108,9 +111,14 @@ def restore_dataset():
         print(f"✓ Датасет уже на месте: {DATA_DIR}")
         return
 
-    candidates = glob.glob(f"/kaggle/input/{PREV_DATASET_NOTEBOOK}/_output_.zip")
+    # Kaggle монтирует output чужого/своего ноутбука на разной глубине в
+    # зависимости от контекста (напр. /kaggle/input/notebooks/<user>/<slug>/
+    # или /kaggle/input/<slug>/) — одноуровневый glob это пропускал и был
+    # источником "не нашёл _output_.zip" даже при подключённом Input.
+    # Ищем рекурсивно по любой глубине.
+    candidates = glob.glob(f"/kaggle/input/**/{PREV_DATASET_NOTEBOOK}/_output_.zip", recursive=True)
     if not candidates:
-        candidates = glob.glob("/kaggle/input/*/_output_.zip")
+        candidates = glob.glob("/kaggle/input/**/_output_.zip", recursive=True)
     if not candidates:
         raise RuntimeError(
             f"Не нашёл _output_.zip с датасетом в /kaggle/input — подключите ноутбук "
