@@ -65,8 +65,15 @@ diffusers.models.attention_processor.Attention, "хак" не трогает е�
 /kaggle/input/notebooks/<user>/<slug>/_output_.zip), а старый код искал
 только на один уровень (/kaggle/input/*/_output_.zip) и ничего не находил,
 даже когда Input был подключён верно. Исправлено на рекурсивный поиск
-(glob "**", recursive=True). Само обучение ещё ни разу не выполнялось —
-это первая попытка после фикса.
+(glob "**", recursive=True).
+
+Следующий прогон после этого фикса дошёл до install_deps(), но упал там:
+`ImportError: cannot import name 'cached_download' from 'huggingface_hub'`
+— diffusers==0.25.0 использует эту функцию, а в свежем образе Kaggle уже
+стоит huggingface_hub без неё (убрали в поздних релизах). Исправлено —
+пакеты теперь явно пинят huggingface_hub==0.20.3 последним пунктом списка.
+Само обучение ещё ни разу не выполнялось — это первая попытка после
+обоих фиксов.
 """
 
 import os
@@ -154,6 +161,13 @@ def install_deps():
         "peft==0.8.2",       # LoRA
         "bitsandbytes==0.39.0",
         "Pillow",
+        # diffusers==0.25.0 (конец 2023) импортирует cached_download из
+        # huggingface_hub — эту функцию убрали в поздних версиях
+        # huggingface_hub, которые уже стоят в свежем образе Kaggle
+        # (ImportError: cannot import name 'cached_download'). Ставим её
+        # последней, чтобы никакой более поздний pip install из списка выше
+        # не подтянул обратно свежую версию как транзитивную зависимость.
+        "huggingface_hub==0.20.3",
     ]
     for pkg in packages:
         subprocess.run(["pip", "install", "-q", pkg], check=True)
