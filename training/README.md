@@ -10,7 +10,7 @@
 |---|---|---|
 | `1_prepare_dataset.py` | `notebookcde6045e8e` | Упёрся в 12-часовой лимит Kaggle. agnostic-mask досчитались полностью (train+test), image-densepose — частично (~6200/11647 train). |
 | `2_resume_densepose.py` | `notebookd4fbf8b5b7` | ✅ Выполнен успешно. Датасет полностью готов: train 11647 пар, test 2032 пары (image, cloth, agnostic-mask, image-densepose). |
-| `3_train_lora.py` | `notebookea97a06e7c` | ❌ Падал трижды: (1) Input не подключён, (2) баг в поиске `_output_.zip` — искал только на один уровень вложенности, Kaggle монтирует глубже (исправлено), (3) `ImportError: cannot import name 'cached_download'` — diffusers==0.25.0 несовместим со свежим huggingface_hub на образе Kaggle (исправлено, пин huggingface_hub==0.20.3). Само обучение ещё ни разу не запускалось. |
+| `3_train_lora.py` | `notebookea97a06e7c` | ❌ Падал 4 раза: (1) Input не подключён, (2) баг в поиске `_output_.zip` — искал только на один уровень вложенности (исправлено), (3) `ImportError: cannot import name 'cached_download'` — diffusers==0.25.0 vs свежий huggingface_hub (исправлено, пин 0.20.3), (4) `RuntimeError: CUDA Setup failed` — bitsandbytes==0.39.0 падает при импорте на текущем CUDA Kaggle, а peft пытается импортировать его безусловно (исправлено — bitsandbytes больше не ставим, обычный AdamW). Само обучение ещё ни разу не запускалось. |
 
 Каждый следующий ноутбук берёт результат предыдущего через Kaggle
 **"Add Input" → вкладка "Notebook Output"** (не "Datasets") — это монтирует

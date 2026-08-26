@@ -72,8 +72,16 @@ diffusers.models.attention_processor.Attention, "хак" не трогает е�
 — diffusers==0.25.0 использует эту функцию, а в свежем образе Kaggle уже
 стоит huggingface_hub без неё (убрали в поздних релизах). Исправлено —
 пакеты теперь явно пинят huggingface_hub==0.20.3 последним пунктом списка.
-Само обучение ещё ни разу не выполнялось — это первая попытка после
-обоих фиксов.
+
+Следующий прогон прошёл install_deps() и restore_dataset(), дошёл до
+apply_lora(), упал там: `RuntimeError: CUDA Setup failed despite GPU being
+available` — это не из нашего кода, а из bitsandbytes==0.39.0. Он падает
+прямо при импорте на текущем CUDA-окружении Kaggle, а peft.get_peft_model()
+безусловно пытается его импортировать, если пакет вообще установлен (наш
+try/except в train() тут не спасает — ошибка раньше, внутри apply_lora()).
+Исправлено — bitsandbytes больше не ставим вообще, используется обычный
+AdamW. Само обучение ещё ни разу не выполнялось — это первая попытка после
+всех трёх фиксов.
 """
 
 import os
@@ -159,7 +167,16 @@ def install_deps():
         "transformers==4.36.2",
         "accelerate==0.25.0",
         "peft==0.8.2",       # LoRA
-        "bitsandbytes==0.39.0",
+        # bitsandbytes НЕ ставим. peft.get_peft_model() сам пытается
+        # `import bitsandbytes`, если пакет вообще установлен (проверка
+        # is_bnb_available() смотрит только на наличие пакета, не на
+        # рабочесть) — а bitsandbytes==0.39.0 падает RuntimeError'ом прямо
+        # при импорте, потому что не может определить CUDA на текущем
+        # образе Kaggle. Наш try/except вокруг bitsandbytes в train() тут
+        # не спасает — ошибка происходит раньше, внутри apply_lora().
+        # Без bitsandbytes используется обычный AdamW — для LoRA (обучаются
+        # только маленькие adapter-веса, не вся модель) разница в VRAM
+        # незначительна.
         "Pillow",
         # diffusers==0.25.0 (конец 2023) импортирует cached_download из
         # huggingface_hub — эту функцию убрали в поздних версиях
